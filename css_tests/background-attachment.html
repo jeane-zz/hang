@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>background-attachment效果</title>
+  <style>
+    section {
+      width: 1000px;
+      height: 400px;
+      overflow: scroll;
+    }
+    .a {
+      width: 300px;
+      height: 600px;
+      float: left;
+      overflow: scroll;
+      background: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRLXygBfSrCj6rADpmxMa-N4M6G1HezP93gx2wuBI_VUKsVRg9V);
+
+    }
+    
+    .a div {
+      width: 260px;
+      height: 1000px;
+      border: 10px solid #aed;
+      border-radius:100px/30px;
+     aoverflow: scroll;
+    }
+    .a:nth-child(1) {
+      background: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAY1ZXCldVgCZWNS_t_w7l0j4PSm0drkc1tui8ttMOPwC67yAo);
+      background-attachment:local;
+    }
+    .a:nth-child(2) {
+      background-attachment:fixed;
+    }
+    .a:nth-child(3) {
+      background-attachment:scroll;
+    }
+  </style>  
+</head>
+<body>
+  <section>
+    <div class="a">local <div></div></div>
+    <div class="a">fixed <div></div></div>
+    <div class="a">scroll <div></div></div>
+  </section>
+  
+  <div>拖动几个滚动条试试！<br>
+    注意 总共三层：
+    <ul>
+      <li>最外层设置矮一点，以便出现滚动条</li>
+      <li>图片背景是加在第二层的，第二层！-attachment属性也是加在这里的，一定要比父元素高一些</li>
+      <li>第三层可以是空的，但是一定要比它的父元素高</li>
+    </ul>
+  </div>
+  </body>
+</html>

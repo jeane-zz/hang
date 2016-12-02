@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>立方体组合旋转</title>
+  <style>
+    section {
+      height: 800px;
+      width: 800px;
+      background:rgba(100,200,120,0.3);
+      position: relative;
+      transform:perspective(1000px);
+      transform-style:preserve-3d;
+      animation :run 10s 10s infinite;
+    }
+
+    @keyframes run{
+      0% {
+        transform:rotateX(0deg) rotateZ(0deg);
+      }
+
+      100% {
+        transform:rotateX(360deg) rotateZ(360deg);
+      }
+    }
+
+    div {
+      width: 400px;
+      height: 400px;
+      font-size: 100px;
+      line-height: 400px;
+      text-align: center;
+      color: #fff;
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      border: 2px solid;
+      transition:1s linear;
+      overflow: hidden;
+    }
+    .d1 {
+      background-color: rgba(100,100,200,0.3);
+      animation: d1rtt 3s 3s;
+      animation-fill-mode:forwards;
+    }
+    .d2 {
+      background-color: rgba(150,100,200,0.3);
+      animation: d2rtt 3s 3s;
+      animation-fill-mode:forwards;
+
+    }
+    .d3 {
+      background-color: rgba(100,150,200,0.3);
+      animation: d3rtt 3s 3s;
+      animation-fill-mode:forwards;
+
+    }
+    .d4 {
+      background-color: rgba(100,100,250,0.3);
+      animation: d4rtt 3s 3s;
+      animation-fill-mode:forwards;
+
+    }
+    .d5 {
+      background-color: rgba(100,200,200,0.3);
+      animation: d5rtt 3s 3s;
+      animation-fill-mode:forwards;
+
+    }
+    .d6 {
+      background-color: rgba(200,100,200,0.3);
+      animation: d6rtt 3s 3s;
+      animation-fill-mode:forwards;
+
+    }
+    @keyframes d1rtt{
+      0% {
+        transform:translateZ(0px);
+      }
+      100% {
+        transform:translateZ(200px);  
+      }
+    }
+    @keyframes d2rtt{
+      0% {
+        transform:translateZ(0px);
+      }
+      100% {
+        transform:translateZ(-200px);  
+      }
+    }
+    @keyframes d3rtt{
+      0% {
+        transform:translateY(0px) rotateX(0deg);
+      }
+      100% {
+        transform:translateY(200px) rotateX(-90deg);
+      }
+    }
+    @keyframes d4rtt{
+      0% {
+        transform:translateY(0px) rotateX(0deg);
+      }
+      100% {
+        transform:translateY(-200px) rotateX(-90deg);
+      }
+    }
+    @keyframes d5rtt{
+      0% {
+        transform:translateX(0px) rotateY(0deg);
+      }
+      100% {
+        transform:translateX(200px) rotateY(90deg);
+      }
+    }
+    @keyframes d6rtt{
+      0% {
+        transform:translateX(0px) rotateY(0deg);
+      }
+      100% {
+        transform:translateX(-200px) rotateY(90deg);
+      }
+    }
+    table {
+      aborder-collapse: collapse;
+    }
+  </style>
+  <script type="text/javascript">
+    function table(){
+      var i = 0 ,j = 0 ;
+      for ( i = 0; i <= 255; i++) {
+        document.write("<tr>");
+        for( j = 0;j <= 255; j++){
+          document.write("<td style='background-color:rgb("+i+","+j+",255);'></td>");
+          //document.write("<td bgcolor= 'rgb("+i+","+j+",255)'></td>");
+        }
+        document.write("</tr>");
+      }
+    }
+  </script>
+</head>
+<body>
+  <section>
+    <div class="d1">
+      <table border = 0>
+          <thead></thead>
+          <tbody>
+            <script type="text/javascript">
+              table();
+            </script>
+          </tbody>
+        </table>
+    </div>
+    <div class="d2">
+      <table border = 0>
+          <thead></thead>
+          <tbody>
+            <script type="text/javascript">
+              table();
+            </script>
+          </tbody>
+        </table>
+    </div>
+    <div class="d3">
+      <table border = 0>
+          <thead></thead>
+          <tbody>
+            <script type="text/javascript">
+              table();
+            </script>
+          </tbody>
+        </table>
+    </div>
+    <div class="d4">
+      <table border = 0>
+          <thead></thead>
+          <tbody>
+            <script type="text/javascript">
+              table();
+            </script>
+          </tbody>
+        </table>
+    </div>
+    <div class="d5">
+      <table border = 0>
+          <thead></thead>
+          <tbody>
+            <script type="text/javascript">
+              table();
+            </script>
+          </tbody>
+        </table>
+    </div>
+    <div class="d6">
+      <table border = 0>
+          <thead></thead>
+          <tbody>
+            <script type="text/javascript">
+              table();
+            </script>
+          </tbody>
+        </table>
+    </div>
+  </section>
+</body>
+</html>

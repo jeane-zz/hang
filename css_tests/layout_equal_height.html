@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>多列等高自适应布局</title>
+  <style>
+  section {
+    overflow: hidden;
+  }
+  section div {
+    padding-bottom: 999px;
+    margin-bottom: -999px;
+  }
+  .d1,.d2 {
+    width: 100px;
+    float: left;
+  }
+  .d4 {
+    width: 100px;
+    float: right;
+  }
+
+  .d3 {
+    overflow: hidden;
+  }
+  .d1 {
+    background: #fea;
+  }
+  .d2 {
+    background: #09a;
+  }
+  .d3 {
+    background: #ef2;
+  }
+  .d4 {
+    background: #76a;
+  }
+      
+  #content {
+    width:100%; 
+    float:left; 
+    margin-right:-200px;
+    background: #fea;
+  }
+  #sidebar {
+    width:200px; 
+    float:left;
+    background: #a32;
+  }
+  #content p {
+    margin-right:210px;
+  }  /*保证左边内容不会被覆盖*/
+  </style>
+</head>
+<body>
+  <section>
+    <div class="d1">jifoejiejo</div>
+    <div class="d2">fefef</div>
+    <div class="d4">fefvfddfeff</div>
+    <div class="d3">这确实是个很简单的问题，也许你也已经相当熟悉，但很多人还不知道。下面介绍的技术是一个简捷的小技巧，它一定可以帮助你解决这个头痛的问题。这确实是个很简单的问题，也许你也已经相当熟悉，但很多人还不知道。下面介绍的技术是一个简捷的小技巧，它一定可以帮助你解决这个头痛的问题。</div>
+  </section>
+  
+  <section>
+    <div id="content"> <p>Main content in here Main content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in hereMain content in here</p> </div> 
+    <div id="sidebar"> <p>I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! I’m the Sidebar! </p> </div>
+  </section>
+</body>
+</html>

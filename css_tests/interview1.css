@@ -1,0 +1,88 @@
+.a {
+  width: 200px;
+  height: 150px;
+  background: #2af;
+  position: relative;
+  border-bottom:red solid 5px;
+}
+.a a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+  transition: .5s linear;
+}
+.a:hover a{
+  font-size: 64px;
+}
+
+.test {
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  line-height: 280px;
+  background: #e0a;
+  border-bottom: #39a solid 5px;
+  text-decoration: none;
+  color: #349;
+  font-size: 20px;
+  transition: .5s linear;
+  margin: 20px 0;
+}
+.test:hover {
+  background: #eda;
+  font-size: 60px;
+  line-height: 250px;
+}
+.test2 {
+  
+  display:table-cell;
+  width: 200px;
+  height: 160px;
+  background: #fef;
+  vertical-align: bottom;
+  text-decoration: none;
+  border-bottom: 5px solid #98a;
+  transition:1s linear;
+  margin: 20px;
+}
+.test2:hover {
+  font-size: 50px;
+  background: #98d;
+}
+.test3 {
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  background: #efa;
+  box-sizing:border-box;
+  padding-top: 120px;
+  text-decoration: none;
+  color: #222;
+  transition:1s linear;
+  border-bottom: 5px solid #faa;
+  margin: 20px 0;
+}
+.test3:hover {
+  font-size: 60px;
+  padding-top: 75px;
+}
+
+table {
+  width: 300px;
+  height: 300px;
+  border: 5px solid #34a;
+  border-collapse: collapse;
+}
+tr {
+   border: 5px solid #34a;
+   text-align: center;
+}
+col {
+   border: 5px solid #34a;
+}
+td:hover {
+   border: 5px solid #f00;
+}

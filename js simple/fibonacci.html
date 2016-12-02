@@ -1,0 +1,69 @@
+<script>
+//斐波那契数列
+//递归
+function fibonacci(a) {
+	if( a == 1){
+		return 1;
+	}else if ( a == 2 ){
+		return 1;
+	}
+	else {
+		return fibonacci(a-1)+fibonacci(a-2);
+	}
+}
+//console.log(fibonacci(5));
+var a = 15;
+for (var i = 1; i <= a; i++) {
+	console.log(fibonacci(i));
+}
+//递推
+function fibonacci2(a) {
+	var arr = new Array(a);
+	for(var i = 0; i < a ; i ++ ){
+		if((i == 0)||(i == 1) ){
+			arr[i] = 1;
+		}
+		else{
+			arr[i] = arr[i-1]+arr[i-2];
+		}
+		console.log(arr[i]);
+	}
+}
+fibonacci2(15);
+//递推2
+function fibonacci3(num) {
+	var a = 1 , b = 1, c = a + b;
+	console.log(a);
+	console.log(b);
+	for(var i = 3; i < num ; i ++ ){
+
+		if(i % 3 == 0){
+			c = a + b;
+			console.log(c);
+		}
+		else if(i % 3 == 1){
+			a = c + b;
+			console.log(a);
+		}
+		else if( i % 3 == 2){
+			b = a + c;
+			console.log(b);
+		}
+	}
+}
+fibonacci3(15);
+//递推2
+function fibonacci4(num) {
+	var m = 1 , n = 1 , k;
+	console.log( m );
+	console.log( n );
+	for (var i = 3; i <= num; i++) {
+		temp = m + n ;
+		m = n;
+		n = temp;
+		console.log(temp);
+	}
+}
+fibonacci4(15);
+
+</script>

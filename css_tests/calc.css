@@ -1,0 +1,379 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family:'微软雅黑', Verdana, 'Bauhaus 93';
+}
+html , body {
+  width: 100%;
+  height: 100%;
+}
+.calculator{
+  width: 100%;
+  amin-width:700px;
+  height: 100%;
+  background: #f2f2f2;
+  abackground: #eef;
+  display: flex;
+  border: 1px solid #ccc;
+}
+/*右侧*/
+.right {
+  abackground: #aef;
+  height: 100%;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.btns {
+  width: 100%;
+  abackground: #34a;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.btn {
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.btn:hover {
+  background: #dadada;
+}
+.h_m {
+  width: 100%;
+  height: calc(100% - 40px);
+}
+.hm div {
+  display: none;
+  padding:30px 10px;
+  font-size: 15px;
+}
+label {
+  display: inline-block;
+  height: 30px;
+  padding: 10px;
+  line-height: 30px;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+}
+input {
+  display: none;
+}
+input:checked + div {
+  display: block;
+}
+label::after {
+  content:'';
+  display: block;
+  position: absolute;
+  width: 30px;
+  height:90px;
+  abackground: #000;
+  background: rgba(250,250,250,0.5);
+  transform:rotate(30deg);
+  top: -13px;
+  left: -51px;
+  transition:.5s linear;
+}
+label:hover::after {
+  left: 120px;
+}
+
+/*左侧*/
+.left {
+  abackground: #f9c;
+  aborder: 2px solid ;
+  border-right: 2px solid #dadada;
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  width: 100%;
+  height: 30px;
+  line-height: 40px;
+  padding-left: 10px;
+}
+.choose {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  padding-top: 10px;
+  aposition: relative;
+}
+.choose > span {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+}
+.main {
+  flex-grow: 1;
+  abackground: #efa;
+  display: flex;
+  flex-direction: column;
+  flex-shrink:1;
+}
+.output {
+  box-sizing:border-box;
+  width: 100%;
+  height: 125px;
+  abackground: #f0a;
+  vertical-align: bottom;
+  line-height: 125px;
+  text-align: right;
+  font-size: 60px;
+  padding: 20px;
+}
+.control {
+  width: 100%;
+  height: 60px;
+  abackground: #ad0;
+  border-bottom: 1px solid #dadada;
+}
+.ctrl {
+  display: block;
+  width: 20%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;㎡
+  aborder: 2px solid ;
+  color: #000;
+  float: left;
+  font-size: 14px;
+  text-decoration: none;
+}
+.ctrl:hover {
+  background-color: #dadada;
+}
+.ctrl:nth-child(-n + 2) {
+  pointer-events:none;
+  color: #d4d4d4;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+}
+.input1, .input2 {
+  flex-shrink: 1;
+  aflex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.inputbtn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-size:25px;
+}
+.inputbtn:hover {
+  background-color: #dadada;
+}
+/*切换菜单*/
+.switch:hover {
+  background: #dadada;
+}
+.choose:hover .nav {
+  left: 0;
+}
+.nav {
+  width: 240px;
+  height: calc(100% - 30px);
+  position: absolute;
+  background: #dcdcdc;
+  z-index: 3;
+  bottom: 0;
+  left: -100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+  apadding-left: 12%;
+  transition:.3s linear;
+}
+.nav li{
+  box-sizing:border-box;
+  padding-left: 65px;
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  list-style:none ;
+  font-size: 18px;
+  font-family: 'Microsoft YaHei UI Light';
+  flex-grow: 1;
+}
+.nav li:hover {
+  background: #c6c6c6;
+}
+.nav .lititle {
+  height: 60px;
+  line-height: 60px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: 'Yu Gothic UI Semibold';
+  pointer-events:none;
+}
+.nav .lispan {
+  position: absolute;
+  display: inline-block;
+  width: 60px;
+  height: 60px; 
+  line-height: 60px;
+  text-align: center;
+  z-index: 10;
+}
+.nav .lispan:hover{
+  background: #c6c6c6;
+}
+.active {
+  background: #fff;
+}
+/*
+*
+*页面小于1000px时的情况
+*/
+/*
+.input {
+  flex-direction: column;
+}
+.input1 {
+  height: 66px;
+  background: #f2f2f2;
+}
+.input2 {
+  height: 334px;
+  background: #e6e6e6;
+}
+.inputbtn {
+  width: 25%;
+  height: 66px;
+  line-height: 66px;
+}
+*/
+
+/*
+*
+*页面放大时的情况
+*/
+/*
+.input1 {
+  width: 20%;
+  height: 400px;
+  background: #f2f2f2;
+}
+.input2 {
+  width: 80%;
+  height: 400px;
+  background: #e6e6e6;
+}
+.input1 .inputbtn{
+  width: 100%;
+}
+.input2 .inputbtn {
+  width: 25%;
+}
+.inputbtn {
+  height: 80px;
+  line-height: 80px;
+}
+*/
+
+
+/*页面最小 */
+@media (max-width:700px){
+  .right {
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+  
+  .input {
+    flex-direction: column;
+  }
+  .input1 {
+    flex-grow: 1;
+    background: #f2f2f2;
+  }
+  .input2 {
+    flex-grow: 5;
+    background: #e6e6e6;
+  }
+  .input1 .inputbtn {
+    flex-grow: 1;
+    aheight: 100%;
+  }
+  .input2 .inputbtn {
+    flex-grow: 1;
+    aheight: 20%;
+  }
+  .inputbtn {
+    width: 25%;
+    height: 66px;
+    line-height: 66px;
+  }
+  .input1 .inputbtn:nth-of-type(5) {
+    display: none;
+  }
+}
+/*中度缩放*/
+@media (min-width:700px) and (max-width:1000px){
+  .right {
+    width: 40%;
+  }
+  .left {
+    width: 60%;
+  }
+  .input {
+    flex-direction: column;
+  }
+  .input1 {
+    height: 66px;
+    background: #f2f2f2;
+  }
+  .input2 {
+    height: 334px;
+    background: #e6e6e6;
+  }
+  .inputbtn {
+    width: 25%;
+    height: 66px;
+    line-height: 66px;
+  }
+
+  
+}
+/*几乎不缩放*/
+@media (min-width:1000px){
+  .right {
+    width: 400px;
+  }
+   .input1 {
+      width: 20%;
+      height: 400px;
+      background: #f2f2f2;
+    }
+    .input2 {
+      width: 80%;
+      height: 400px;
+      background: #e6e6e6;
+    }
+    .input1 .inputbtn{
+      width: 100%;
+    }
+    .input2 .inputbtn {
+      width: 25%;
+    }
+    .inputbtn {
+      height: 80px;
+      line-height: 80px;
+    }
+}

@@ -1,0 +1,413 @@
+﻿h2 {
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+  background: url(https://kazzkiq.github.io/balloon.css/assets/img/logo.svg);
+  background-repeat: no-repeat;
+}
+span {
+  position: relative;
+  display: inline-block;
+  top: 20px ;
+  margin:30px
+}
+
+div span::before {
+  content:'百元周边';
+  awidth: 100px;
+  aheight: 50px;
+  background: #6cbc43;
+  font-size: 12px;
+  word-break:keep-all;
+  position: absolute;
+  top:-20px
+  
+}
+div span::after {
+  content:'';
+  width: 0px;
+  height: 0px;
+  border: 8px solid #6cbc43;
+  border-color:#6cbc43 transparent transparent;
+  abackground: #6cbc43;
+  font-size: 12px;
+  word-break:keep-all;
+  position: absolute;
+  top:-7px;
+  left: 12px;
+  
+}
+.u1 ,.btn {
+  width: 100%;
+  height: 100px;
+  clear:both;
+}
+ul li {
+  float: left;
+}
+.u1 li:first-child {
+  background: #d3d3d3;
+  list-style:none;
+  padding:10px;
+  width: 200px;
+  margin: 20px;
+  position: relative;
+}
+.u1 li:first-child:hover::after {
+   opacity:0;
+}
+
+.u1 li:first-child::after {
+  content:'';
+  display: inline-block;
+  width: 10px;
+  height: 15px;
+  position: absolute;
+  top:8px;
+  background: url(https://img.alicdn.com/tps/TB17w6xLVXXXXXoXXXXXXXXXXXX-10-12.png) no-repeat;
+  background-size: 100%;
+  transition:opacity 1s linear;
+}
+
+.u1 li:nth-child(2) ,.u1 li:last-child {
+  width: 40px;
+  height: 40px;
+  background: #dad;
+  text-align: center;
+  line-height: 40px;
+  margin: 20px;
+  list-style:none;
+  position: relative;
+}
+.u1 li:nth-child(2) span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  background: url(http://www.qiyipic.com/common/fix/v3-play/juji-list-pre.png);
+}
+
+.u1 li:last-child::before {
+  content:'';
+  border: 12px solid #0e4;
+  border-color: #0e4 #0e4 transparent transparent;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  
+}
+.u1 li:last-child::after {
+  content:'新';
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: -13px;
+}
+
+.u2 li{
+  display: inline-block;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  margin:45px 5px;
+  border-radius:5px;
+  color: #fff;
+  font-size: 1.6em;
+  font-family: 'Yu Gothic UI';
+  list-style:none;
+  background: #ff3d2e;
+  position: relative;
+}
+
+.u2 li::before {
+  content:'What\'s up !';
+  display: inline-block;
+  width: 80px;
+  height: 25px;
+  font-size: 0.5em;
+  text-align: center;
+  line-height: 25px;
+  border-radius:5px;
+  background: rgba(0,0,0,1);
+  position: absolute;
+  transition :1s linear;
+}
+.u2 li::after {
+  content:'';
+  display: inline-block;
+  border: 7px solid ;
+  border-color: #000 #000 transparent transparent;
+  border-radius:4px;
+  position: absolute;
+  transition :1s linear;
+}
+.u2 li:hover {
+  background: #e01909;
+}
+/*第一个子元素li*/
+.u2 li:nth-child(1)::before {
+  top: 0px;
+  left: 50%;
+  transform:translateX(-50%);
+  opacity:0;
+}
+.u2 li:nth-child(1)::after {
+  transform:rotate(135deg);
+  top: 16px;
+  left: 50%;
+  opacity:0;
+}
+.u2 li:nth-child(1):hover::before {
+  top: -34px;
+  opacity:1;
+}
+.u2 li:nth-child(1):hover::after {
+  top: -18px;
+  opacity:1;
+}
+/*第二个子元素li*/
+.u2 li:nth-child(2)::before {
+  top: 35px;
+  left: 50%;
+  transform:translateX(-50%);
+  opacity:0;
+}
+.u2 li:nth-child(2)::after {
+  transform:rotate(-45deg);
+  top: 29px;
+  left: 50%;
+  opacity:0;
+}
+.u2 li:nth-child(2):hover::before {
+  top: 70px;
+  opacity:1;
+}
+.u2 li:nth-child(2):hover::after {
+  top: 64px;
+  opacity:1;
+}
+
+/*第三个子元素li*/
+.u2 li:nth-child(3)::before {
+  top: 35%;
+  left: 40px;
+  transform:translateX(-50%);
+  opacity:0;
+}
+.u2 li:nth-child(3)::after {
+  transform:rotate(45deg);
+  top: 44%;
+  left: 73px;
+  opacity:0;
+}
+.u2 li:nth-child(3):hover::before {
+  left: -50px;
+  opacity:1;
+}
+.u2 li:nth-child(3):hover::after {
+  left: -17px;
+  opacity:1;
+}
+
+/*第四个子元素li*/
+.u2 li:nth-child(4)::before {
+  top: 35%;
+  left: 160px;
+  transform:translateX(-50%);
+  opacity:0;
+}
+.u2 li:nth-child(4)::after {
+  transform:rotate(-135deg);
+  top: 44%;
+  left: 114px;
+  opacity:0;
+}
+.u2 li:nth-child(4):hover::before {
+  left: 250px;
+  opacity:1;
+}
+.u2 li:nth-child(4):hover::after {
+  left: 204px;
+  opacity:1;
+}
+button {
+  width: 240px;
+  height: 60px;
+  background: #ff3d2e;
+  border: none;
+  color: #fff;
+  font-size: 2.1em;
+  position: relative;
+  margin:50px;
+  border-radius:8px;
+}
+
+button::before {
+  content:'';
+  display: inline-block;
+  border: 5px solid;
+  border-radius:3px;
+  border-color:#000 transparent transparent #000;
+  position: absolute;
+  opacity:0;
+  transition: 2s linear;
+}
+button::after {
+  content:attr(balloon-text);
+  position: absolute;
+  background: #000;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius:5px;
+  opacity:0;
+  transition: 2s linear;
+  box-shadow:0 0 2px 2px #ccc;
+  
+}
+button:hover::before {
+  opacity:1;
+}
+button:hover::after {
+  opacity:1;
+}
+button[balloon-size='small']::after {
+  width: 80px;
+  white-space:nowrap;
+}
+button[balloon-size='medium']::after {
+  width: 150px;
+}
+button[balloon-size='large']::after {
+  width: 260px;
+}
+button[balloon-size='fit']::after {
+  width: 100%;
+}
+/*文字框框部分hover*/
+button[balloon-pos='up']:hover::after,
+button[balloon-pos='down']:hover::after {
+  left:50%;
+  transform:translate(-50%,0);
+}
+
+button[balloon-pos='up']:hover::after {
+  top:-50%;
+  transform:translate(-50%,-15px);
+}
+button[balloon-pos='down']:hover::after {
+  top:100%;
+  transform:translate(-50%,15px);
+}
+button[balloon-pos='left']:hover::after,
+button[balloon-pos='right']:hover::after {
+  top:50%;
+  transform:translate(0,-50%);
+}
+button[balloon-pos='left']:hover::after {
+  left: -295px;
+}
+button[balloon-pos='right']:hover::after {
+  left: 254px;
+}
+/*小三角部分hover*/
+button[balloon-pos='up']:hover::before,
+button[balloon-pos='down']:hover::before {
+  left:50%;
+  transform:translate(-50%,0);
+}
+
+button[balloon-pos='up']:hover::before {
+  transform:rotate(-135deg);
+  top:-20px;
+}
+button[balloon-pos='down']:hover::before {
+  transform:rotate(45deg);
+  top:71px
+}
+button[balloon-pos='left']:hover::before,
+button[balloon-pos='right']:hover::before {
+  top:43%;
+  transform:translate(0,-50%);
+}
+button[balloon-pos='left']:hover::before {
+  left: -20px;
+  transform:rotate(135deg);
+}
+button[balloon-pos='right']:hover::before {
+  left: 250px;
+  transform:rotate(-45deg);
+}
+/*文字框框部分*/
+button[balloon-pos='up']::after,
+button[balloon-pos='down']::after {
+  left:50%;
+  transform:translate(-50%,0);
+}
+
+button[balloon-pos='up']::after {
+  top:-50%;
+  transform:translate(-50%,30px);
+}
+button[balloon-pos='down']::after {
+  top:100%;
+  transform:translate(-50%,-30px);
+}
+button[balloon-pos='left']::after,
+button[balloon-pos='right']::after {
+  top:50%;
+  transform:translate(0,-50%);
+}
+button[balloon-pos='left']::after {
+  left: -140px;
+}
+button[balloon-pos='right']::after {
+  left: 117px;
+}
+/*小三角部分*/
+button[balloon-pos='up']::before,
+button[balloon-pos='down']::before {
+  left:50%;
+  transform:translate(-50%,0);
+}
+
+button[balloon-pos='up']::before {
+  transform:rotate(-135deg);
+  top:25px;
+}
+button[balloon-pos='down']::before {
+  transform:rotate(45deg);
+  top:26px
+}
+button[balloon-pos='left']::before,
+button[balloon-pos='right']::before {
+  top:43%;
+  transform:translate(0,-50%);
+}
+button[balloon-pos='left']::before {
+  left: 135px;
+  transform:rotate(135deg);
+}
+button[balloon-pos='right']::before {
+  left: 113px;
+  transform:rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+.container {
+  width: 800px;
+  height: 800px;
+  padding: 100px;
+  aborder: 2px solid;
+  position: relative;
+  transform-style: preserve-3d;
+  aperspective:1000px;
+  transform-origin: 50% 50%;
+  animation: run 10s linear infinite;
+}
+.slide {
+  width: 300px;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  border: 1px solid ;
+  color: #fff;
+  position: absolute; 
+}
+.top {
+  background-image: url(http://pic.sc.chinaz.com/files/pic/pic9/201508/apic14052.jpg);
+  abackground: rgba(0,0,0,0.2);
+  transform: rotateX(90deg) translateZ(150px);
+}
+.bottom {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT0uioGrONgP8yEw79PfoYS0CO3meZ2CocUenihPtU4U4dKltD);
+  background-repeat: no-repeat;
+  background-size:cover ;
+  abackground: rgba(0,50,0,0.2);
+  transform: rotateX(-90deg) translateZ(150px);
+}
+.left {
+  background: rgba(0,0,50,0.2);
+  background-image: url(http://img05.tooopen.com/images/20150830/tooopen_sy_140703593676.jpg);
+  background-position: -100px -100px;
+  transform: rotateY(90deg) translateZ(150px);
+}.right {
+  background: rgba(100,0,50,0.2);
+  background-image: url(http://img.zcool.cn/community/03320dd554c75c700000158fce17209.jpg);
+  background-size: cover;
+  transform: rotateY(-90deg) translateZ(150px);
+}.front {
+  background: rgba(100,50,50,0.2);
+  background-image: url(http://img05.tooopen.com/images/20160121/tooopen_sy_155168162826.jpg);
+  transform:  translateZ(150px);
+}.back {
+  background: rgba(100,50,100,0.2);
+  background-image: url(http://img02.tooopen.com/images/20151221/tooopen_sy_152293664918.jpg);
+  transform:  translateZ(-150px);
+}
+@keyframes run {
+    0% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    100% {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}

@@ -1,0 +1,53 @@
+<script type="text/javascript">
+	//求平方根
+	function sqareroot(start , end,num){
+		if( ((start+end)*(start+end)/4 -0.0000001 <= num) && ((start+end)*(start+end)/4 + 0.0000001 >= num)){
+			return (start + end)/2;
+		}
+		else if((start+end)*(start+end)/4 > num){
+			return sqareroot(start ,(start + end )/2,num);
+		}
+		else{
+			return sqareroot((start + end )/2 ,end,num);
+		}
+	}
+	console.log(sqareroot(9 , 46 , 90).toFixed(7));
+
+
+	//平方根
+	function sq(left , right , num ){
+		while(left <= right){
+			mid = (left + right)/2;
+			if(( Math.abs(mid * mid) - 0.000001 <= num )&& ( Math.abs(mid * mid) + 0.000001 >= num )){
+				return mid;
+			}
+			else if( Math.abs(mid * mid) - 0.000001 > num ){
+				right = mid;
+			}
+			else if( Math.abs(mid * mid) + 0.000001 < num ){
+				left = mid;
+			}
+		}
+	}
+	console.log(sq( 1 , 4 , 9));
+
+
+	function sqrt2(left , right , num) {
+		var distance = 0.000001;
+		while(true){
+			var mid = (left + right)/2;
+			var result = mid * mid;
+			if(Math.abs(result - num) <distance){
+				return mid;
+			}
+			else if( num > result){
+				left = mid + distance;
+			}
+			else {
+				right = mid - distance;
+			}
+		}
+		return result;
+	}
+	console.log(sqrt2( 1 , 4 , 9));
+</script>

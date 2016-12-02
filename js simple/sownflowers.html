@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>雪花</title>
+	<link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<style>
+		span {
+			width: 100px;
+			height: 100px;
+			abackground: #ad0;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<script>
+	for (var i = 0; i < 1000; i++) {
+		document.write('<span style="top:'+parseInt(Math.random()*100)+'vh;left:'+parseInt(Math.random()*100)+'vw;color:'+setColor()+'" class="fa fa-'+setClass(parseInt(Math.random()*16))+'"></span>');
+	}
+	function setColor( ) {
+		var r = parseInt(Math.random()*10);
+		var g = parseInt(Math.random()*10);
+		var b = parseInt(Math.random()*10);
+		return '#'+r +g +b+";";
+	}
+	function setClass(n){
+		switch(n) {
+			case 0 :return 'shower';
+			case 1 :return 'bluetooth';
+			case 2 :return 'bicycle';
+			case 3 :return 'bug';
+			case 4 :return 'child';
+			case 5 :return 'gamepad';
+			case 6 :return 'group';
+			case 7 :return 'heart';
+			case 8 :return 'home';
+			case 9 :return 'truck';
+			case 10 :return 'star';
+			case 11 :return 'plane';
+			case 12 :return 'mortar-board';
+			case 13 :return 'ravelry';
+			case 14 :return 'meetup';
+			case 15 :return 'bath';
+			case 16 :return 'address-book';
+		}
+	}	
+	</script>
+</body>
+</html>

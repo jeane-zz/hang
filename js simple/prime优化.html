@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>素数判定优化</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var result = [2];
+		for(var i = 3; i < 1000; i += 2){//自2起，后面的偶数都不是质数，可以改为 i += 2
+			flag = true;
+			for(var j = 0; j < result.length; j++){
+				if(result[j] > Math.sqrt(i)){
+					break;
+				}
+				if(i % result[j] == 0){
+					flag = false;
+					break;
+				}
+			}
+			if(flag){
+				result.push(i);
+			}
+		}
+		console.log(result);
+	</script>
+</body>
+</html>

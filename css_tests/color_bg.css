@@ -1,0 +1,337 @@
+html , body {
+  awidth: 100%;
+  height: 100%;
+  padding: 10px;
+  abackground-image:linear-gradient(red 40px, pink 300px,yellow)
+}
+.container {
+  width: 60%;
+  margin:0 auto;
+  
+  padding: 10%;
+  overflow: hidden;
+}
+h1 {
+  width: 60%;
+  margin: 0 auto;;
+  height: 30px;
+  text-shadow: 2px 2px #ccc;
+  border-radius: 10px;
+  background-image: linear-gradient(#eee 20px , #456);
+  padding: 10px;
+  text-align: center;
+}
+.d1 ,.d2 ,.d3 ,.d4 ,.d5,.d6{
+  width: 100%;
+  height: 300px;
+  abackground-color: rgba(200,30,100,0.3);
+  margin: 10px 0;
+  color: #ffa;
+}
+
+.d1 > div {
+  border: 2px solid;
+  width: 100%;
+  height: 60%;
+  margin:auto;
+  padding: 30px;
+  background-color: #345;
+}
+.d1 div div {
+  awidth: 300px;
+  height: 80px;
+  margin: 30px;
+  border: 2px solid;
+}
+.d2 {
+  background-image: linear-gradient(to left,currentColor,#fff);
+}
+.d2 > div {
+  height: 40px;
+  width: 500px;
+  color: #000;
+  background-image: linear-gradient(to left top,currentColor,#fff,pink,grey,red);
+}
+.d2 > div:nth-child(2) {
+  margin-right:20px;/*该语句不生效？？？？ margin:auto可以生效的*/
+  float: right;
+  height: 240px;
+  width: 240px;
+  background-image: radial-gradient(red,green,pink,gold,purple,blue);
+}
+.d2 > div:nth-child(3) {
+  height: 220px;
+  width: 220px;
+  border: 2px dotted;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  background-image: repeating-radial-gradient(gold ,red 5px,yellow 3px,green 2px);/*这种repeating背景，只能设置两种颜色。而且第一种颜色设置了宽度也是木有用滴。。。。and。每一小层中间的颜色也是有过渡的*/
+} 
+.d2 > div:nth-child(4) {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  top: -80px;
+  left: 250px;
+  border: 2px dotted;
+  background-image: repeating-linear-gradient(to left top,red ,green 10px);
+}
+
+.d3 {
+  border: 10px dashed;
+  background-image: url(http://www.mihuyuan.com/pics/original/20140918/1411009516015188.jpg);
+  background-size:contain ;
+  background-repeat: no-repeat;
+}
+.d3 p {
+  width: 100%;
+  height: 60px;
+  background-image: url(http://www.mihuyuan.com/pics/original/20140806/1407304068898381.jpg);
+  background-size: contain;
+  color: #927;
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 2px 2px #c3c;
+}
+.d4 {
+  position: relative;
+  padding-left: 200px;
+}
+.d4::before {
+  content:'这个div用来展示伪元素设置背景图片,这个图片bg-size设置为：cover';
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  border: 2px solid #123;
+  display: inline-block;
+  background-image: url(http://www.mihuyuan.com/pics/original/20140805/1407214206976267.jpg);
+  background-size:cover ;
+  position: absolute;
+  left: 0;
+} 
+.d4 a {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 30px;
+  margin: 15px;  
+}
+.d4 a::after{
+  content:'';
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  top: 50%;
+  transform:translate(3px,-70%);
+  aborder: 1px solid;
+  background-image: url(http://lib.cdn.weipan.cn/web/1003/images/vdisk_v2/vd_icon_32.png?d=20130712);
+}
+.d4 a:nth-child(1)::after {
+  background-position: 0 -600px;
+} 
+.d4 a:nth-child(2)::after {
+  background-position: 0 -1010px;
+} 
+.d4 a:nth-child(3)::after {
+  background-position: 0 -125px;
+} 
+.d4 a:nth-child(4)::after {
+  background-position: 0 -680px;
+} 
+.d4 a:nth-child(5)::after {
+  background-position: 0 -85px;
+} 
+
+.d4 ul li {
+  list-style:none;
+  float: left;
+  width: 100px;
+  height: 50px;
+  aborder: 2px solid;
+  margin: 5px;
+}
+.d4 ul li:nth-child(1) {
+  background-image: url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png);
+} 
+.d4 ul li:nth-child(2) {
+  background-image: url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png);
+  background-size:300% ;
+} 
+.d4 ul li:nth-child(3) {
+  background-image: url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png);
+  width: 95px;
+  height: 26px;
+  background-position: 77% 70%;
+} 
+.d4 ul li:nth-child(4) {
+  width: 21px;
+  height: 21px;
+  background-position: 69px 70px;
+  background-image: url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png);
+} 
+.d4 ul li:nth-child(5) {
+  width: 51px;
+  height: 51px;
+  background-position: 0px 160px;
+  background-image: url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png);
+} 
+.d4 ul li:nth-child(6) {
+  width: 24px;
+  height: 24px;
+  background-position: 64px -99px;
+  background-image: url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png);
+} 
+
+
+.d4 ul li:nth-child(7) {
+  width: 31px;
+  height: 32px;
+  background-position: 80px -85px;
+  background-image: url(http://lib.cdn.weipan.cn/web/1003/images/vdisk_v2/vd_icon_32.png?d=20130712);
+} 
+.hoverchange {
+  display: table;
+  width: 100%;
+  background: transparent;
+}
+.d6 {
+  float: left;
+  aheight: 230px;
+  width: 24%;
+  border: 2px solid;
+  background: no-repeat url(http://www.mihuyuan.com/pics/middle/20140829/1409299987763453.jpg);
+  background-position:-30px 0px;
+  transition: 1s linear;
+  margin: 2px;
+  clear:right;
+}
+.d6:hover {
+  background-position:-30px -100px;
+}
+
+.d7 {
+  display:inline-bolck;
+  width: 235px;
+  height: 300px;
+  background: #fff;
+  position: relative;
+  float: left;
+  margin: 20px;
+  overflow: hidden;
+  transition:.5s linear;
+  background: radial-gradient(#ffc, #cff,#fcc,#cfc);
+}
+.d7 img {
+  display: block;
+  position: absolute;
+  top:11px;
+  right: 0;
+  left: 0;
+  margin:auto;
+}
+.d7 div {
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  bottom: 4px;
+  font-size: 14px;
+  line-height: 25px;
+  text-align: center;
+  font-family: '微软雅黑';
+   
+}
+.d7 div p {
+  margin:auto;
+  text-align: center;
+}
+.d7 div p:first-child {
+  font-weight: bold;
+}
+.d7 div span{
+  color: #ff6700;
+  font-weight: bold;
+}
+.d7 > span:nth-of-type(1) {
+  background: #ff6700;
+  color: #fff;
+  padding: 4px;
+  font-family: '幼圆';
+  font-weight: bold;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform:translate(-50%,0);
+}
+.d7 > span:nth-of-type(2) {
+  width: 100%;
+  background: #ff6700;
+  height: 75px;
+  position: absolute;
+  bottom: -75px;
+  color: #fff;
+  font-family: '幼圆';
+  box-sizing:border-box;
+  padding: 15px;
+  font-size: 13px;
+  transition:bottom .5s linear;
+
+}
+.d7 > span:nth-of-type(2) a {
+  display: block;
+  text-align: right;
+  color: #ffc299;
+  text-decoration: none;
+  
+}
+/*.d7:hover::after {
+  position: absolute;
+  right: -300px;
+  content:'';
+  width: 300px;
+  height: 400px;
+  background-image: url(http://i3.mifile.cn/a4/22edf61f-274f-4521-8298-51ab160c4ea1);
+  background-repeat: no-repeat;
+}*/
+.d7:hover {
+  box-shadow:0 0 8px 8px rgba(200,200,200,0.3);
+}
+.d7:hover > span:nth-of-type(2) {
+  bottom:0px;
+}
+.bgattach {
+  z-index: -10;;
+  width: 100%;
+  position: absolute;
+  abottom: 0;
+}
+.d8,.d9,.d0,.d00 {
+  width: 100%;
+  height: 600px;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-position: left 20% top 0;
+}
+.d8 {
+  background-image: url(http://pic16.nipic.com/20110918/2958551_094638248000_2.jpg);
+  background-position:  0 -100px;
+}
+.d9 {
+  background-image: url(http://img104.mypsd.com.cn/20130813/1/Mypsd_41721_201308131333240001B.jpg
+);
+}
+.d0 {
+  background-image: url(http://pic30.nipic.com/20130607/9885883_222406613000_2.jpg);
+}
+.d00 {
+  amargin-bottom: 300px;
+  padding-bottom: 300px;
+  background-image: url(http://img104.mypsd.com.cn/20130821/1/Mypsd_41746_201308211216490025B.jpg);
+}
+
+
+
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>扫雷模拟</title>
+	<style type="text/css">
+		.wrap {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		td {
+			width: 25px;
+			height: 25px;
+			text-align: center;
+			vertical-align: middle;
+			position: relative;
+		}
+		span {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			background: #893;
+			background-image: linear-gradient( to right top , black 30% ,white);
+			position: absolute;
+			top:0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<script type="text/javascript">
+		//var a =[['*', '*', '?', '?'],['?', '?', '?', '*'],['?', '*', '*', '?'],['?', '?', '*', '?'],['?', '*', '?', '*']];
+		var arr1 = createArray(10,10 , 18);
+		sweep(arr1);
+		//随机生成二维数组 m:宽度 n：高度 num：雷的数目；
+		function createArray( m , n , num) {
+			var arr = new Array(n);
+			for (var i = 0; i < n; i++) {
+				arr[i] = new Array(m);
+				for(var j = 0; j < m; j ++){
+					arr[i][j] = '?';		
+				}
+			}
+			while(num --){
+				var randn = parseInt(Math.random()*n);//随机的位置放雷
+				var randm = parseInt(Math.random()*m);//随机的位置放雷
+				
+				if(arr[randn][randm] !== "*") {
+					arr[randn][randm] = "*";
+				}
+			}	
+			return arr;
+		}
+		
+		//将 ？ 替换为相应的数字 调用 printArray 函数
+		function sweep(arr){
+			//printArray( arr );
+			document.write('<br><br><br>');
+			//判断某个空附近有几颗雷
+			for( var i = 0; i < arr.length; i ++){
+				for (var j = 0; j < arr[i].length; j++) {
+					var num = 0;
+					if(arr[i][j] === '?'){
+						if((i > 0 )&&( j > 0) && (arr[i - 1][j - 1] === "*"))
+						{
+							num += 1;
+						}		
+						if( (i > 0) && (arr[i-1][j] === "*"))
+						{
+							num += 1;
+						}
+						if((i > 0) &&( j< arr[i].length - 1) && (arr[i-1][j+1] === "*"))
+						{
+							num += 1;
+						}
+						if(( j > 0 )&& (arr[i][j-1] === "*"))
+						{
+							num += 1;
+						}
+						if(( j< arr[i].length - 1) && (arr[i][j+1] === "*"))
+						{
+							num += 1;
+						}
+						if((i < arr.length - 1) && (j > 0 ) && (arr[i+1][j-1] === "*"))
+						{
+							num += 1;
+						}
+						if((i < arr.length - 1) && arr[i+1][j] === "*")
+						{
+							num += 1;
+						}
+						if((i < arr.length - 1) && ( j< arr[i].length - 1) && arr[i+1][j+1] === "*")
+						{
+							num += 1;
+						}
+						arr[i][j] = num;
+					}
+				}
+			}
+			printArray( arr );
+			
+			//将二维数组以表格的形式打印出来
+			function printArray( arr ) {
+				document.write("<table border = 1><tbody>")
+				for ( i = 0; i < arr.length; i++) {
+					document.write(  '<tr>');
+					for ( j = 0; j < arr[i].length; j++) {
+						if(arr[i][j] != 0){
+							document.write("<td>"+arr[i][j]+"<span></span></td>");
+						}else{
+							document.write("<td><span></span></td>");
+						}
+						
+					}
+					document.write('</tr>');
+				}
+				document.write("</tbody></table>")
+			}
+		}
+		//sweep(a);
+		//点击td 其内部的span消失
+		function clickTd(){
+			var oTd = document.getElementsByTagName('td');
+			var oSpan = document.getElementsByTagName('span');
+			/*for (var i = 0; i < oTd.length; i++) {
+				if(oTd[i].innerHTML== '*<span></span>'){// 可以将含有雷的格子选出来。不能给单独的td添加类。。。。不能使用text() ,value(),val()
+					//oTd[i].style.width = 30+'px';
+				}
+			}*/
+			for (var i = 0; i < oTd.length; i++) {
+				oTd[i].index = i;
+				oTd[i].onclick = function(){
+					if(this.innerHTML !== '*<span></span>'){ //不是雷的格子，点击后span消失
+						oSpan[this.index].style.display = "none";
+						if(this.innerHTML == '<span></span>'){ //为0的格子
+							oSpan[this.index].style.display = "none";
+						}
+					}
+
+					else{
+						//oSpan[this.index].style.backgroud = "red";
+						for (var j = 0; j < oTd.length; j++) { //含有雷的格子，点击后
+							if(oTd[j].innerHTML== '*<span></span>'){
+								oTd[j].innerHTML = "*";
+								oTd[j].style.color = "red";
+							}
+						}
+						alert('you died !');
+					}
+									
+				}
+			}
+		}
+		clickTd();
+
+		</script>
+
+	</div><!-- div.wrap end -->
+	
+</body>
+</html>
