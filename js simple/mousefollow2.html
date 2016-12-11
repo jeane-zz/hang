@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>鼠标跟随</title>
+		<style>
+			body{margin:0; padding:0}
+			div{
+				width:20px;
+				height:20px;
+				padding:10px;
+				
+				text-align:center;
+				
+				position:absolute;
+				cursor:pointer;
+				color:#fff;
+				animation: disappear 2s linear;
+				animation-fill-mode: forwards;
+			}
+			@keyframes disappear {
+				0% {
+					opacity: 1;
+					transform: translate(0,0);
+				}
+				20% {
+					opacity: 0.9;
+					transform: translate(5px,0);
+				}
+				100% {
+					opacity: 0;
+					transform: translate(0,10px);
+				}
+			}
+		</style>
+	</head>
+	<body style="height:1000px;">
+		<script>
+		window.onload = function(){
+			heart();
+			function heart() {
+				document.onmousemove = function(evt){
+				    var oEvent = evt || window.event;
+				    var scrollleft = document.documentElement.scrollLeft || document.body.scrollLeft;
+				    var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+				    var ooo = document.createElement('div');
+				    ooo.innerHTML = '♡';
+				    ooo.style.left = oEvent.clientX + scrollleft +Math.random()*30 +"px";
+					ooo.style.top = oEvent.clientY + scrolltop + Math.random()*40 + "px";
+					ooo.style.color = 'rgb('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+')';
+					ooo.style.fontSize = parseInt(Math.random()*30) + 'px';
+					document.body.appendChild(ooo);
+				}
+			}
+		}
+		</script>
+	</body>
+</html>

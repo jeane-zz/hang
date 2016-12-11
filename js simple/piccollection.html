@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>人工瀑布流图片效果</title>
+	<style type="text/css">
+	section { 
+		display: flex;
+	}
+	span{
+		display: inline-block;
+		width:20px;
+		height:20px;
+		padding:10px;
+		text-align:center;
+		position:absolute;
+		cursor:pointer;
+		color:#fff;
+		animation: disappear 2s linear;
+		animation-fill-mode: forwards;
+	}
+	@keyframes disappear {
+		0% {
+			opacity: 1;
+			transform: translate(0,0);
+		}
+		20% {
+			opacity: 0.9;
+			transform: translate(5px,0);
+		}
+		100% {
+			opacity: 0;
+			transform: translate(0,10px);
+		}
+	}
+	ul {
+		width: 300px;
+		flex-grow: 1;
+		margin: 10px 20px;
+	}
+	li {
+		width: 100%;
+		list-style: none;
+		padding:10px 5% 50px ;
+		background: #fff;
+		border:2px solid #eee;
+		box-shadow: 2px 2px 3px #eee;
+		margin-bottom: 30px;
+		position: relative;
+	}
+	li:hover::before, li:hover::after {
+		opacity: 1;
+	}
+	li::before {
+		content: "收 集";
+		display: block;
+		text-shadow: 1px 2px 1px #00a;
+		width: 60px;
+		height: 30px;
+		border: 2px solid #e0a;
+		text-align: center;
+		line-height: 30px;
+		background: #f0e;
+		border-radius: 5px;
+		position: absolute;
+		top: 60px;
+		z-index: 3;
+		opacity: 0;
+		transition: .5s linear;
+	}
+	li::after {
+		content: "♡";
+		display: block;
+		text-shadow: 1px 2px 1px #a00;
+		color: red;
+		width: 40px;
+		height: 30px;
+		border: 2px solid #e0a;
+		text-align: center;
+		line-height: 30px;
+		background: #fe0;
+		border-radius: 5px;
+		position: absolute;
+		top: 60px;
+		right:10px;
+		z-index: 3;
+		opacity: 0;
+		transition: .5s linear;
+	}
+	img {
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		margin-bottom: 20px;
+	}
+	img:hover {
+		opacity: 0.8;
+	}
+	h5 {
+		padding: 0;
+		margin: 0;
+		font-size: 30px;
+		font-family: '幼圆';
+		height: 50px;
+		line-height: 50px;
+	}
+	header {
+		color: #fff;
+		text-align: center;
+		line-height: 30px;
+		background: #aaa;
+		aheight: 160px;
+		padding: 30px;
+		overflow: hidden;
+	}
+	button {
+		background: #a00;
+		padding: 5px;
+		width: 60px;
+		height: 40px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		color: #fff;
+	}
+	button:hover {
+		opacity: 0.8;
+	}
+	header p::before, header p::after {
+		content: ' ——— ';
+	}
+	header div {
+		overflow: hidden;
+	}
+	header a {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		border-radius: 30px;
+		background: #eaa;
+		margin: 0 10px;
+		afloat: left;
+		transition: .3s linear;
+	}
+	header a:hover {
+		transform: rotateY(180deg);
+	}
+	header a:nth-of-type(2), header a:nth-of-type(4) {
+		background: #a9e;
+	}
+	.follow {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background: #332;
+		position: absolute;
+		transition: .3s linear;
+	}
+
+	#classify {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		flex-direction: row;
+	}
+	.classifies {
+		display: inline-block;
+		height: 100px;
+		width: 200px;
+		flex-grow: 1;
+		background: #cc9;
+		-webkit-background-size: cover;
+		background-size: cover;
+		margin: 5px 10px;
+		border-radius: 10px;
+		text-align: center;
+		line-height: 100px;
+		color: #fff;
+		font-family: "黑体";
+		text-decoration: none;
+		font-size: 30px;
+		opacity: 0.6;
+	}
+	.classifies:hover {
+		opacity: 0.8;
+	}
+
+	
+	</style>
+</head>
+<body>
+	<header>
+		<h2>壁 纸</h2>
+		<button>关注</button>
+		<p> Ta 们已关注</p>
+		<div>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+		</div>
+	</header>
+	<div id="classify">
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/04.jpg);'>苔藓微景观</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/b.jpg);'>逆光摄影</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/90.jpg);'>黑白摄影</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/d1.jpg);'>多肉植物</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/50b.jpg);'>风景摄影</a>
+	</div>
+	<section id="outer">
+		
+		<ul>
+			<li><h5>状元红</h5><img src="../image/00.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="13.gif" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/0e.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/3d.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/avatar.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+		<ul>
+			<li><h5>状元红</h5><img src="../image/5f.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/5.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/1b.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/0f.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+		<ul>
+			<li><h5>状元红</h5><img src="../image/4a.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/46.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/8z.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/748.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/38.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+		<ul>
+			<li><h5>状元红</h5><img src="25.gif" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/266.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/44.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/50b.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/64.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+	</section>
+	<script type="text/javascript">
+	window.onload = function(){
+		heart();
+		function heart() {
+			document.onmousemove = function(evt){
+			    var oEvent = evt || window.event;
+			    var scrollleft = document.documentElement.scrollLeft || document.body.scrollLeft;
+			    var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+			    var ooo = document.createElement('span');
+			    ooo.innerHTML = '♥';
+			    ooo.style.left = oEvent.clientX + scrollleft +Math.random()*30 +"px";
+				ooo.style.top = oEvent.clientY + scrolltop + Math.random()*40 + "px";
+				ooo.style.color = 'rgb('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+')';
+				ooo.style.fontSize = parseInt(Math.random()*30) + 'px';
+				document.body.appendChild(ooo);
+			}
+		}
+	}
+	</script>
+</body>
+</html>
