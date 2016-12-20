@@ -1,12 +1,12 @@
 .screen {
-  width: 400px;
-  height: 600px;
+  width: 1024px;
+  height: 640px;
   border: 2px solid #89a;
   margin: 50px;
   position: relative;
   transform-style:preserve-3d;
   overflow: hidden;
-  background: url(http://www.html5tricks.com/demo/css3-fall-leaves/images/backgroundLeaves.jpg);
+  background: url(image/bg.gif);
 }
 
 div {
@@ -37,9 +37,9 @@ div {
   transform: rotate(211deg);
   animation:  floor 13s linear 2s infinite;
 }
-.b:nth-child(3) {
+.b:nth-child(5) {
   top: -1000px;
-  left: 40px;
+  left: 640px;
   animation:  swing 17s linear 2s infinite;
 }
 .c {
@@ -66,8 +66,7 @@ div {
     -webkit-transform: rotate(20deg) translate(100px);
     transform: rotate(50deg) translate(150px);
   }
-  75% {
-    
+  75% {  
     -webkit-transform: rotate(30deg) translate(90px);
     transform: rotate(40deg) translate(90px);
     opacity:1
