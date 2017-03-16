@@ -1,11 +1,10 @@
 section {
   height: 600px;
   width: 600px;
-  abackground:rgba(100,200,120,0.3);
   position: relative;
-  transform:perspective(1000px);
+  transform:perspective(1500px);
   transform-style:preserve-3d;
-  animation :run 10s 10s infinite;
+  animation :run 5s 5s infinite;
 }
 
 @keyframes run{
@@ -141,23 +140,3 @@ section:hover {
   animation-play-state:paused;
 }
 
-/*
-section:hover .d1 {
-  transform:translateZ(150px);
-}
-section:hover .d2 {
-  transform:translateZ(-150px);
-}
-section:hover .d3 {
-  transform:translateY(150px) rotateX(-90deg);
-}
-section:hover .d4 {
-  transform:translateY(-150px) rotateX(-90deg);
-}
-section:hover .d5 {
-  transform:translateX(150px) rotateY(90deg);
-}
-section:hover .d6 {
-  transform:translateX(-150px) rotateY(90deg);
-}
-*/
