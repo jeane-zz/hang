@@ -1,0 +1,303 @@
+html, body {
+  /* 设计页面宽度为720px */
+  font-size: calc(100vw / 7.2); 
+}
+body, ul, li, a, h5, div, section, p, input, span, img {
+  margin: 0;
+  padding: 0;
+  font-size: 0.2rem;
+  font-family: Arial,Verdana,Sans-serif;
+}
+body {
+  width: 100%;
+  background: #fff;
+  font-size: 0.3rem;/*body正常字体为30px*/
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style:none;
+}
+/* 浮动头部 */ 
+header {
+  width: 100%;
+  height: 0.83rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.logo {
+  abackground-image: url(img/logo.png);
+  width: 0.5rem;
+  height: 0.32rem;
+  float: left;
+  padding: 0.25rem;
+}
+.logo img {
+  width: 0.5rem;
+  height: 0.32rem;
+}
+.search {
+  background-image: url(img/search.png);
+  background-size: cover;
+  width: 5.2rem;
+  height: 0.53rem;
+  margin-top: 0.15rem;
+  float: left;
+}
+.login {
+  width: 0.6rem;
+  height: 0.32rem;
+  float: right;
+  padding: 0.2rem 0.15rem;
+  font-size: 0.28rem;
+  color: #fff;
+}
+/* 滚动主体 */
+.wraper {
+  width: 100%;
+  background: #f5f5f5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.95rem;
+}
+.wraper > * {
+  width: 100%;
+}
+/* slider */
+.slider.swiper-container {
+  height: 5.12rem;
+  background: #aec;
+  position: relative;
+}
+
+.swiper-slide {
+  awidth: calc(100vw);
+  aheight: 5.12rem;
+  background-size: cover;
+}
+/* 商城早报 */
+.broadcast {
+  height: 0.8rem;
+  background: #fff;
+}
+.sczb {
+  width: 1.5rem;
+  height: 0.8rem;
+  background-image: url(img/sczb.png);
+  background-size: contain;
+  float: left;
+}
+.sczb span {
+  width: 1px;
+  height: 0.4rem;
+  background: #b2b2b2;
+  display: block;
+  float: right;
+  margin: 0.2rem 0;
+}
+.broad.swiper-container {
+  display: inline-block;
+  float: left;
+  height: 0.8rem;
+  width: calc(100% - 1.8rem);
+  line-height: 0.8rem;
+}
+.broad .swiper-slide {
+  padding-left: 0.1rem;
+}
+
+/* 第一部分 */
+.first {
+  height: 63.07rem;
+  display: flex;
+  flex-direction: column;
+}
+.f_sec {
+  width: 100%;
+}
+.f_sec > * {
+  width: 100%;
+}
+/* 区域分割空白 */
+.blank {
+  height: 0.16rem;
+}
+.narrow {
+  height: 0.04rem;
+}
+/* auto-fill */
+.auto {
+  height: 5.1rem;
+  width: 100%;
+  position: relative;
+}
+.auto li {
+  width: 3.55rem;
+  height: 2.5rem;
+  position: absolute;
+  right: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.auto li:first-child {
+  height: 5.1rem;
+  left: 0;
+  top: 0;
+}
+.auto li:nth-child(2) {
+  top: 0;
+}
+.auto li:nth-child(3) {
+  bottom: 0;
+}
+
+/* 明星单品 */
+.star {
+  height: 4.4rem;
+  background-size: 100% 100%;
+}
+
+/* 商品列表 */
+.itembox {
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
+.item {
+  box-sizing: border-box;
+  height: 5.1rem;
+  width: 3.55rem;
+  text-align: left;
+  aposition: absolute;
+}
+.item:nth-child(odd){
+  float: left;
+}
+.item:nth-child(even){
+  float: right;
+}
+
+.item img {
+  width: 3.55rem;
+  height: 3.55rem;
+  display: inline-block;
+}
+.info {
+  width: 3.55rem;
+  height: 1.55rem;
+  padding: 0rem 0.2rem;
+  box-sizing: border-box;
+}
+.info h5 {
+  height: 0.3rem;
+  color: rgba(0,0,0,.87);
+  font-weight: normal;
+  line-height: 0.3rem;
+  font-size: 0.28rem;
+  margin: 0.1rem 0;
+}
+.info p {
+  height: 0.3rem;
+  color: rgba(0,0,0,.54);
+  line-height: 0.3rem;
+  font-size: 0.23rem;
+  margin-bottom: .1rem;
+}
+.info span {
+  font-size: 0.32rem;
+  color: #ff6700;
+  font-weight: bold;
+}
+.more {
+  height: 1rem;
+  text-align: center;
+  background-color: #fff;
+}
+.more h5 {
+  line-height: 1rem;
+  font-size: 0.32rem;
+  height: 1rem;
+  color: rgba(0,0,0,0.6);
+}
+/* 米家智能 */
+.smart {
+  width: 3.55rem;
+  height: 3.55rem;
+  float: left;
+  background-size: 100% 100%;
+
+}
+.info2 {
+  padding: 0.64rem 0.12rem 0 0.32rem;
+}
+.info2 h5 {
+  font-size: .28rem;
+  line-height: .3rem;
+  font-weight: normal;
+  height: .3rem;
+  margin: 0.1rem 0;
+  color: rgba(0,0,0,0.87);
+} 
+
+.info2 p {
+  font-size: .26rem;
+  line-height: .3rem;
+  color: rgba(0,0,0,0.54);
+  margin: 0.1rem 0;
+}
+.info2 span {
+  font-size: .32rem;
+  color: #ff6700;
+  font-weight:  bold;
+  margin: 0.1rem 0;
+}
+/* 第二部分 */
+.second {
+  height: 114.27rem;
+  background: #cca;
+}
+/* 底部 */
+footer {
+  width: 100%;
+  height: 0.9rem;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+/* 底部tab */
+.nav {
+  width: 1.8rem;
+  height: 0.89rem;
+  float: left;
+}
+.foot {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin: 0.1rem 0.7rem 0.05rem;
+  background-image: url(img/foot.png);
+  background-size: cover;
+}
+.nav:nth-child(1) .foot {
+  background-position-y: .8rem;
+}
+.nav:nth-child(2) .foot {
+  background-position-y: -.4rem;
+}
+.nav:nth-child(3) .foot {
+  background-position-y: -1.2rem;
+}
+.nav:nth-child(4) .foot {
+  background-position-y: -2rem;
+}
+.nav p {
+  color: rgba(0,0,0,0.5);
+  text-align: center;
+  font-size: .22rem;
+}
