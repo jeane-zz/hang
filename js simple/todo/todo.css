@@ -1,0 +1,245 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+html, body, section, div, h2, span, input, ul, li, a, p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-spacing: -2px;
+  font-family: 'Consolas','Verdana','Hiragino Sans简体中文黑体-W6',Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+li {
+  list-style: none;
+}
+#todo {
+  height: 100%;
+  min-width: 260px;
+  max-width: 550px;
+  position: relative;
+  margin: 0 auto;
+}
+.title {
+  font-size:100px;
+  font-weight: 100px;
+  height: 120px;
+  line-height: 140px;
+  text-align: center;
+  color: rgba(175,47,47,0.14);
+  margin-bottom: 20px;
+}
+.list{
+  width: 100%;
+  position: relative;
+  aborder: 1px solid #ddd;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
+  background: #fff;
+}
+.top {
+  height: 61px;
+  position: relative;
+  border-bottom: 1px solid #dad8d8;
+}
+#arrow {
+  display: block;
+  width: 30px;
+  height: 30px;
+  color: #eee;
+  text-align: center;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: 900;
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  z-index: 2;
+}
+#in {
+  width: 100%;
+  height: 60px;
+  padding: 16px;
+  padding-left: 60px;
+  font-size: 30px;
+  outline: none;
+  border: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#ph {
+  color: #ccc;
+  font-size: 24px;
+  width: calc(100% - 60px);
+  position: absolute;
+  left: 60px;
+  top: 16px;
+  pointer-events: none;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+.content {
+  background: #FFF;
+}
+.thing {
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+.thing:hover .move {
+  display: block;
+}
+.check, .sec .check {
+  display: block;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  line-height: 30px;
+  text-align: center;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translate(0,-50%);
+  z-index: 3;
+}
+.text,.sec .text {
+  adisplay: inline-block;
+  width: calc(100% - 40px);
+  min-height: 60px;
+  font-size: 24px;
+  position: absolute;
+  left: 40px;
+  padding-left: 20px;
+  word-break: break-all;
+  word-wrap: break-word; 
+  aoutline: none;
+}
+.sec .check {
+  border-color: #5dc2af;
+  color: #5dc2af; 
+}
+.sec .text {
+  text-decoration: line-through;
+  color: #aaa; 
+}
+
+.move {
+  display: none;
+  color: #cc9a9a;
+  width: 40px;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  right: 10px;
+}
+.move:hover {
+  color: #af5b5e;
+  display: block;
+}
+.bottom {
+  color: #777;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  position: relative;
+}
+.left {
+  color: #777;
+  float: left;
+  margin-left: 10px;
+}
+.clear {
+  color: #777;
+  float: right;
+  margin-right: 10px;
+}
+.clear:hover {
+  text-decoration: underline;
+}
+.status {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 230px;
+}
+.status input {
+  display: none;
+}
+.status label {
+  margin: 0;
+  padding: 3px 5px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.status label:hover {
+  border: 1px solid rgba(175, 47, 47, 0.15);
+} 
+.status input:checked + label{
+  border: 1px solid rgba(175, 47, 47, 0.3);
+}
+#mes {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+  color: #ccc;
+}
+.cascade1, .cascade2 {
+  width: calc(100% - 4px);
+  height: 5px;
+  background: #fff;
+  aborder: 1px solid #ddd;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
+  border-top: none;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -6px;
+  left:50%;
+  transform: translate(-50%,0);
+  z-index: 3;
+}
+.cascade2 {
+  width: calc(100% - 8px);
+  bottom: -12px;
+  z-index: 2;
+}
+@media  (max-width: 475px) {
+    .bottom {
+      height:   120px;
+    }
+    .status {
+      top: 60px;
+    }
+    .text,.sec .text {
+      white-space: nowrap;
+      overflow: hidden; 
+      text-overflow: ellipsis;   
+    }
+}
+
+
+li.finish p{
+	text-decoration: line-through;
+	color:#adadad;
+}
+
+li p {
+	display: inline-block;
+}
+.current {
+	border :1px solid #adadad;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px;
+}		

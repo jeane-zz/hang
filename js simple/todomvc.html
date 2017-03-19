@@ -312,7 +312,6 @@
     // 输入后 按enter，ul添加li
     $("#in").keydown(function(event){
      if($("#in").val() !== "" && event.which == 13){
-        
         var $text = $(`<p class='text'>${$("#in").val()}</p>`);
         $text.dblclick(function(){
           $(this).attr('contenteditable','true');
@@ -320,7 +319,6 @@
             console.log($(this).width() +"   "+ $(this).height());
               $(this).parent().height($(this).height());
           });
-
         });
 
         var $check = $("<a class='check'>✔</a>");

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo_Vue</title>
+	<link rel="stylesheet" type="text/css" href="todo.css">
+</head>
+<body>
+	<div id="app">
+		<div id="todo">
+			<h2 class="title">TODO</h2>
+			<div class="list">
+				<div class="top">
+					<input id="arrow" type="checkbox" name="all" v-model="allSelected" @click="toggleSelected">
+					<input id="in" type="text" name="input" v-model="inputData" @keyup.enter="add" placeholder="What needs to be done ?">
+				</div>
+				<ul class="content">
+					<li class="thing" :class="{finish: todo.finish}" v-for="(todo, index) in showingTodo">
+						<input class="check" type="checkbox" name="" id="" v-model="todo.finish">
+						<p class="text" contenteditable @keyup.enter="editfinish(index)" @dbclick="edit" >{{todo.thing}}</p>
+						<a class="move" @click="todos.splice(index,1)">✖</a>
+					</li>
+				</ul>
+				<div class="bottom">				
+					<a class="left"><span id="num">{{counter}} </span>{{counter == 1 ?'item' :'items'}} left</a>
+					<form class="status">
+						<label @click="showing = 'all'" :class="{current : showing == 'all'}"><input type="radio" name="status" id="all" style="display: none;">All</label>
+						<label @click="showing = 'active'" :class="{current : showing == 'active'}"><input type="radio" name="status" id="active" style="display: none;">Active</label>
+						<label @click="showing = 'complete'" :class="{current : showing == 'complete'}"><input type="radio" name="status" id="complete" style="display: none;">Complete</label>
+					</form>
+					<a class="clear" v-if="counter < todos.length" @click="clearComplete" >Clear Completed</a>
+				</div>
+
+				<div class="cascade1"></div>
+		     	<div class="cascade2"></div> 
+			</div>
+			<div id="mes">
+			  <p class="tip">Double-click to edit a todo</p>
+			  <p class="tip">Written by <a href="https://jeane-zz.github.io/Jeane_hexo/">Jeane Zhang</a></p>
+			  <p class="tip">Part of TodoMVC</p>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="vue.js"></script>
+	<script src ="todo.js"></script>
+</body>
+</html>
