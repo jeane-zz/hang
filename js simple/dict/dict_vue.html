@@ -45,7 +45,7 @@
 					<div v-for="each in eachWord">
 						<ul v-for="sense in each.senses">
 							<li v-for="def in sense.defs">
-								<h5 class="title" @click="toggle"><a href="#">+</a>{{def.defCn}}</h5>
+								<h5 class="title" @click="toggle"><span>+</span>{{def.defCn}}</h5>
 								<div class="sentence" style="display:none" v-for="example in def.examples">
 									<p class="exam_en">{{example.en}}</p>
 									<p class="exam_cn">{{example.cn}}</p>

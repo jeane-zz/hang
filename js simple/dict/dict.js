@@ -28,17 +28,20 @@ var app = new Vue({
 			event.target.querySelector('audio').play()
 		},
 		toggle (event) {
-			event.target.parentElement.querySelectorAll('div').forEach(it => {
-				// if(it.style.display == 'none'){
-				// 	it.style.display = 'block'
-				// } else {
-				// 	it.style.display = 'none'
-				// }
-				it.style.display = (it.style.display == 'none')? 'block' :'none'
-			})
-			var tempa = event.target.querySelector('a')
-			tempa.innerHTML = tempa.innerHTML == '+' ? '-' :'+'
-		}
+			if(event.target.tagName === 'H5'){
+				event.target.parentElement.querySelectorAll('div').forEach(it => {
+					// if(it.style.display == 'none'){
+					// 	it.style.display = 'block'
+					// } else {
+					// 	it.style.display = 'none'
+					// }
+					it.style.display = (it.style.display == 'none')? 'block' :'none'
+				})
+
+				var tempa = event.target.querySelector('span')
+				tempa.innerHTML = tempa.innerHTML == '+' ? '-' :'+'
+			}
+		},
 	},
 	filters: {
 		trans (value){

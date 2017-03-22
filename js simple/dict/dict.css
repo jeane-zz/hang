@@ -16,6 +16,11 @@ body {
 li {
 	list-style: none;
 }
+a {
+	text-decoration: none;
+	color: #000;
+}
+
 /*滚动条问题 */
 html {
   overflow-y: scroll;
@@ -192,11 +197,12 @@ body {
 	height: 30px;
 	line-height: 30px;
 }
-.title a {
+.title span {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
 	font-size: 20px;
+	pointer-events: none;
 }
 .exam_cn {
     color: rgba(238, 136, 106, 0.87);
