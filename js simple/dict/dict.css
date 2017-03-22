@@ -16,6 +16,25 @@ body {
 li {
 	list-style: none;
 }
+/*滚动条问题 */
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+/*滚动条问题 */
 
 #outer {
 	background: #f0f0f0;
