@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小字典</title>
+	<link rel="stylesheet" type="text/css" href="dict.css">
+</head>
+<body>
+	<section id="outer" class="">
+		<div id="app">
+			<div id="logo">
+				<a class="logopic"></a>
+			</div>
+			<div id="top">
+				<div class="input">
+					<input type="text" v-model="inputWord" @keydown="getjson" @keyup.enter="query">
+					<ul id="list">
+						<li v-if="index < 5" v-for= "(word,index) in contentWords">
+							{{word}}
+						</li>
+					</ul>
+				</div>
+				<a class="submit" @click="query">查询</a>
+			</div>
+			<div id="wait">
+				<div class="left">
+					<div v-for="(eachWord,index) in eachWord">
+						<h3 class="word" v-if="index == 0" title="跳转到百度百科"><a :href=`http://baike.baidu.com/item/${eachWord.headword}`>{{eachWord.headword}}</a></h3>
+						<p class="pron" v-if="index == 0" v-for="pron in eachWord.prons">
+							<span class="country" v-if="pron.region == 'UK'">英</span>
+							<span class="country" v-if="pron.region == 'US'">美</span>
+							<span class="prontext">[{{pron.text}}]</span>
+							<a class="play" @click="play">▶
+								<audio :src="pron.mp3"></audio>
+							</a>
+						</p>
+						<p class="explain" v-for="sense in eachWord.senses">
+							<span class="symbol">{{ sense.pos[0] | trans }}</span>
+							<span v-for="def in sense.defs"> {{def.defCn}} <br/></span>
+						</p>
+					</div>
+				</div>
+				<div class="right">
+					<h4 class="example">释义及例句</h4>
+					<div v-for="each in eachWord">
+						<ul v-for="sense in each.senses">
+							<li v-for="def in sense.defs">
+								<h5 class="title" @click="toggle"><a href="#">+</a>{{def.defCn}}</h5>
+								<div class="sentence" style="display:none" v-for="example in def.examples">
+									<p class="exam_en">{{example.en}}</p>
+									<p class="exam_cn">{{example.cn}}</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="public/jquery-3.1.1.js"></script>
+	<script src="public/vue.js"></script>
+	<script src="dict.js"></script>
+
+</body>
+</html>
