@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canves</title>
+	<style>
+		canvas {
+			border: 1px solid;
+		}
+
+	</style>
+</head>
+<body>
+<!-- canvas 的宽高必须在标签内设置，就算用js中 也要使用 canvas.width来设置 -->
+	<canvas height="400" width="800" id="canvas">
+		对不起，你的浏览器不支持canves
+	</canvas>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		// 上下文
+		var ctx = canvas.getContext("2d");
+
+		// 所有的图像绘制都在 ctx上执行，不使用 canvas
+		// fill 填充
+		// stroke 描边
+		// 线		
+		ctx.beginPath()
+		ctx.moveTo(100,100)
+		ctx.lineTo(100,50)
+		ctx.lineTo(50,50)
+		ctx.closePath()
+		ctx.stroke()
+
+		// 线
+		var path = new Path2D()
+		path.moveTo(100,100)
+		path.lineTo(250, 50)
+		ctx.stroke(path)
+		
+		//这行代码会影响到下面的矩形。。。而不是上面的线
+		ctx.strokeStyle ='red'
+
+		// 矩形
+		ctx.beginPath()
+		ctx.rect(200, 0, 50, 50)
+		ctx.stroke()
+		// 矩形
+		ctx.strokeStyle="brown"
+		// 起点，x, y, 宽高 、、直接描边
+		ctx.strokeRect(50,0,30,20)
+		// 直接填充
+		ctx.fillRect(0,150,30,20)
+		
+		// 弧形
+		ctx.beginPath();
+	    ctx.arc(375,75,50,0,Math.PI*2,true); // 绘制
+	    ctx.moveTo(340,75);
+	    ctx.arc(375,75,35,0,Math.PI,false);   // 口(顺时针)
+	    ctx.moveTo(365,65);
+	    ctx.arc(360,65,5,0,Math.PI*2,true);  // 左眼
+	    ctx.moveTo(395,65);
+	    ctx.arc(390,65,5,0,Math.PI*2,true);  // 右眼
+	    ctx.strokeStyle="pink"
+	    ctx.stroke();
+
+		// 弧形
+		ctx.beginPath();
+	    ctx.arc(375,15,70,Math.PI/3,Math.PI*2/3,false); // 绘制
+	    ctx.strokeStyle="green"
+	    ctx.stroke();
+
+	/*	ctx.beginPath();
+		ctx.moveTo(100, 100);
+		ctx.lineTo(200, 400);
+		ctx.lineTo(160, 50);
+		ctx.lineTo(250, 90);
+		ctx.lineTo(360, 0);
+		ctx.lineWidth="10"
+		ctx.strokeStyle = "red";
+		ctx.stroke(); // 结束划线，并封闭图形
+
+		ctx.closePath();
+*/
+		var image = new Image()
+		image.src = "girl.jpg"		
+		image.onload = function(){
+			ctx.drawImage(image, 200,250,50,50, 100, 100,50,50)
+		}
+
+	</script>
+</body>
+</html>
