@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canves</title>
+	<style>
+		canvas {
+			border: 1px solid;
+		}
+
+	</style>
+</head>
+<body>
+<!-- canvas 的宽高必须在标签内设置，就算用js中 也要使用 canvas.width来设置 -->
+	<canvas height="400" width="800" id="canvas">
+		对不起，你的浏览器不支持canves
+	</canvas>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+		function Ball(x, y, r, color,speed) {
+			this.x = x
+			this.y = y
+			this.r = Math.random()*40
+			this.color = `rgba(${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${Math.random()})`
+			this.speed = Math.random()*3
+			this.Dx = Math.random()*10 - 5
+			this.Dy = Math.random()*10 - 5
+		}
+		Ball.prototype = {
+			render(){
+				ctx.beginPath()
+	    		ctx.arc(this.x, this.y, this.r, 0, Math.PI*2, true); // 绘制
+	    		ctx.fillStyle = this.color
+	    		ctx.fill()
+			},
+			update(){
+				this.r -= this.speed
+				this.x += this.Dx
+				this.y += this.Dy
+			}
+		};		
+		
+
+		var ballArr = new Array()
+
+		canvas.addEventListener("mousemove", function(event){
+			var b = new Ball(event.offsetX , event.offsetY);
+			ballArr.push(b)
+		});
+		
+		setInterval(function () {
+			ctx.clearRect(0, 0, canvas.width, canvas.height, 1)
+			for(var i = 0; i < ballArr.length; i++){
+				if(ballArr[i].r > 0){
+					ballArr[i].render()
+				}
+				ballArr[i].update()
+				if(ballArr[i].r < 0){
+					ballArr.splice(i,1)
+				}
+			}
+		},100)
+
+	</script>
+</body>
+</html>
