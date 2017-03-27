@@ -11,7 +11,6 @@
 	</style>
 </head>
 <body>
-<!-- canvas 的宽高必须在标签内设置，就算用js中 也要使用 canvas.width来设置 -->
 	<canvas height="400" width="800" id="canvas">
 		对不起，你的浏览器不支持canves
 	</canvas>
@@ -20,49 +19,41 @@
 		var canvas = document.getElementById('canvas');
 		var ctx = canvas.getContext("2d");
 
-		function Ball(x, y, r, color,speed) {
+		function Boy(x, y) {
 			this.x = x
 			this.y = y
-			this.r = Math.random()*40
-			this.color = `rgba(${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${Math.random()})`
-			this.speed = Math.random()*3
-			this.Dx = Math.random()*10 - 5
-			this.Dy = Math.random()*10 - 5
+			this.state = 0
 		}
-		Ball.prototype = {
+		Boy.prototype = {
 			render(){
-				ctx.beginPath()
-	    		ctx.arc(this.x, this.y, this.r, 0, Math.PI*2, true); // 绘制
-	    		ctx.fillStyle = this.color
-	    		ctx.fill()
+				ctx.drawImage(image, 60 * this.state + 9, 0, 58, 95, this.x, this.y, 58, 95)
 			},
 			update(){
-				this.r -= this.speed
-				this.x += this.Dx
-				this.y += this.Dy
-			}
-		};		
-		
-
-		var ballArr = new Array()
-
-		canvas.addEventListener("mousemove", function(event){
-			var b = new Ball(event.offsetX , event.offsetY);
-			ballArr.push(b)
-		});
-		
-		setInterval(function () {
-			ctx.clearRect(0, 0, canvas.width, canvas.height, 1)
-			for(var i = 0; i < ballArr.length; i++){
-				if(ballArr[i].r > 0){
-					ballArr[i].render()
-				}
-				ballArr[i].update()
-				if(ballArr[i].r < 0){
-					ballArr.splice(i,1)
+				this.state ++
+				this.x += 1
+				if(this.state > 4){
+					this.state = 0
 				}
 			}
-		},100)
+		}
+
+		var image = new Image()
+		image.src = "boy.jpg"	
+		image.onload = function () {
+			// ctx.drawImage(image, 10,0,65,90, 100, 100,65,90)
+			var boy = new Boy(100, 100)
+			var timer = setInterval(function () {
+				ctx.clearRect(0, 0, canvas.width, canvas.height)
+				boy.render()
+				boy.update()
+				if(boy.x > 700){
+					clearInterval(timer)
+				}
+			},100)
+
+			
+		}
+
 
 	</script>
 </body>
