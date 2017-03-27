@@ -20,11 +20,12 @@
 		var canvas = document.getElementById('canvas');
 		var ctx = canvas.getContext("2d");
 
-		function Ball(x, y, r, color) {
-			this.x = x
-			this.y = y
-			this.r = r
-			this.color = color
+		function Ball(x, y, r, color,speed) {
+			this.x = Math.random()*canvas.width
+			this.y = Math.random()*canvas.height
+			this.r = Math.random()*4
+			this.color = `rgba(${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${parseInt(Math.random()*256)},${Math.random()})`
+			this.speed = Math.random()*5
 		}
 		Ball.prototype = {
 			// 渲染
@@ -35,15 +36,28 @@
 	    		ctx.fill()
 			},
 			update(){
-				this.x += 1
+				this.x += this.speed
+				if(this.x > canvas.width){
+					this.x = 0
+				}
 			}
 		};		
 		// 实例化
-		var b = new Ball(100, 100, 50, "red")
+		// var b = new Ball()
+
+		var ballArr = new Array()
+		for(var i = 0; i < 500; i++){
+			var b = new Ball()
+			ballArr.push(b)
+		}
+
+
 		setInterval(function () {
-			ctx.clearRect(0, 0, canvas.width, canvas.height)
-			b.update()
-			b.render()
+			ctx.clearRect(0, 0, canvas.width, canvas.height, 1)
+			for(var i = 0; i < ballArr.length; i++){
+				ballArr[i].render()
+				ballArr[i].update()
+			}
 		},100)
 
 	</script>
