@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canves</title>
+	<style>
+		canvas {
+			border: 1px solid;
+		}
+
+	</style>
+</head>
+<body>
+<!-- canvas 的宽高必须在标签内设置，就算用js中 也要使用 canvas.width来设置 -->
+	<canvas height="400" width="800" id="canvas">
+		对不起，你的浏览器不支持canves
+	</canvas>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+		function Ball(x, y, r, color) {
+			this.x = x
+			this.y = y
+			this.r = r
+			this.color = color
+		}
+		Ball.prototype = {
+			// 渲染
+			render(){
+				ctx.beginPath()
+	    		ctx.arc(this.x, this.y, this.r, 0, Math.PI*2, true); // 绘制
+	    		ctx.fillStyle = this.color
+	    		ctx.fill()
+			},
+			update(){
+				this.x += 1
+			}
+		};		
+		// 实例化
+		var b = new Ball(100, 100, 50, "red")
+		setInterval(function () {
+			ctx.clearRect(0, 0, canvas.width, canvas.height)
+			b.update()
+			b.render()
+		},100)
+
+	</script>
+</body>
+</html>
