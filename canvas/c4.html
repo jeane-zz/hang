@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//人类。 
+		function People(name){
+			this.name = name;
+		}
+		//人类的原型
+		People.prototype = {
+			say : function(){
+				alert("你好我是" + this.name);
+			}
+		}
+
+		//学生类，学生也是人，所以学生具有人的所有属性和方法
+		//也有自己特有的属性，比如学号
+		//也有自己特有的方法，比如学习
+		//继承： 我跟你一样，并且丰富了你。
+		function Student(name,xuehao){
+			this.name = name;
+			this.xuehao = xuehao;
+		}
+		//原型链。子类的原型，是父类的实例
+		Student.prototype = new People();
+		Student.prototype.say = function(){
+			alert("你好我是" + this.name);
+			alert("我的学号" + this.xuehao);
+		},
+		Student.prototype.study = function(){
+			alert("我要写作业了！");
+		}
+
+		var xiaoming = new Student("小明","123");
+		xiaoming.say();
+		xiaoming.study();
+
+
+		//创建类
+		var People = Class.extend({
+			init : function(name,age,sex){
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+			},
+			say : function(){
+				alert("你好，我是" + this.name + "今年" + this.age + "岁了" + "我是个" + this.sex + "生");
+			},
+			zhangyisui : function(){
+				this.age ++;
+			}
+		});
+
+		//子类
+		var Student = People.extend({
+			init : function(name,age,sex,xuehao){
+				//运行一次父类的init
+				this._super(name,age,sex);
+				this.xuehao = xuehao;
+			},
+			say : function(){
+				//运行一次父类的say方法
+				this._super();
+				alert(this.xuehao);
+			},
+			study : function(){
+				alert("我开始学习");
+			}
+		});
+		 
+		var chenwei = new Student("陈伟",12,"男",123456);
+		chenwei.say();
+		chenwei.study();
+	</script>
+</body>
+</html>
