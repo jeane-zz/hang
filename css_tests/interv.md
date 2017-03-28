@@ -1,0 +1,46 @@
+#### 3.28 
+
+1. 块级元素行内元素
+2. 选择器及权重
+3. h5 css3新特性
+4. 盒模型
+5. 清除浮动
+6.  NaN * 5 = ？
+7.  
+```js
+var str = "hello"
+(function(){
+    console.log(str) // undefined
+    var str = "world"
+    console.log(str) // world
+    })(); 
+```
+
+8. 排序
+9. json串转化为一个对象
+10. 闭包、模块实现自增
+11. css继承属性
+12. 
+
+
+#### 3.07
+
+1. 实现数据变换
+2. 两个数字合并成一个有序数组 不使用sort concat
+3. 0===undefined？ null===undefined ？
+4. 构建长度为5的空数组
+
+1. abc... 实现
+2. 纯CSS 三角形
+3. 清除浮动
+4. 居中
+
+1. data-*
+2. cookie、session区分
+3. 跨域 原理
+
+#### 3.05
+1. 行内、块级元素
+2. line-height对行内是否有作用
+3. 
+
