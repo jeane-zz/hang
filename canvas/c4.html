@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		canvas {
+			border: 1px solid;
+		}
+
+	</style>
+</head>
+<body>
+	<canvas height="400" width="800" id="canvas">
+		对不起，你的浏览器不支持canves
+	</canvas>
+
+	<script type="text/javascript">
+		function People(name) {
+			this.name = name
+		}
+		People.prototype = {
+			say() {
+				console.log('hello')
+			}
+		}
+
+		function Student(name, id) {
+			this.name = name
+			this.id = id
+		}
+		Student.prototype = new People(name)
+		Student.prototype.study = function(){
+			console.log('study')
+		}
+
+		var lin = new Student('xiaolin',5)
+		lin.say()
+		lin.study()
+	</script>
+</body>
+</html>

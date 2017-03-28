@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		canvas {
+			border: 1px solid;
+		}
+
+	</style>
+</head>
+<body>
+	<canvas height="400" width="800" id="canvas">
+		对不起，你的浏览器不支持canves
+	</canvas>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+		function Game (){
+			var self = this
+			this.image = new Image()
+			this.image.src = "boy.jpg"	
+			this.image.onload = function () {
+				self.run()
+			}
+			this.boy = new Boy(100, 100)
+			this.timer = null
+		}
+
+		Game.prototype = {
+			mainloop (){
+				ctx.clearRect(0, 0, canvas.width, canvas.height)
+				this.boy.render()
+				this.boy.update()
+				if(this.boy.x > 700){
+					clearInterval(timer)
+				}
+			},
+			run (){
+				var self = this
+				self.timer = setInterval(function () {
+					self.mainloop()	
+				},100)
+			},
+			stop(){
+				clearInterval(this.timer)
+			}
+		}
+
+		function Boy(x, y) {
+			this.x = x
+			this.y = y
+			this.state = 0
+		}
+		Boy.prototype = {
+			render(){
+				ctx.drawImage(game.image, 60 * this.state + 9, 0, 58, 95, this.x, this.y, 58, 95)
+			},
+			update(){
+				this.state ++
+				this.x += 1
+				if(this.state > 4){
+					this.state = 0
+				}
+			}
+		}
+
+	
+		var game = new Game()
+
+	</script>
+</body>
+</html>
