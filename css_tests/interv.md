@@ -9,6 +9,9 @@
 8. this的使用
 9. 实现一个闭包
 10. slice是否深复制
+11. cookied 作用 localStorage区别
+12. cookie如何传递
+13. http状态码
  
 
 #### 3.28 
