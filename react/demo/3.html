@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>react 组件 PropTypes && getDefaultProps</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var MyNewTitle = React.createClass({
+        getDefaultProps (){
+          return {
+            title : 'this is from getDefaultProps'
+          }
+        },
+        render() {
+          return <div>this.props.title : {this.props.title}</div>
+        }
+      })
+      var MyTitle = React.createClass({
+        propTypes :{
+          title: React.PropTypes.string.isRequired,
+        },
+        render() {
+          return <div> it is the 6th example,关于react组件<h3> React is Awesome  {this.props.title}</h3></div>
+        }
+      })
+
+      var title = '113'
+      ReactDOM.render(
+      <div>
+        <MyNewTitle /> 
+        <MyTitle name="Jeane" title ={title}/>
+      </div>,
+      document.getElementById('example')
+      )
+    </script>
+  </body>
+</html>
