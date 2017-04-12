@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>react 组件 生命周期</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var Hello = React.createClass({
+        getInitialState() {
+          return {opacity : 1.0}
+        },
+        componentDidMount() {
+          this.timer = setInterval(function(){
+            var opacity = this.state.opacity
+            opacity -= 0.05
+            if(opacity < 0.1) {
+              opacity = 1
+            }
+            this.setState({
+              opacity : opacity
+            })
+          }.bind(this), 100)
+        },
+        render() {
+          return (
+            <div style={{opacity : this.state.opacity}}>
+              Hello {this.props.name}
+            </div>
+          )
+        }
+      })
+
+      ReactDOM.render(
+      <div title="outer">
+        <Hello name= "react" /> 
+      </div>,
+      document.getElementById('example')
+      )
+    </script>
+  </body>
+</html>
