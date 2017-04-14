@@ -5,9 +5,8 @@
 </head>
 <body>
 	<script type="text/javascript">
-		// 案例1
+		// 案例1 变量声明和作用域
 		var i = 100;
-
 		(function(){
 		// 以下两个i为匿名函数内部的i
 		  console.log(i); 	// 虽然i存在变量提升，但是并没有完成赋值， 
@@ -19,7 +18,7 @@
 		// VM548:4 undefined
 		// VM548:8 10
 
-		// 案例2
+		// 案例2 变量声明和作用域
 		let j = 100;	// 继续使用变量 i ,控制台报错。 
 		(function(){
 			// for循环之外的两个j都指向 匿名函数外面的j
@@ -34,10 +33,44 @@
 
 
 
-		// 案例1
-		// 案例1
-		// 案例1
-		// 案例1
+		// 案例3 变量声明和作用域
+		let m = 100;
+
+		(function(){
+			// 两个m均表示匿名函数内部的m
+		  console.log(m); // 会报错 Use before declaration
+		  let m = 0;
+		  for(; m < 10; m++){
+		      //do sth.
+		  }
+		  console.log(m); // 41行注释掉以后，可以正常运行 m = 10
+		})();
+		// VM95:4 Uncaught ReferenceError: i is not defined
+		//     at <anonymous>:4:15
+		//     at <anonymous>:10:3
+
+		// 案例4 函数与同名变量 同作用域
+		var a = 10;
+		function a(){ 
+		  
+		}
+		//a() // 显示 a is not a function 函数中止
+		console.log(a); // 始终指向变量 a， 以函数形式调用会报错
+		console.log(a());
+		// VM104:7 10
+		// VM126:7 Uncaught TypeError: a is not a function
+		//     at <anonymous>:7:13
+
+
+		// 案例5 函数与同名变量 同作用域
+		var aa = 10;
+		aa = function (){} // 相当于对aa重新赋值
+		console.log(aa); // 就近选择最后定义的aa的值 输出：function (){}
+		aa = 20
+		console.log(aa); // 输出 20
+		// VM233:7 function (){}
+
+		// 案例1 函数与同名变量 同作用域
 		// 案例1
 		// 案例1
 		// 案例1
