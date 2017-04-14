@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>容易混淆的JS代码汇总。</title>
 </head>
 <body>
+	<ul>
+		<li>张三</li>
+		<li>李四</li>
+		<li>王五</li>
+	</ul>
 	<script type="text/javascript">
 		// 案例1 变量声明和作用域
 		var i = 100;
@@ -38,7 +44,7 @@
 
 		(function(){
 			// 两个m均表示匿名函数内部的m
-		  console.log(m); // 会报错 Use before declaration
+		//  console.log(m); // 会报错 Use before declaration
 		  let m = 0;
 		  for(; m < 10; m++){
 		      //do sth.
@@ -56,7 +62,7 @@
 		}
 		//a() // 显示 a is not a function 函数中止
 		console.log(a); // 始终指向变量 a， 以函数形式调用会报错
-		console.log(a());
+		//console.log(a());
 		// VM104:7 10
 		// VM126:7 Uncaught TypeError: a is not a function
 		//     at <anonymous>:7:13
@@ -70,11 +76,38 @@
 		console.log(aa); // 输出 20
 		// VM233:7 function (){}
 
-		// 案例1 函数与同名变量 同作用域
+		// 案例6 函数与同名变量 同作用域
+		var list = document.querySelectorAll('ul>li');
+
+		for(var i = 0; i < list.length; i++){
+		  var item = list[i];
+		  item.addEventListener("click", function(){
+		    console.log(item.innerHTML);
+		  })
+		  // 下面注册的click事件会将这个函数覆盖掉
+		  // item.onclick = function(){
+		  //   console.log(item.innerHTML);
+		  // }
+		}
+
+		for(var i = 0; i < list.length; i++){
+		  (function(item){
+		    item.onclick = function(){
+		      console.log("匿名函数传参 ： "+item.innerHTML);
+		    }
+		  })(list[i]);
+		}
+		// js_exam.html:85 王五
+		// js_exam.html:96 匿名函数传参 ： 张三
+		// js_exam.html:85 王五
+		// js_exam.html:96 匿名函数传参 ： 李四
+		// js_exam.html:85 王五
+		// js_exam.html:96 匿名函数传参 ： 王五
+		
 		// 案例1
 		// 案例1
 		// 案例1
-		// 案例1
+		// 案例1 
 
 	</script>
 </body>
