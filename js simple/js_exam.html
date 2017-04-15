@@ -3,6 +3,29 @@
 <head>
 	<meta charset="utf-8">
 	<title>容易混淆的JS代码汇总。</title>
+	<style type="text/css">
+		#container {
+		  position: relative;
+		  width: 400px;
+		  height: 400px;
+		  background-color: #cf3;
+		}
+
+		.point {
+		  position: absolute;
+		  width: 20px;
+		  height: 20px;
+		  top: 200px;
+		  left: 200px;
+		  border-radius: 50%;
+		  transform: translate(-50%, -50%);
+		  background-color: green;
+		}
+
+		#zero {
+		  background-color: red;
+		}
+	</style>
 </head>
 <body>
 	<ul>
@@ -10,6 +33,15 @@
 		<li>李四</li>
 		<li>王五</li>
 	</ul>
+
+
+	<button id="makeDistance">计算距离</button>
+	<div id="container">
+	  <div id="one" class="point"></div>
+	  <div id="zero" class="point"></div>
+	</div>
+
+
 	<script type="text/javascript">
 		// 案例1 变量声明和作用域
 		var i = 100;
@@ -97,6 +129,14 @@
 		    }
 		  })(list[i]);
 		}
+
+		for(let j = 0; j < list.length; j++){
+		  let item = list[j]
+		  item.addEventListener('click',function(){
+		  	console.log("let item 函数传参 ： "+item.innerHTML);
+		  })  
+		}
+
 		// js_exam.html:85 王五
 		// js_exam.html:96 匿名函数传参 ： 张三
 		// js_exam.html:85 王五
@@ -105,6 +145,24 @@
 		// js_exam.html:96 匿名函数传参 ： 王五
 		
 		// 案例1
+		one.calDistance = function(){
+		  let rect = this.getBoundingClientRect();
+
+		  let distance = Math.sqrt(Math.pow(rect.left - axisZero.left, 2), Math.pow(rect.top - axisZero.top, 2));
+		  
+		  alert('距离是：' + distance);
+		}
+
+		let offset = container.getBoundingClientRect();
+		let axisZero = zero.getBoundingClientRect();
+
+		container.addEventListener('click', function(evt){
+		  one.style.left = (evt.clientX - offset.left) + 'px';
+		  one.style.top = (evt.clientY - offset.top) + 'px'; 
+		});
+
+		makeDistance.addEventListener('click', one.calDistance);
+
 		// 案例1
 		// 案例1
 		// 案例1 
