@@ -15,7 +15,6 @@ module.exports = {
 		historyApiFallback: true,
 		inline: true
 	},
-
 	module: {
 		loaders:[
 			{
@@ -36,14 +35,13 @@ module.exports = {
 			}
 		]
 	},
-	puglins: [
-		new webpack.LoaderOptionsPlugin({
-			options: {
-			postcss: function () {
-				return [autoprefixer];
-			}
+	postcss: [
+	    require('autoprefixer')
+	],
 
-			}
-		})
-	]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: __dirname + "/app/index.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
+    })
+  ],
 }
