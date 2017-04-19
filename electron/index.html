@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>electron udp 局域网广播</title>
+</head>
+<body>
+	<h1> it works</h1>
+	<input type="text" id="msgInput">
+	<button id="send" >send</button>
+</body>
+
+<script type="text/javascript">
+	var udp = require('dgram');
+	var udpSocket = udp.createSocket(
+		'udp4');
+	udpSocket.on('message', data =>{
+		console.log(data.toString());
+	})
+
+	udpSocket.bind(6789,function(){
+		udpSocket.setBroadcast(true);
+	});
+	send.onclick = function () {
+		var msg = msgInput.value;
+		msgInput.value = "";
+		udpSocket.send(msg.toString(), 6789, '255.255.255.255')// 消息， 端口，广播范围
+	}
+</script>
+</html>
