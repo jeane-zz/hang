@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>模拟实现浏览器端的module.exports</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var module = {
+			exports: {}
+		}; // 必须加分号，下面一行是括号开始
+
+		(function (module, exports) {
+			exports.multi = function (a, b) {
+				return a * b
+			}
+			exports.add = function (a, b) {
+				return a + b
+			}
+		}(module, module.exports))
+
+		var f1 = module.exports.multi
+		var f2 = module.exports.add
+
+
+		// var module = {
+		//   exports: {}
+		// };
+
+		// (function(module, exports) {
+		//   exports.multiply = function (m, n) { return n * m };exports.add = function (m, n) { return n + m };
+		// }(module, module.exports))
+
+		// var f1 = module.exports.multiply;var f2 = module.exports.add;
+	</script>
+</body>
+</html>
