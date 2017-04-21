@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>回调函数</title>
+</head>
+<body>
+	<script src="jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(callback);  
+		    $.ajax({  
+		        url: "test.html",  
+		        context: document.body  
+		    }).done(function() {   
+		        $(this).addClass("done");  
+		    }).fail(function() {   
+		        alert("error");  
+		    }).always(function() {   
+		        alert("complete");   
+		    });  
+	</script>
+</body>
+</html>
