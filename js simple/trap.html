@@ -8,19 +8,27 @@
 	<ul id="js-list"></ul>
 	<script type="text/javascript">
 		var oUl = document.querySelector('ul')
-		for(var i = 0; i < 3; i++) {
-			var li = document.createElement('li')
-			li.innerHTML = i + 1
-			oUl.appendChild(li)
-		}
+		// 该代码段若放在后面会影响第二段代码中li的click事件
+		// 最可能的原因是 18 行代码是通过innerHTML来进行插入操作的
 		var liList = []
 		for(var i = 0; i < 3; i++) {
 			liList.push('<li> by Array'+ i + 1 +'</li>')
 			liList.push('<li> by Array'+ (i + 1) +'</li>')
 		}
-
-		oUl.innerHTML += liList.join('') ;// 必须使用分号~~~~
-
+		oUl.innerHTML += liList.join('') 
+		
+		//
+		for(var i = 0; i < 3; i++) {
+			var tli = document.createElement('li')
+			tli.index = i
+			tli.innerHTML = i + 1
+			tli.addEventListener('click', function () {
+				console.log(this)
+				console.log("序号： " +this.index)
+			})
+			oUl.appendChild(tli)
+		}
+		
 		oUl.addEventListener ("click", function (e){
 			// 仅当点击对象为li时进行操作
 			if(e.target.nodeName == "LI") {
@@ -28,7 +36,7 @@
 				console.log(e.target.innerHTML)
 			}
 		})
-
+		// 一旦出现匿名函数，必须使用分号~~~~
 		;(() => {
 		    var ndContainer = document.getElementById('js-list');
 		    if (!ndContainer) {
