@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>前端面试题目</title>
+	<title>数据量很大的处理办法</title>
 </head>
 <body>
 	<ul id="js-list"></ul>
@@ -51,6 +51,48 @@
 		})();
 	</script>
 
+	<ol id="js-ollist"></ol>
+	<script>
+		;(() => {
+			const container = document.getElementById('js-ollist')
+			if(!container) {
+				return
+			}
 
+			const total = 10000
+			const baseSize = 5
+			const count = total / baseSize
+			let done = 0
+
+			function appendLi() {
+				const fragment = document.createDocumentFragment()
+				for(let m = 0; m < baseSize; m++) {
+					const newLi = document.createElement('li')
+					newLi.innerText = (done * baseSize) + m + 1
+					fragment.appendChild(newLi)
+				}
+
+				container.appendChild(fragment)
+
+				done += 1
+				doAppend()
+			}
+
+			function doAppend() {
+				if(done < count) {
+					window.requestAnimationFrame(appendLi)
+				}
+			}
+
+			doAppend()	
+
+			container.addEventListener('click', function(e) {
+				const target = e.target
+				if(target.tagName === 'LI') {
+					console.log(target.innerHTML)
+				}
+			})
+		})();
+	</script>
 </body>
 </html>
