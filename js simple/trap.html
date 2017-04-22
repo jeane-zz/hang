@@ -5,7 +5,7 @@
 	<title>前端面试题目</title>
 </head>
 <body>
-	<ul></ul>
+	<ul id="js-list"></ul>
 	<script type="text/javascript">
 		var oUl = document.querySelector('ul')
 		for(var i = 0; i < 3; i++) {
@@ -18,7 +18,29 @@
 			liList.push('<li> by Array'+ i + 1 +'</li>')
 			liList.push('<li> by Array'+ (i + 1) +'</li>')
 		}
-		oUl.innerHTML += liList.join('')
+
+		oUl.innerHTML += liList.join('') ;// 必须使用分号~~~~
+
+		oUl.addEventListener ("click", function (e){
+			// 仅当点击对象为li时进行操作
+			if(e.target.nodeName == "LI") {
+				e.target.style.color = 'red'
+				console.log(e.target.innerHTML)
+			}
+		})
+
+		;(() => {
+		    var ndContainer = document.getElementById('js-list');
+		    if (!ndContainer) {
+		        return;
+		    }
+
+		    for (var i = 0; i < 3; i++) {
+		        var ndItem = document.createElement('li');
+		        ndItem.innerText = 'example: '+(i + 1);
+		        ndContainer.appendChild(ndItem);
+		    }
+		})();
 	</script>
 
 
