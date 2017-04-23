@@ -19,50 +19,43 @@
 	<script type="text/javascript">
 	
 		const rootNode = document.getElementsByClassName('root')[0]
-		const result = []
-		const stack = []
-	//	deepMapNode(rootNode)
+		const result1 = []
+		const result2 = []
+		const queue = [rootNode]
+		deepMapNode(rootNode)
 		// 深度优先遍历
 		function deepMapNode(root) {
-			result.push(root)
+			result1.push(root)
 			
 			for(let i = 0; i < root.children.length; i++) {
 				var child = root.children[i]
 				if(child.children.length > 0) {
 					deepMapNode(child)
 				}else {
-					result.push(root.children[i])
+					result1.push(root.children[i])
 				}
 			}
 		}
 
-		// console.log(result)
+		console.log(result1)
 
 		var temp1 = 0
 		var temp2 = 0 
 		
-		function wideMapNode(root) {
-			
-			stack.push(root)
-			// temp1 = stack.length
-			for(let i = 0; i < root.children.length; i++) {
-				var child = root.children[i]
-				result.push(child)
-			}
-			temp = result.length
-			
-			for(let j = 0; j < temp; j++){
-				if(result[j].children.length > 0) {
-					wideMapNode(result[j])
-				} else {
-					stack.push(result[j])
+		function wideMapNode() {
+			while(queue.length) {
+				root = queue[0]
+				for(let i = 0; i < root.children.length; i++) {
+					var child = root.children[i]
+					queue.push(child)
 				}
-				result.shift()
+				result2.push(queue.shift())
 			}
-			result = []
 		}
+
+
 		wideMapNode(rootNode)
-		console.log(stack)
+		console.log(result2)
 
 	</script>
 </body>
