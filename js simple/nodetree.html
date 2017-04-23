@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>节点树遍历</title>
+	<meta charset="utf-8">
 </head>
 <body>
 	<div class="root">
@@ -16,11 +17,11 @@
 	    </div>
 	</div>
 	<script type="text/javascript">
+	
 		const rootNode = document.getElementsByClassName('root')[0]
-		const stack = []
 		const result = []
-
-		deepMapNode(rootNode)
+		const stack = []
+	//	deepMapNode(rootNode)
 		// 深度优先遍历
 		function deepMapNode(root) {
 			result.push(root)
@@ -35,10 +36,34 @@
 			}
 		}
 
-		console.log(result)
+		// console.log(result)
 
+		var temp1 = 0
+		var temp2 = 0 
 		
-		
+		function wideMapNode(root) {
+			
+			stack.push(root)
+			// temp1 = stack.length
+			for(let i = 0; i < root.children.length; i++) {
+				var child = root.children[i]
+				result.push(child)
+			}
+			temp = result.length
+			
+			for(let j = 0; j < temp; j++){
+				if(result[j].children.length > 0) {
+					wideMapNode(result[j])
+				} else {
+					stack.push(result[j])
+				}
+				result.shift()
+			}
+			result = []
+		}
+		wideMapNode(rootNode)
+		console.log(stack)
+
 	</script>
 </body>
 </html>
