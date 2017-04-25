@@ -58,5 +58,93 @@
 		console.log(result2)
 
 	</script>
+
+	<script type="text/javascript">
+		
+		for(var i = 0; i < 5; i++) {
+			setTimeout(function(){
+				console.log('第一个测试 ： ' + new Date(), i)
+			}, 1000)
+		}
+
+
+		// console.log('第二个测试')
+		for(let i = 0; i < 5; i++) {
+			setTimeout(function(){
+				console.log('第二个测试 ： ' + new Date(), i)
+			}, 1000)
+		}
+
+		for(var i = 0; i < 5; i++) {
+			setTimeout(function(i){
+				console.log('第三个测试 ： ' + new Date(), i)
+			}(i), 1000)
+		}
+		var fun = function(i){
+			// 内部函数function一定不能有形参i，否则console语句会就近选择匿名函数的形参，而不会选择fun函数传过来的实参
+			setTimeout(function(){
+				console.log('第四个测试 ： ' + new Date(), i)
+			}, 1000)
+		}
+
+		for(var i = 0; i < 5; i++) {
+			fun(i)
+		}
+		
+
+		for(var i = 0; i < 5; i++) {
+			(function(i){
+				setTimeout(function(){
+					console.log('第五个测试 ： ' + new Date(), i)
+				}, 1000)
+			})(i)
+		}
+
+		for(var i = 0; i < 5; i++) {
+			setTimeout(function(i){
+				console.log('第六个测试 ： ' + new Date(), i)
+			}, 1000, i)
+		}
+
+		const tasks = [];
+		for (var i = 0; i < 5; i++) {   // 这里 i 的声明不能改成 let，如果要改该怎么做？
+		    ((j) => {
+		        tasks.push(new Promise((resolve) => {
+		            setTimeout(() => {
+		                console.log('第七个测试 ： ' + new Date, j);
+		                resolve();  // 这里一定要 resolve，否则代码不会按预期 work
+		            }, 1000 * j);   // 定时器的超时时间逐步增加
+		        }));
+		    })(i);
+		}
+
+		Promise.all(tasks).then(() => {
+		    setTimeout(() => {
+		        console.log(new Date, i);
+		    }, 1000);   // 注意这里只需要把超时设置为 1 秒
+		});
+
+
+
+		const tasks2 = []; // 这里存放异步操作的 Promise
+		const output = (i) => new Promise((resolve) => {
+		    setTimeout(() => {
+		        console.log('第八个测试 ： ' + new Date, i);
+		        resolve();
+		    }, 1000 * i);
+		});
+
+		// 生成全部的异步操作
+		for (var i = 0; i < 5; i++) {
+		    tasks2.push(output(i));
+		}
+
+		// 异步操作完成之后，输出最后的 i
+		Promise.all(tasks2).then(() => {
+		    setTimeout(() => {
+		        console.log(new Date, i);
+		    }, 1000);
+		});
+	</script>
 </body>
 </html>
