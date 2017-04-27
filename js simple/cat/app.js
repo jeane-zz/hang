@@ -25,6 +25,25 @@ var Move_none = -1,
 	Move_rightbottom = 4,
 	Move_lefttbottom = 5
 
+function move(type) {
+	var x = currentCat.indexX
+	var y = currentCat.indexY
+	switch(type) {
+		// case -1: ;break;		   // Move_none
+		case 0: x -= 1; break; // Move_left
+		case 1: x -= y % 2 ? 0 : 1; y -= 1; break; // Move_lefttop
+		case 2: x += y % 2 ? 1 : 0; y -= 1; break; // Move_righttop
+		case 3: x += 1; break; 						// Move_right
+		case 4: x += y % 2 ? 1 : 0; y += 1; break; // Move_rightbottom
+		case 5: x -= y % 2 ? 0 : 1; y += 1; break; // Move_lefttbottom
+	}
+	var next = circleArr[x][y]
+	next.setCircleType(3)
+	currentCat.setCircleType(1)
+	currentCat = nextgiy
+}
+
+
 function getMoveDir(cat) {
 	var can = true
 
@@ -35,6 +54,10 @@ function getMoveDir(cat) {
 	}
 }
 
+function gameFail() {
+	alert('game over')
+	return 
+}
 
 function addCircles() {
 	for(var indexX = 0; indexX < 9; indexX++) {
@@ -63,8 +86,7 @@ function circleClick(event) {
 	}
 
 	if(currentCat.indexY == 0 || currentCat.indexY == 8 || currentCat.indexX == 0 || currentCat.indexX == 8) {
-		alert ('game over')
-		return
+		gameFail()
 	}
 	// var leftCircle = circleArr[currentCat.indexX - 1][currentCat.indexY]
 	// if(leftCircle.getCircleType() == 1) {
