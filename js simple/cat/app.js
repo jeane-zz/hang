@@ -23,7 +23,7 @@ var Move_none = -1,
 	Move_righttop = 2,
 	Move_right = 3,
 	Move_rightbottom = 4,
-	Move_lefttbottom = 5
+	Move_leftbottom = 5
 
 function move(type) {
 	var x = currentCat.indexX
@@ -40,18 +40,131 @@ function move(type) {
 	var next = circleArr[x][y]
 	next.setCircleType(3)
 	currentCat.setCircleType(1)
-	currentCat = nextgiy
+	currentCat = next
 }
 
 
 function getMoveDir(cat) {
-	var can = true
+	var can, x, y, distance = [] //distance记录当前点距离最近的选中点的距离
+	
 
-	for(var x = cat.indexX; x > 0; x--) {
+	// left
+	can = true
+	for(x = cat.indexX; x > 0; x--) {
+		// 如果左边有选中元素
 		if(circleArr[x][cat.indexY].getCircleType() == Circle.Type_Yes) {
 			can	= false
+			distance[Move_left] = cat.indexX - x
+			break
+		}
+		// if(x < 0) 
+	}
+	if(can) {
+		move(0)
+	}
+	// right
+	can = true
+	for(x = cat.indexX; x < 9; x++) {
+		// 如果左边有选中元素
+		if(circleArr[x][cat.indexY].getCircleType() == Circle.Type_Yes) {
+			can	= false
+			distance[Move_right] = x - cat.indexX
+			break
 		}
 	}
+	if(can) {
+		move(3)
+	}
+
+	// lefttop
+	can = true
+	x = cat.indexX, y = cat.indexY
+	while(1) {
+		// 如果左上有选中元素
+		if(circleArr[x][y].getCircleType() == Circle.Type_Yes) {
+			can	= false
+			distance[Move_lefttop] = cat.indexY - y
+			break
+		}
+		if(y % 2 == 0) {
+			x--
+		}
+		y--
+		// 边界
+		if(x < 0 || y < 0) {
+			break
+		}
+	}
+	if(can) {
+		move(1)
+	}	
+	// righttop
+	can = true
+	x = cat.indexX, y = cat.indexY
+	while(1) {
+		// 如果右上有选中元素
+		if(circleArr[x][y].getCircleType() == Circle.Type_Yes) {
+			can	= false
+			distance[Move_righttop] = cat.indexY - y
+			break
+		}
+		if(y % 2 == 1) {
+			x++
+		}
+		y--
+		// 边界
+		if(x  > 8 || y < 0) {
+			break
+		}
+	}
+	if(can) {
+		move(2)
+	}
+
+	// rightbottom
+	can = true
+	x = cat.indexX, y = cat.indexY
+	while(1) {
+		// 如果右下有选中元素
+		if(circleArr[x][y].getCircleType() == Circle.Type_Yes) {
+			can	= false
+			distance[Move_rightbottom] =y - cat.indexY 
+			break
+		}
+		if(y % 2 == 1) {
+			x++
+		}
+		y++
+		// 边界
+		if(x  > 8 || y > 8) {
+			break
+		}
+	}
+	if(can) {
+		move(4)
+	}
+	// leftbottom
+	can = true
+	x = cat.indexX, y = cat.indexY
+	while(1) {
+		// 如果左下有选中元素
+		if(circleArr[x][y].getCircleType() == Circle.Type_Yes) {
+			can	= false
+			distance[Move_leftbottom] =y - cat.indexY 
+			break
+		}
+		if(y % 2 == 0) {
+			x--
+		}
+		y++
+		// 边界
+		if(x < 0 || y > 8) {
+			break
+		}
+	}
+	if(can) {
+		move(5)
+	}			
 }
 
 function gameFail() {
@@ -67,8 +180,8 @@ function addCircles() {
 			circleArr[indexX][indexY] = c
 			c.indexX = indexX
 			c.indexY = indexY
-			c.x = indexY % 2 == 0 ? indexX * 55 : indexX * 55 + 25
-			c.y = indexY * 55 
+			c.x = indexY % 2 == 0 ? indexX * 36 : indexX * 36 + 20
+			c.y = indexY * 36 
 
 			if(indexY == 4 && indexX == 4) {
 				c.setCircleType(3)
@@ -88,6 +201,8 @@ function circleClick(event) {
 	if(currentCat.indexY == 0 || currentCat.indexY == 8 || currentCat.indexX == 0 || currentCat.indexX == 8) {
 		gameFail()
 	}
+
+	getMoveDir(currentCat)
 	// var leftCircle = circleArr[currentCat.indexX - 1][currentCat.indexY]
 	// if(leftCircle.getCircleType() == 1) {
 	// 	leftCircle.setCircleType(3)
