@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-router：动态路由匹配-高级匹配模式</title>
+</head>
+<body>
+	<script src="../vue.js"></script>
+	<script src="../vue-router.js"></script>
+	
+	<div id="app">
+		<h1>Route Matching</h1>
+		<ul>
+			<li><router-link to="/"> /</router-link></li>
+			<li><router-link to="/params/foo/bar">/params/foo/bar</router-link></li>	
+			<li><router-link to="/optional-params">/optional-params</router-link></li>	
+			<li><router-link to="/optional-params/foo">/optional-params/foo</router-link></li>
+			
+			<li><router-link to="/params-with-regex/abc">/params-with-regex/abc</router-link></li>	
+			<li><router-link to="/params-with-regex/123">/params-with-regex/123</router-link></li>
+			
+			<li><router-link to="/asterisk/foo">/asterisk/foo</router-link></li>
+			<li><router-link to="/asterisk/foo/bar">/asterisk/foo/bar</router-link></li>	
+			
+			<li><router-link to="/optional-group/bar">/optional-group/bar</router-link></li>	
+			<li><router-link to="/optional-group/foo/bar">/optional-group/foo/bar</router-link></li>	
+		</ul>
+
+		<p>Route context</p>
+		<pre>{{ JSON.stringify($route, null, 2) }}</pre>
+		<router-view></router-view>
+	</div>
+	<script src="dynamic-2.js"></script>
+</body>
+</html>

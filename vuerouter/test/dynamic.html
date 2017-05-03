@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-router：动态路由匹配</title>
+</head>
+<body>
+	<script src="../vue.js"></script>
+	<script src="../vue-router.js"></script>
+	
+	<div id="app">
+		<h1>Hello App !</h1>
+		<p>
+			<router-link to="/user/foo">Go to /user/foo</router-link>
+			<router-link to="/user/bar">Go to /user/bar</router-link>	
+			<router-link to="/user/1">Go to /user/1</router-link>	
+			<router-link to="/user/2">Go to /user/2</router-link>	
+		</p>
+		<router-view></router-view>
+	</div>
+	<script src="dynamic.js"></script>
+</body>
+</html>
