@@ -4,6 +4,8 @@ const User = {
 	template: `
 	<div>
 		<h2>User {{$route.params.id}}</h2>
+		<router-link to="./profile">profile</router-link>	
+		<router-link to="./posts">posts</router-link>
 		<router-view></router-view>
 	</div>`,
 	// 检测 $route 对象, 对路由参数的变化作出响应
@@ -49,11 +51,11 @@ const routes = [
 		children: [
 			{
 				// 路径 /user/:id/profile
-				path: 'profile',
+				path: '/user/profile',
 				component: UserProfile,
 			},
 			{
-				path: 'posts',
+				path: '/user/posts',
 				component: UserPosts,
 			},
 		]
