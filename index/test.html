@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='js/vue.js'></script>
+</head>
+<body>
+	<div id="app">
+		<p v-html="content"></p>
+		<a v-bind:class="{abc : testa}">模板 - 插值 - 属性</a>
+		<a v-bind:id=`list-${a}`></a>
+	</div>
+	<script type="text/javascript">
+		
+		var vm = new Vue ({
+			el: '#app',
+			data: {
+				a : 1,
+				content: `<li onclick="console.log(1)">lilililili</li>`,
+				testa : true,
+			},
+			created() {
+				console.log("生命周期钩子 ： created 在实例创建完成后调用"+ this.data)
+			}
+		})
+		vm.$watch('a', function(newval, oldval) {
+			console.log('a is changed :' + oldval + ' -> ' + newval)
+		})
+	</script>
+</body>
+</html>
