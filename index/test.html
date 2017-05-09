@@ -12,7 +12,7 @@
 		<a v-bind:id=`list-${a}`></a>
 	</div>
 	<script type="text/javascript">
-		
+
 		var vm = new Vue ({
 			el: '#app',
 			data: {
@@ -27,6 +27,155 @@
 		vm.$watch('a', function(newval, oldval) {
 			console.log('a is changed :' + oldval + ' -> ' + newval)
 		})
+	</script>
+
+
+	<script type="text/javascript">
+	function convert(num) {
+		var nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5,4, 1] ;
+		var roman = [ "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX","V", "IV", "I"];
+		var str = '';
+		var i = 0;
+		while(num !== 0) {
+			if(num >= nums[i]) {
+			  	num -= nums[i];
+				str += roman[i];
+			} else {
+			  	i++;
+			}
+		}
+	 
+	 return str;
+	}
+
+convert(36);
+
+function where(collection, source) {
+  var arr = [];
+  // What's in a name?
+  var keys = []
+  for(key in source) {
+    keys.push(key)
+  }
+  var flag 
+  collection.forEach(val => {
+    flag = true
+    for(var i = 0; i < keys.length; i++) {
+      if((keys[i] in val) == false) {
+        flag = false
+        break
+      }
+      else if(keys[i] in val && val[keys[i]] !== source[keys[i]]){
+        flag = false
+        break
+      }else {
+        continue
+      } 
+    }
+    if(flag) {
+      arr.push(val)
+    }
+  })
+  
+  return arr;
+}
+where([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }) 
+
+function myReplace(str, before, after) {
+  var fl_before = before.charCodeAt(0)
+  var fl_after = after.charCodeAt(0)
+  if(fl_before >= 65 && fl_before <= 90 && fl_after >= 97 && fl_after <= 122) {
+    after.replace(/^([a-z])/, function(match) {
+      console.log('匹配'+ match)
+      return match.toUpperCase()
+    })
+    
+  }
+  return str.replace(before, after);
+}
+
+myReplace("Let us go to the store", "Store", "mall")
+
+function translate(str) {
+  var temStr = str.split('')
+  
+  if(pig(temStr[0])) {
+    temStr.push('way')
+  }
+  else {
+  	while( ! pig(temStr[0])) {
+  		temStr.push(temStr.shift())
+  	}
+    temStr.push('ay')
+  }
+
+  return temStr.join('')
+}
+
+function pig(char) {
+  switch(char) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u': return true
+    default: return false      
+  }
+}
+
+translate("caonsonant");
+
+function pair(str) {
+  var result = []
+  var temp = []
+  for(var i = 0; i < str.length; i++) {
+    result.push([str[i], pp(str[i])])
+  }
+  return result;
+}
+
+function pp (char) {
+  switch(char) {
+    case 'A': return 'T'
+    case 'T': return 'A'
+    case 'C': return 'G'
+    case 'G': return 'C'
+  }
+}
+pair("GCG");
+
+function unite(arr1, arr2, arr3) {
+  var result = []
+  for(var i = 0; i < arguments.length; i++) {
+    result = result.concat(arguments[i])
+  }
+  return new Set(result);
+}
+
+unite([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+function convert(str) {
+  // &colon;&rpar;
+  var result = ''
+  for(var i = 0; i < str.length; i++) {
+    if(str[i] == '&') {
+      result += '&amp;'
+    } else if(str[i] == '<') {
+      result += '&lt;'
+    } else if(str[i] == '>') {
+      result += '&gt;'
+    } else if(str[i] == "'") {
+      result += '&apos;'
+    } else if(str[i] == '"') {
+      result += '&quot;'
+    } else {
+      result += str[i]
+    }
+  }
+  return result;
+}
+
+convert("Dolce & Gabbana");
 	</script>
 </body>
 </html>

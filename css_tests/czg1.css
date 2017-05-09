@@ -2,6 +2,7 @@ body {
   font-size: 70%;
   color: #325050;
   padding: 0;
+  min-width: 880px;
 }
 a {
   text-decoration: none;
@@ -13,7 +14,7 @@ header {
   margin:0;
   text-align: center;
   background: 50% 0 url(http://www.csszengarden.com/214/huntington.jpg) no-repeat;
-  background-size:auto;
+  background-size:cover;
 }
 header h1 {
   text-transform: uppercase;
