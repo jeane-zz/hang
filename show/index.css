@@ -8,6 +8,7 @@ body {
 	background: #e3e3e3;
 	abackground-image: url(img/bg.png);
 	background-size: cover;
+	background-repeat: no-repeat;
 }
 * {
 	padding: 0;
@@ -16,6 +17,7 @@ body {
 }
 section { 
 	display: flex;
+	margin: 0 auto;
 }
 span{
 	display: inline-block;
@@ -202,11 +204,11 @@ aheader a:nth-of-type(2), aheader a:nth-of-type(4) {
 	border-radius: 10px;
 	text-align: center;
 	line-height: 100px;
-	color: #fff;
+	color: #000;
 	font-family: "黑体";
 	text-decoration: none;
-	font-size: 30px;
-	opacity: 0.6;
+	font-size: 20px;
+	opacity: 0.8;
 }
 .classifies:hover {
 	opacity: 0.8;
