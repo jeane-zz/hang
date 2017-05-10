@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>小前端</title>
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<header>
+		<h2 class="title">前 端 路 上</h2>
+		<a class="photo"></a>
+		<p> 技 能 </p>
+		<div>
+			<a class="logos html" style='background-image:url(img/html.jpg);'></a>
+			<a class="logos html" style='background-image:url(img/css.jpg);'></a>
+			<a class="logos js" style='background-image:url(img/js.jpg);'></a>
+			<a class="logos github" style='background-image:url(img/github.jpg);'></a>
+			<a class="logos vue" style='background-image:url(img/vue.jpg);'></a>
+			<a class="logos node" style='background-image:url(img/node.jpg);'></a>
+		</div>
+	</header>
+	<div id="classify">
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/04.jpg);'>奋力撸代码的小前端</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/b.jpg);'>会一点C语言</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/90.jpg);'>轻度代码强迫症</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/d1.jpg);'>愿意把生命浪费在代码</a>
+		<a class="classifies" href="javascript:;" style='background-image:url(../image/50b.jpg);'>和美丽的事物上</a>
+	</div>
+	<section id="outer">
+		
+		<ul>
+			<li><h5>状元红</h5><img src="../image/00.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="54.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/0e.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/3d.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/avatar.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+		<ul>
+			<li><h5>状元红</h5><img src="../image/5f.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/5.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/1b.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/0f.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+		<ul>
+			<li><h5>状元红</h5><img src="../image/4a.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/46.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/8z.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/748.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/38.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+		<ul>
+			<li><h5>状元红</h5><img src="29.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/266.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/44.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/50b.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+			<li><h5>状元红</h5><img src="../image/64.jpg" alt="" /><p> Below the surface of the machine, the program movers. </p></li>
+		</ul>
+	</section>
+	<script type="text/javascript">
+	//window.onload = function(){
+		document.body.style.backgroundImage = `url(img/body-${parseInt(Math.random()*8)}.jpg)`
+		setInterval(function(){
+			var len = document.getElementsByTagName('span')
+			console.log(len)
+			if(len.length > 500) {
+				for(var i = 0; i < 300; i++) {
+					var divCur = document.querySelector('span')
+					document.body.removeChild(divCur)
+					console.log('remove')
+				}
+			}
+		},10000)
+	
+		heart();
+		function heart() {
+			document.onmousemove = function(evt){
+			    var oEvent = evt || window.event;
+			    var scrollleft = document.documentElement.scrollLeft || document.body.scrollLeft;
+			    var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+			    var ooo = document.createElement('span');
+			    ooo.innerHTML = '♥';
+			    ooo.style.left = oEvent.clientX + scrollleft +Math.random()*30 +"px";
+				ooo.style.top = oEvent.clientY + scrolltop + Math.random()*40 + "px";
+				ooo.style.color = 'rgb('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+')';
+				ooo.style.fontSize = parseInt(Math.random()*30) + 'px';
+				document.body.appendChild(ooo);
+			}
+		}
+	//}
+	</script>
+</body>
+</html>

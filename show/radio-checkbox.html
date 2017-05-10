@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>自定义radio、 CheckBox 及 Radio轮播图</title>
+  <link rel="stylesheet" href="radio-checkbox.css">
+</head>
+<body>
+  <form class="a">
+    <input type="radio" name="pic" id="" ><img src="" alt="">
+    <input type="radio" name="pic" id="" checked><img src="" alt="">
+    <input type="radio" name="pic" id=""><img src="" alt="">
+    <input type="radio" name="pic" id=""><img src="" alt="">
+    <input type="radio" name="pic" id=""><img src="" alt="">
+  </form>
+  
+  <div>
+    <ul>
+      <li>小结</li>
+      <li>1、要想给元素设置z-index样式，必须先让它变成定位元素，说的明白一点，就是要给元素设置一个postion:relative(定位元素：position属性值设置除默认值static以外的元素，包括relative，absolute，fixed)样式。
+</li>
+      <li>2、不要给想控制“上、下”的元素设置z-index，而是对他们的父容器设置z-index样式。</li>
+    </ul>
+  </div>
+  
+  <form class="b">
+      <div><input type="radio" name="pic" id="1"> <label for="1">第一个</label>
+      </div>
+      <div><input type="radio" name="pic" id="2"> <label for="2">第二个</label>
+      </div>
+      <div><input type="radio" name="pic" id="3"> <label for="3">第三个</label>
+      </div>
+      <div><input type="radio" name="pic" id="4"> <label for="4">第四个</label>
+      </div>
+      <div><input type="checkbox" name="pics" id="5"><label for="5">第五个</label>
+      </div>
+      <div><input type="checkbox" name="pics" id="6"><label for="6">第六个</label>
+      </div>
+      <div><input type="checkbox" name="pics" id="7"><label for="7">第七个</label>
+      </div>
+      <div><input type="checkbox" name="pics" id="8"><label for="8">第八个</label>
+      </div>
+
+    </form>
+    <div>
+    <ul>
+      <li>关键注意点：</li>
+      <li>1.将input设置为：display：none，input后面紧跟着label。这样，就可以使用邻居选择器。当input选中时，作用到后面的label上</li>
+      <li>2.label本身不需要设置内容。对它的：：before伪元素进行设置注意定位。最好用div将input和label包起来，方便定位。</li>
+    </ul>
+  </div>
+</body>
+</html>

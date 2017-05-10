@@ -1,0 +1,142 @@
+section {
+  height: 600px;
+  width: 600px;
+  position: relative;
+  transform:perspective(1500px);
+  transform-style:preserve-3d;
+  animation :run 5s 5s infinite;
+}
+
+@keyframes run{
+  0% {
+    transform:rotateX(0deg) rotateZ(0deg);
+  }
+  
+  100% {
+    transform:rotateX(360deg) rotateZ(360deg);
+  }
+}
+
+div {
+  width: 300px;
+  height: 300px;
+  afont-size: 100px;
+  aline-height: 300px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  border: 2px solid;
+  transition:1s linear;
+}
+.d1 {
+  background-color: rgba(255,102,102,0.8);
+  animation: d1rtt 3s 3s;
+  animation-fill-mode:forwards;
+}
+.d2 {
+  background-color: rgba(204,50,50,0.8);
+  animation: d2rtt 3s 3s;
+  animation-fill-mode:forwards;
+
+}
+.d3 {
+  background-color: rgba(0,153,204,0.8);
+  animation: d3rtt 3s 3s;
+  animation-fill-mode:forwards;
+
+}
+.d4 {
+  background-color: rgba(100,200,200,0.8);
+  animation: d4rtt 3s 3s;
+  animation-fill-mode:forwards;
+
+}
+.d5 {
+  background-color: rgba(204,255,255,0.8);
+  animation: d5rtt 3s 3s;
+  animation-fill-mode:forwards;
+
+}
+.d6 {
+  background-color: rgba(255,100,200,0.8);
+  animation: d6rtt 3s 3s;
+  animation-fill-mode:forwards;
+
+}
+@keyframes d1rtt{
+  0% {
+    transform:translateZ(0px);
+  }
+  100% {
+    transform:translateZ(150px);  
+  }
+}
+@keyframes d2rtt{
+  0% {
+    transform:translateZ(0px);
+  }
+  100% {
+    transform:translateZ(-150px);  
+  }
+}
+@keyframes d3rtt{
+  0% {
+    transform:translateY(0px) rotateX(0deg);
+  }
+  100% {
+    transform:translateY(150px) rotateX(-90deg);
+  }
+}
+@keyframes d4rtt{
+  0% {
+    transform:translateY(0px) rotateX(0deg);
+  }
+  100% {
+    transform:translateY(-150px) rotateX(-90deg);
+  }
+}
+@keyframes d5rtt{
+  0% {
+    transform:translateX(0px) rotateY(0deg);
+  }
+  100% {
+    transform:translateX(150px) rotateY(90deg);
+  }
+}
+@keyframes d6rtt{
+  0% {
+    transform:translateX(0px) rotateY(0deg);
+  }
+  100% {
+    transform:translateX(-150px) rotateY(90deg);
+  }
+}
+
+table {
+  awidth: 300px;
+  aheight: 300px;
+  border: 5px solid #34a;
+  border-collapse: collapse;
+}
+tr {
+   border: 5px solid #34a;
+   text-align: center;
+}
+col {
+   border: 5px solid #34a;
+}
+td {
+  width: 100px;
+  height: 92px;
+  font-size: 30px;
+}
+td:hover {
+   border: 5px solid #f00;
+}
+
+section:hover {
+  animation-play-state:paused;
+}
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>slider:夏目</title>
+	<style type="text/css">
+	    html, body {
+	      width: 100%;
+	      height:100%;
+	    }
+
+	    a {
+	      display: block;
+	      text-decoration: none;
+	      color: #000;
+	      
+	    }
+	    .bound {
+	      width: 992px;
+	      margin: 0 auto;
+	      height: 460px;
+	      border: 2px solid ;
+	      position: relative;
+	    }
+	    #left, #right{
+	      width: 41px;
+	      height: 70px;
+	      line-height: 70px;
+	      background-image: url(http://c1.mifile.cn/f/i/2014/cn/icon/icon-slides.png);
+	      position: absolute;
+	      top: 195px;
+	      z-index: 30;
+	    }
+	    #left {
+	      left: 0;
+	      border-radius: 0 5px 5px 0;
+	      background-position: -85px 0;
+	    }
+	    #right {
+	      right: 0;
+	      border-radius: 5px 0 0 5px;
+	      background-position: -124px 0;
+	    }
+	    #left:hover{
+	      background-position: 0 0;
+	    }
+	    #right:hover{
+	      background-position: -42px 0;
+	    }
+	    #btngroup {
+	      position: absolute;
+	      bottom: 30px;
+	      right: 100px;
+	      z-index: 20;
+	    }
+	    .btn {
+	      height: 6px;
+	      width: 6px;
+	      float: left;
+	      border: 2px solid #fff;
+	      border-radius: 6px;
+	      margin: 5px;
+	    }
+	    #picgroup {
+	      width: 992px;
+	      height: 460px;
+	      position: relative;
+	      top: 0;
+	      left: 0;
+	      aborder: 2px solid red;
+	    }
+	    .pic {
+	      width: 992px;
+	      height: 460px;
+	      position: absolute;
+	      opacity: 0;
+	      transition : opacity .3s linear;
+	      background-size: cover;
+	      background-repeat: no-repeat;
+	    }
+	    .nowpic {
+	      opacity: 1;
+	    }
+	    .now ,.btn:hover {
+	      background: #c2b3a1;
+	    }
+
+	</style>
+</head>
+<body>
+	<section class="bound">
+		<div id="arrow">
+			<a href="javascript:;" id="left"></a>
+			<a href="javascript:;" id="right"></a>
+		</div>
+		<div id="btngroup">
+			<a href="javascript:;" class="btn now"></a>
+			<a href="javascript:;" class="btn"></a>
+			<a href="javascript:;" class="btn"></a>
+			<a href="javascript:;" class="btn"></a>
+			<a href="javascript:;" class="btn"></a>
+			<a href="javascript:;" class="btn"></a>
+		</div>
+		<div id="picgroup">
+			<div class="pic nowpic" style="background-image:url(img/1.jpg)"></div>
+			<div class="pic" style="background-image:url(img/5.jpg)"></div>
+			<div class="pic" style="background-image:url(img/2.jpg)"></div>
+			<div class="pic" style="background-image:url(img/3.jpg)"></div>
+			<div class="pic" style="background-image:url(img/4.jpg)"></div>
+			<div class="pic" style="background-image:url(img/6.jpg)"></div>
+		</div>
+	</section>
+
+
+	<script type="text/javascript">
+		window.onload = function (){
+		  var oBtns = document.getElementById('btngroup');
+		  var oPics = document.getElementById('picgroup');
+		  var oBtn = oBtns.getElementsByTagName('a');
+		  var oPic = oPics.getElementsByTagName('div');
+		  
+		  var oLeft = document.getElementById('left');
+		  var oRight = document.getElementById('right');
+
+		  var oBound = document.getElementsByClassName('bound')[0];
+		  
+		  var curI = 0;
+
+		  oLeft.onclick = function () {
+		  	if (curI == 0) {
+		  		curI = oBtn.length - 1;
+		  	}else {
+		  		curI -= 1;
+		  	}
+		  	show(curI);
+		  }
+		  oRight.onclick = function () {
+		  	if (curI == oBtn.length - 1) {
+		  		curI = 0;
+		  	}else {
+		  		curI += 1;
+		  	}
+		  	show(curI);
+		  }
+
+		  oBound.onmouseover = function () {
+		  	clearInterval(timer);
+		  }
+		  oBound.onmouseout = function () {
+		  	timer = setInterval(autoshow,3000);
+		  }
+		  //console.log(oPic.length);
+		  
+		  for(var i = 0; i < oBtn.length; i++){
+		  	oBtn[i].index = i;
+		    oBtn[i].onclick = function (){
+		   	  curI = this.index;
+		   	  show(this.index);
+
+		      /*for(var j = 0; j < oBtn.length; j++){
+		        oBtn[j].className = "btn";
+		        oPic[j].className = "pic"
+		      }
+		      this.className = "btn now";
+		      oPic[this.index].className = "pic nowpic";*/
+		    }
+		  }
+		  
+		  function show(i) {
+		  	for(var j = 0; j < oBtn.length; j++){
+		  	  oBtn[j].className = "btn";
+		  	  oPic[j].className = "pic"
+		  	}
+		  	oBtn[i].className = "btn now";
+		  	oPic[i].className = "pic nowpic";
+		  }
+		  function autoshow() {
+		   	if (curI == oBtn.length - 1) {
+		   		curI = 0;
+		   	}else{
+		   		curI ++;
+		   	}
+		   	show(curI);
+		   }
+		   var timer = setInterval(autoshow,3000); 
+		  /*var timer = setInterval(function () {
+		  	if (curI == oBtn.length - 1) {
+		  		curI = 0;
+		  	}else{
+		  		curI ++;
+		  	}
+		  	show(curI);
+		  	
+		  },3000);*/
+		}
+
+	</script>
+</body>
+</html>

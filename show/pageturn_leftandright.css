@@ -1,0 +1,63 @@
+ul,ul li {
+  list-style:none;
+  padding: 0;
+  margin: 0;
+}
+div {
+  position: relative;
+  width: 600px;
+  height: 640px;
+  border: 1px solid #2ad;
+  overflow: hidden;
+}
+
+/*图片区域*/
+div .container {
+  position: absolute;
+  top:0;
+  left:0;
+  padding: 0;
+}
+.b_pic li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 480px;
+  overflow: hidden;
+}
+.b_pic li img {
+  width: 600px;
+  height: 480px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.b_pic .show{
+  z-index: 1;
+  width:600px;
+}
+.s_pic {
+  position: absolute;
+  top:480px;
+  width: 1200px;
+}
+.s_pic li {
+  width: 200px;
+  height: 160px;
+  float: left;
+  filter: alpha(opacity:60);
+  opacity: 0.6;
+}
+.s_pic .active {
+  filter: alpha(opacity:100);
+  opacity: 1;
+}
+.s_pic li:hover {
+  filter: alpha(opacity:100);
+  opacity: 1;
+}
+.s_pic li img {
+  width: 200px;
+  height: 160px;
+}

@@ -1,0 +1,32 @@
+body {
+  padding-top:70px;
+}
+.jambotron {
+  padding:48px ;
+  background: #eee;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.jambotron h1 {
+  font-weight: 500px;
+  padding:10px;
+  font-size: 63px;
+  box-sizing:border-box;
+}
+.jambotron p {
+  margin-bottom: 15px;
+  font-size: 21px;
+}
+hr {
+  margin-top: 30px;
+}
+footer {
+  box-sizing:border-box;
+  padding-left:20px;
+  height: 100px;
+  line-height: 100px;
+}
+img {
+  display: block;
+  width: 200px;
+}

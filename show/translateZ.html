@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>translateZ 穿越时空</title>
+  <style>
+    ul {
+      background: pink;
+    }
+    li {
+      list-style-type: none;
+      margin: 20px 10px;
+      font-family: '楷体';
+    }
+    div {
+      height: 300px;
+      width: 300px;
+      abackground: pink;
+      aborder: 3px solid #32a;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top:0;
+      bottom:0;
+      margin:auto;
+      font-size: 40px;
+      box-sizing:border-box;
+      aborder: 10px solid pink;
+      transform:perspective(1000px);
+      transition:3s linear;
+    }
+    .a {
+      height: 600px;
+      width: 800px;
+      abackground-color: rgba(200,100,100,0.3);
+      transform:perspective(1000px) translateZ(-1000px);
+
+    }
+    .b {
+      height: 600px;
+      width: 700px;
+      abackground-color: rgba(200,200,100,0.3);
+      transform:perspective(1000px) translateZ(-1200px);
+    }
+    .c {
+      height: 600px;
+      width: 600px;
+      abackground-color: rgba(100,100,100,0.3);
+      transform:perspective(1000px) translateZ(-1400px);
+    }
+    .d {
+      height: 600px;
+      width: 500px;
+      abackground-color: rgba(250,100,100,0.3);
+      transform:perspective(1000px) translateZ(-1600px);
+    }
+    .e {
+      height: 600px;
+      width: 400px;
+      abackground-color: rgba(200,150,100,0.3);
+      transform:perspective(1000px) translateZ(-1800px);
+    }
+    .f {
+      height: 600px;
+      width: 300px;
+      abackground-color: rgba(200,100,150,0.3);
+      transform:perspective(1000px) translateZ(-2000px);
+    }
+    div:hover > div {
+      transform:perspective(1000px) translateZ(100px) rotateZ(20deg);
+    }
+    div:hover + div {
+      transform:perspective(1000px) translateZ(100px);
+    }
+    img {
+      width: 200px;
+      height: 150px;
+      position: absolute;
+    }
+    img:nth-child(1) {
+      top: 0;
+      left:0;
+    }
+    img:nth-child(2) {
+      right: 0;
+      bottom:0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="a">a
+    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQESGZM1PoWyAtXhYI5EPZaNDyRLttpAxKEnN8ntLo29D6pouUM" alt="">
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTNN7DsH6YrxuG7PPp2rNhWflQIunri7s9hCVJtEDlTmB4nMmirEA" alt="">
+    <div class="b">b
+     <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT5j2OaGReJy0Bvf3q8_MUlbpm2NA3K0i-H6DUOsupoqa6cWwCT" alt="">
+     <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS2Bf__Nc-BAJbwJUbAtNFnflBEl1Ggfplnr_4DDWwrC1IGmz__sQ" alt="">
+      <div class="c">c
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhLjRRl0CFNarumyRrzQ26xYnKhiRAPeSgGXDpMvfWSH2eYhvVg" alt="">
+        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSjq0zpYTX7QD7nHo9nXnkFUq8AgSMp4oH7IA0vNEdiC47foOIS" alt="">
+        <div class="d">d
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSqsvoaXQapqJUQ2Cvzk6r8kuKjJBhY9fHoLv6lP8JRy_FUvYI5bQ" alt="">
+          <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRjEFyIaEw5-aGP42vFwrmfQG7AVXS9ksJyqiMfsHX8bCqX3lYOPA" alt="">
+          <div class="e">e
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQLN4hOSm1A02slt_aZA2-Ex4R0xuT-bVXDAqex2ePpiI562y3C" alt="">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSJc8hvwUSrwy90BbX7WsWWVYJBBStZRylNzThURbd-ICgk7QZ5" alt="">
+            <div class="f">f
+              <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_ps7id3dS1f3g15y0w2VxD9NmkUvaRsImEizXff_SAtglMdwt" alt="">
+              <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSOxLHexuicg0FbkA5yfIbzSVhHYqkcDp-88lJUEHUoC0cFklPL6Q" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ul>
+    <li>1.主要使用Z轴的距离产生推进或远离的视觉效果</li>
+    <li>2.关键语句：transform：perspective（） translateZ（）</li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+</html>

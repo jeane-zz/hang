@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>调色板 颜色类型转换</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		html, body {
+			width: 100%;
+			height: 100%;
+			background: #c1eaee
+		}
+		section {
+			width: 230px;
+			padding: 50px 100px;
+			margin: 0 auto;
+			background: #c1eaee;
+		}
+		.output {
+		  width: 221px;
+		  height: 100px;
+		  border: 1px solid;
+		  margin: 20px 0 10px 0;
+		}
+
+		input {
+		  width: 195px;
+		  font-family: Consolas;
+		}
+		span {
+			display: inline-block;
+			width: 15px;
+		}
+		h3 {
+			font-size: 30px;
+			width: 221px;
+			text-align: center;
+			margin: 50px 0 10px 0;
+		}
+	</style>
+</head>
+<body>
+<section>
+	<h3>RGB取色板</h3>
+	<div class="output rgba"></div>
+	<form class="form_rgb">
+	  <label ><span>R</span>: <input id="r" type="number" placeholder="请输入0-255之间的数值" max='255' min="0" ></label><br>
+	  <label ><span>G</span>: <input id="g" type="number" placeholder="请输入0-255之间的数值" max='255' min="0" ></label><br>
+	  <label ><span>B</span>: <input id="b" type="number" placeholder="请输入0-255之间的数值" max='255' min="0" ></label><br>
+	  <label ><span>A</span>: <input id="a" type="number" placeholder="请输入0-1之间的数值" max='1' min="0" step="0.01" ></label><br>
+	</form>
+	<script>
+		var r = document.querySelector('#r')
+		var g = document.querySelector('#g')
+		var b = document.querySelector('#b')
+		var a = document.querySelector('#a')
+		r.value = parseInt(Math.random()*255)
+		g.value = parseInt(Math.random()*255)
+		b.value = parseInt(Math.random()*255)
+		a.value = Math.random().toFixed(2)
+		var color = `rgba(${r.value}, ${g.value}, ${b.value}, ${a.value})`
+		var form1 = document.querySelector('.form_rgb')	
+		var output1 = document.querySelector('.rgba')
+
+		output1.style.background = color
+
+		form1.addEventListener('change', function (event) {
+			if(event.target.tagName == 'INPUT' ) {
+				color = `rgba(${r.value}, ${g.value}, ${b.value}, ${a.value})`
+				output1.style.background = color
+			}
+		})
+	</script>
+	<h3>HSL取色板</h3>
+	<div class="output hsl"></div>
+	<form class="form_hsl">
+	  <label ><span>H</span>: <input id="h" type="number" placeholder="请输入0-360之间的数值" max='360' min="0" ></label><br>
+	  <label ><span>S</span>: <input id="s" type="number" placeholder="请输入0-100之间的数值" max='100' min="0" ></label><br>
+	  <label ><span>L</span>: <input id="l" type="number" placeholder="请输入0-100之间的数值" max='100' min="0" ></label><br>
+	</form>
+	<script>
+		var h = document.querySelector('#h')
+		var s = document.querySelector('#s')
+		var l = document.querySelector('#l')
+		console.log(h, s, l)
+		h.value = parseInt(Math.random()*360)
+		s.value = parseInt(Math.random()*100)
+		l.value = parseInt(Math.random()*100)
+		console.log(h.value, s.value, l.value)
+		var color_hsl = `hsl(${h.value}, ${s.value+'%'}, ${l.value+'%'})`
+		console.log(color_hsl)
+		var form2 = document.querySelector('.form_hsl')	
+		var output2 = document.querySelector('.hsl')
+
+		output2.style.background = color_hsl
+
+		form2.addEventListener('change', function (event) {
+			if(event.target.tagName == 'INPUT' ) {
+				color_hsl =  `hsl(${h.value}, ${s.value+'%'}, ${l.value+'%'})`
+				output2.style.background = color_hsl
+			}
+		})
+	</script>
+
+	<script type="text/javascript">
+	function rgbToHex(r, g, b) {
+		var s = '#'
+		s += numToHex(r)
+		s += numToHex(g)
+		s += numToHex(b)
+		return s
+	}
+
+	function numToHex(num) {
+		if(num > 255) {
+			num = 255
+		}
+		if(num < 0) {
+			num = 0
+		}
+		var result = num.toString(16)
+		return result.length > 1 ? result : '0' + result
+	}
+
+
+	function hslToRgb(h, s, l){
+	    var r, g, b;
+
+	    if(s == 0){
+	        r = g = b = l; // achromatic
+	    }else{
+	        var hue2rgb = function hue2rgb(p, q, t){
+	            if(t < 0) t += 1;
+	            if(t > 1) t -= 1;
+	            if(t < 1/6) return p + (q - p) * 6 * t;
+	            if(t < 1/2) return q;
+	            if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+	            return p;
+	        }
+
+	        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+	        var p = 2 * l - q;
+	        r = hue2rgb(p, q, h + 1/3);
+	        g = hue2rgb(p, q, h);
+	        b = hue2rgb(p, q, h - 1/3);
+	    }
+
+	    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+	}
+
+	function rgbToHsl(r, g, b){
+	    r /= 255, g /= 255, b /= 255;
+	    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+	    var h, s, l = (max + min) / 2;
+
+	    if(max == min){
+	        h = s = 0; // achromatic
+	    }else{
+	        var d = max - min;
+	        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+	        switch(max){
+	            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+	            case g: h = (b - r) / d + 2; break;
+	            case b: h = (r - g) / d + 4; break;
+	        }
+	        h /= 6;
+	    }
+
+	    return [h, s, l];
+	}
+	</script>
+</section>
+</body>
+</html>

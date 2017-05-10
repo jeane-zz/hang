@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Time</title>
+  <link rel="stylesheet" href="watch_1.css">
+   <script>
+    function setTime(){
+      var now=new Date();  
+      var year=now.getYear();  
+      var month=now.getMonth();  
+      var day=now.getDate();  
+      var hours=now.getHours();  
+      var minutes=now.getMinutes();  
+      var seconds=now.getSeconds();
+      
+      var Hou = document.getElementById('hour');
+      var Min = document.getElementById('minite');
+      var Sec = document.getElementById('second');
+      
+      Sec.style.transform = 'rotate(' + seconds * 6 + 'deg)';
+      Min.style.transform = 'rotate(' + minutes * 6 + 'deg)';
+      if( Hou >= 12 ){
+        Hou -=12;
+      }
+      Hou.style.transform = 'rotate(' +(hours +minutes/60) * 30 +'deg)';
+    }
+  </script>
+</head>
+<body>
+  <section class="watch">
+    <div id ="hour" class="h"></div>
+    <div id ="minite" class="m"></div>
+    <div id ="second" class="s"></div>
+    <div class="cover">✲</div>
+  </section>
+  <script>
+    window.onload = setInterval(setTime,50);
+  </script>
+</body>
+</html>

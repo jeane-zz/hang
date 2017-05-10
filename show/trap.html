@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>数据量很大的处理办法</title>
+</head>
+<body>
+	<ul id="js-list"></ul>
+	<script type="text/javascript">
+		var oUl = document.querySelector('ul')
+		// 该代码段若放在后面会影响第二段代码中li的click事件
+		// 最可能的原因是 18 行代码是通过innerHTML来进行插入操作的
+		var liList = []
+		for(var i = 0; i < 3; i++) {
+			liList.push('<li> by Array'+ i + 1 +'</li>')
+			liList.push('<li> by Array'+ (i + 1) +'</li>')
+		}
+		oUl.innerHTML += liList.join('') 
+		
+		//
+		for(var i = 0; i < 3; i++) {
+			var tli = document.createElement('li')
+			tli.index = i
+			tli.innerHTML = i + 1
+			tli.addEventListener('click', function () {
+				console.log(this)
+				console.log("序号： " +this.index)
+			})
+			oUl.appendChild(tli)
+		}
+		
+		oUl.addEventListener ("click", function (e){
+			// 仅当点击对象为li时进行操作
+			if(e.target.nodeName == "LI") {
+				e.target.style.color = 'red'
+				console.log(e.target.innerHTML)
+			}
+		})
+		// 一旦出现匿名函数，必须使用分号~~~~
+		;(() => {
+		    var ndContainer = document.getElementById('js-list');
+		    if (!ndContainer) {
+		        return;
+		    }
+
+		    for (var i = 0; i < 3; i++) {
+		        var ndItem = document.createElement('li');
+		        ndItem.innerText = 'example: '+(i + 1);
+		        ndContainer.appendChild(ndItem);
+		    }
+		})();
+	</script>
+	<!-- 当处理的数据量很大时 -->
+	<ol id="js-ollist"></ol>
+	<script>
+		;(() => {
+			const container = document.getElementById('js-ollist')
+			if(!container) {
+				return
+			}
+
+			const total = 10000
+			const baseSize = 5
+			const count = total / baseSize
+			let done = 0
+
+			function appendLi() {
+				const fragment = document.createDocumentFragment()
+				for(let m = 0; m < baseSize; m++) {
+					const newLi = document.createElement('li')
+					newLi.innerText = (done * baseSize) + m + 1
+					fragment.appendChild(newLi)
+				}
+
+				container.appendChild(fragment)
+
+				done += 1
+				doAppend()
+			}
+
+			function doAppend() {
+				if(done < count) {
+					window.requestAnimationFrame(appendLi)
+				}
+			}
+
+			doAppend()	
+
+			container.addEventListener('click', function(e) {
+				const target = e.target
+				if(target.tagName === 'LI') {
+					console.log(target.innerHTML)
+				}
+			})
+		})();
+	</script>
+</body>
+</html>

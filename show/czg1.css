@@ -1,0 +1,287 @@
+body {
+  font-size: 70%;
+  color: #325050;
+  padding: 0;
+  min-width: 880px;
+}
+a {
+  text-decoration: none;
+}
+/*文件头部*/
+header {
+  border-top: 10px solid rgba(19,67,71,0.9);
+  height: 230px;
+  margin:0;
+  text-align: center;
+  background: 50% 0 url(http://www.csszengarden.com/214/huntington.jpg) no-repeat;
+  background-size:cover;
+}
+header h1 {
+  text-transform: uppercase;
+  font-size:3.2em ;/**/
+  font-family: 'Nirmala UI' ,sans-serif ;
+  font-weight: normal;
+  color: #fff;
+  vertical-align: bottom;
+}
+header h1::before {
+  display: inline-block;
+  position: relative;
+  top: 20px;
+  content:'';
+  width: 80px;
+  height: 80px;
+  margin: -20px 20px 0 0;
+  background: url(http://www.csszengarden.com/214/enso.svg) no-repeat;
+  background-size:100% ;
+  opacity:0.6;
+}
+header h2 {
+  padding: 5px 10% 10px 10%;
+  font-size: 1.6em;
+  font-style: italic;
+  display: block;
+  font-family: 'Castellar', sans-serif;
+}
+header h2::before {
+  content:'';
+  padding: 50px;
+}
+/*悬浮层*/
+header div {
+  height: 70px;
+  margin-top: -9px;
+  background: rgba(255,255,255,0.2);
+  position: relative;
+}
+header div a {
+  position: absolute;
+  color: rgba(255,255,255,0.65);
+}
+header div a:hover {
+  background: rgba(255,255,255,0.4);
+}
+header div a:first-child ,header div a:last-child {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  
+}
+header div a:first-child {
+  left: 0;
+}
+header div a:first-child::before {
+  content:'<';
+  font-size: 60px;
+  font-family: 'Tempus Sans ITC', sans-serif;
+}
+header div a:last-child {
+  right: 0;
+}
+header div a:last-child::before {
+  content:'>';
+  font-size: 60px;
+  font-family: 'Tempus Sans ITC', sans-serif;
+} 
+header div a:nth-of-type(2) {
+  display: inline-block;
+  padding: 12px 0 0 0;
+  min-height: 70px;
+  position: absolute;
+  top: 0;
+  left:70px;
+  right: 70px;
+  bottom:0;
+  font-size: 1.2em;
+  line-height: 50px;
+}
+.content {
+  width: 100%;
+}
+.content div{
+  margin: 20px 70px;
+  font-size: 1.2em;
+  
+}
+/*段落1*/
+.content div:first-child p span{
+  display: inline-block;
+  padding: 3px;
+  text-transform: uppercase;
+  color: #a9b995;
+}
+.content div:first-child p span::before {
+  content:'';
+  font-size: 1.5em;
+  font-family: 'Wingdings 2';
+}
+.content div:first-child p span:hover {
+  border-radius:5px ;
+  background: #3d8a9f;
+  color: #fff;
+}
+.content div h2 {
+  font-family: 'Courier New', sans-serif;
+}
+.content div p {
+  text-align: justify;
+}
+
+.content div:nth-of-type(3) {
+  margin:0px;
+  padding:10px 70px;
+  position: relative;
+  background:  rgba(138,188,159,0.2);
+  
+}
+.content div:nth-of-type(3) > a:first-child{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(http://www.csszengarden.com/214/huntington.jpg) no-repeat;
+  background-size:100% 100% ;
+  opacity:0.1;
+  z-index: -1;
+}
+
+.content div:nth-of-type(3) p a ,.content div:nth-of-type(4) p a {
+  color: #0d8ba1;
+  abackground: #000;
+}
+.content div:nth-of-type(3) p a:hover ,.content div:nth-of-type(4) p a:hover {/*因为a覆盖在div上。所以没有办法hover*/
+  text-decoration: underline;
+  color: #0599c2;
+}
+
+
+/*作者信息部分*/
+.content div:last-child { 
+  margin:0px;
+  padding:1em 12%;
+  position: relative;
+  height: 180px;
+  color: rgba(255,255,255,0.4);
+  background: url(http://www.csszengarden.com/214/koi.jpg) no-repeat;
+  background-position: 0 50%;
+  background-size: cover;
+  
+}
+.content div:last-child p {
+  margin-top: 40px;
+  font-size: 2em;
+  text-align: center;
+  font-style: italic;
+  font-family: 'Libre Baskerville', sans-serif;
+}
+.content div:last-child p a {
+  color:rgba(255,255,255,0.6);
+}
+.content div:last-child p a:hover {
+  text-decoration: underline;
+}
+
+/*footer*/
+footer {
+  amargin:0;
+  height: 80px;
+  background: #134347;
+  text-align: center;
+  padding: 48px;
+}
+footer a {
+  display: inline-block;
+  height: 66px;
+  width: 66px;
+  margin: 0 35px;
+  text-indent:-999em;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.5);
+  border-radius: 38px;
+  position: relative;
+}
+footer a::before {
+  text-indent: 0;
+  display: block;
+  width: 72px;
+  height: 72px;
+  text-align: center;
+  line-height: 72px;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  font-family: Wingdings;
+  font-size: 46px;
+  color: rgba(255,255,255,0.5);
+  border: 2px solid #000;
+}
+
+footer a:hover {
+  border: 3px solid #597e7b;
+  background: #597e7b;
+}
+footer a:hover::before {
+  
+  color: #134347;
+}
+
+footer a:first-child::before {
+  content:'';
+}
+footer a:nth-child(2)::before {
+  content:'';
+}
+footer a:nth-child(3)::before {
+  content:'';
+}
+footer a:nth-child(4)::before {
+  content:'';
+}
+footer a:nth-child(5)::before {
+  content:'';
+}
+/*侧边浮动*/
+.sidebar {
+  width: 100%;
+}
+.sidebar ul {
+  padding: 0;
+  margin: 0;;
+}
+.sidebar ul li {
+  list-style:none;
+  width: 50%;
+  height: 80px;
+  aline-height: 80px;
+  text-align: center;
+  margin:0;
+  background: #edf4f0;
+  border-bottom: 1px solid #d9e3ec;
+  display: inline-block;
+  color: #1a5952;
+  font-size: 1.4em;
+  font-family: 'Bradley Hand ITC';
+  margin:0 -2px
+}
+.sidebar ul li a {
+  color:#607476;
+  font-family: 'Yu Gothic UI';
+}
+.sidebar ul li a:first-child {
+  margin-top: 19px;
+  text-transform: uppercase;
+  display: block;
+}
+.sidebar .qa {
+  
+}
+.sidebar .qa li {
+  height: 60px;
+}
+/*文件头部*/
+/*文件头部*/
+/*文件头部*/
+/*文件头部*/
+/*文件头部*/
