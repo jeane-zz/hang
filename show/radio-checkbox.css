@@ -18,15 +18,15 @@ li {
   height: 30px;
 }
 .a {
-  width: 400px;
-  height: 360px;
+  width: 750px;
+  height: 540px;
   border: 2px solid;
   position: relative;
 }
 .a img {
   display: inline-block;
-  width: 400px;
-  height: 360px;
+  width: 750px;
+  height: 540px;
   position: absolute;
   top: 0;
   left: 0;
@@ -71,7 +71,7 @@ label:nth-of-type(-n+4) {
   color: #452;
   font-size: 30px;
   text-align: center;
-  line-height: 11px;
+  line-height: 12px;
 }
 .b input[type='checkbox']:checked+label:before{
   content: "\2713";
