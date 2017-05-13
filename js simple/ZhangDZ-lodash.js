@@ -1,3 +1,6 @@
+var arrPrime = [2]
+
+
 var ZhangDZ = {
 	/* 
 	 * 函数名称：chunk
@@ -2460,5 +2463,43 @@ var ZhangDZ = {
 	},
 
 	// convert("Dolce & Gabbana");
+	/*
+		http://www.freecodecamp.cn/challenges/sum-all-primes
+	 */ 
+	// 
+	
+	sumPrimes： function (num) {
+	  var sum = 0
+	  if(num === 1) {
+	    return 0
+	  }
+	  for(var i = 1; i <= num; i++){
+	    if(isPrime(i)) {
+	      sum += i
+	    }
+	  }
+	  return sum;
+		function isPrime(num) {
+		  if(num == 1) {
+		    return false
+		  }else if(num < arrPrime[arrPrime.length - 1] && arrPrime.indexOf(num) == -1) {
+		    return false
+		  }else if(arrPrime.indexOf(num) > -1) {
+		    return true
+		  } else {
+		    for(var i = 0; i < Math.sqrt(num); i++) {
+		      if(num % arrPrime[i] == 0) {
+		        return false
+		      }
+		    }
+		    arrPrime.push(num)
+		    return true
+		  }
+		}
+	}
+
+	// sumPrimes(10);
+
+
 
 }
