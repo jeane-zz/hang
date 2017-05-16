@@ -2496,10 +2496,23 @@ var ZhangDZ = {
 		    return true
 		  }
 		}
-	}
+	},
 
 	// sumPrimes(10);
-
+	addBindingEvent: function(obj, ev, fun){
+		if(obj.attachEvent) {
+			obj.attachEvent('on'+ev, fun)
+		} else {
+			obj.addEventListener(ev, fun, false)
+		}
+	}, 
+	unBindingEvent: function (obj, ev, fun) {
+		if(obj.detachEvent) {
+			obj.detachEvent('on' + ev, fun )
+		} else {
+			obj.removeEventListener(ev, fun, false)
+		}
+	}
 
 
 }
