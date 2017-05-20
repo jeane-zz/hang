@@ -1,0 +1,380 @@
+一面主要问一些基础性的问题，css选择器的优先级计算，:child()的计算，css的载入方式以及优先级，判断数组类型的几种实现等等一些基础的问题。
+二面会根据你做的项目来进行深度提问，如果对遇到过的问题有比较深入的研究，就没什么问题，可以事先总结一下自己做过的项目，可以使用一些谈话技巧，将话题引入自己熟悉的领域。
+
+第一题是关于经典的闭包、变量声明提前、函数声明提前、匿名函数等综合的一个函数写输出结果的题。第二题是用js写出点击li获取相应的index的函数，因为平时用jquey比较多，读js还行，写js就很生疏，最后没写出来。面试官宽容的让我用jquery写的第三题试写一个最擅长的sort函数，这是关于算法的第四题试css布局问题，一栏固定宽度，让另一栏自适应屏幕宽度怎么写，有多种写法，能写几种写几种，
+
+http和https的区别，怎么互相请求数据。
+答因为之前没有怎么接触过这些技术点，只是初步的知道https比http更安全，适用于支付或者交易网页。 回来从网上查询才知道是因为他们的协议不同，端口不同，传输的方式也不同，一个加密一个没有加密。
+
+1 设计模式 2 css兼容 3 ajax 4 打开一个网页发生了什么 5 项目经验 6 png图片相关
+
+css的问题：各个浏览器中css表现的差异性，盒子模型（其他的忘了，css问了很多的问题，但是我css很弱，哎）；html：这个还真一个都想不起来了，总之问得也不多，也不难；js：在一个有很多个li的ul里访问第i个元素，js作用域与原理链与闭包及闭包的应用场景，性能优化的几个原则，js的继承机制······最后问了一个综合问题：如果上司要你完成一份非常急的工作，短时间内你没法完成，你会怎么办？一面的问题嘛，看起来不会很难，但是他会一直问下去，慢慢地变深，直到你不会为止。 
+一个小时后二面开始。二面的问题相对简单一点，几乎都是数据结构的问题。第一个是安全问题，是关于怎么防止代码注入攻击的（当时我回答了过滤敏感词，囧死了）。第二个是快排的问题，快排是怎么样的呀，最差时间复杂度是多少和为什么，最快的时间复杂度和为什么，快排的空间复杂度和为什么。第三个是二分查找，问题类型和快排的相似。
+
+1、捕获和冒泡
+2、CSS盒模型（ＩＥ和Ｗ３Ｃ）
+3、阻止冒泡的方法
+4、数组转换为字符串（用ｃａｌｌ和ａｐｐｌｙ）
+5、快速排序和冒泡排序（这是当场要求用ＪＳ手写代码，幸好有准备）
+６、２道看代码说结果的题（代码写在面试官的电脑上，直接看他电脑）
+７、闭包
+８、ＴＣＰ、ＵＤＰ的区别（这个真的不知道为什么问，幸好知道）
+９、ＡＭＤ、ＣＭＤ（重点说了区别）
+１０、原型链、继承
+１１、一个ｂｕｔｔｏｎ垂直居中（最好能够说出３种左右的方法，ｐｏｓｉｔｉｏｎ：ａｂｓｏｌｕｔ、表格方式，插入空ｄｉｖ等等）
+１２、单页面路由加载原理
+
+
+一面：display 有哪些。inline-block为什么有inline和block的特性，css实现左边宽度固定的导航栏，右侧内容宽度自适应；
+点击改导航栏，右侧内容会随之变化，有几种实现方法。a标签中有一个onclick=“alert（）”，点击a标签会怎么样？如何禁止a标签的超链接功能。事件冒泡。网页性能优化。与缓存相关的HTTP头
+算法题：用原生JS实现给定一个URL地址，把它的每个部分解析出来（不能用location）。快排，各种排序的使用场景，归并适用于什么情况？（数量多）。页面编码有几种方式（meta charset=“”）还有什么？垃圾回收机制，几种回收方式？
+二面：项目，如何测试页面加载性能，网页性能优化。面向对象三个特性：继承，多态，封装。写一个对象，实例化一个对象，继承一个对象。
+
+
+面试官：自我介绍一下。 我：blablabla。 面试官：javascript的类型转换（比如"2"*1, "a"*1）。 我：javascript会调用valueOf来转换为一个基本数据类型，在这种情况下，如果javascript不能通过valueOf转成一个number，会尝试调用toString，然后再转。实在无法转就只能NaN了。 面试官：说说类的创建、继承和闭包。 我：new一个Function，继承通过prototype。超类和子类可以通过子类的prototype=new 超类()，然后把prototype的constructor指回子类。闭包是一个变量作用域的问题（这里我也不是特别清楚，随便说了些）。 面试官：说说get和post请求的区别。 我：1.参数形式不同；2.发送数据大小限制不同；3.在后台转码时不同，post可以简单地修改编码方式来避免乱码，get不可以。 面试官：Get请求最大能多大。 我：几K吧，2K？......
+
+一面是前端基础面，按照简历中的项目，技术专长相关的问的。
+具体有1.CSS经典面试题：左边宽度固定，右边自适应，要求整个页面的高度取决于右边部分。
+2.JS：多个继承对象的深度复制；extend的原理；
+3.JSONP可以解决哪些跨域问题，原理是什么？P的意思是什么？GET和POST都能用jsonp吗？
+4.bootstrap的col问题，当页面宽度都是1200px的时候col-md-8和col-sm-8分别是多少？
+1、写一个左固定布局，右侧自适应布局2、写getPosition方法 求出 元素ele的位置（x,y）;3、模拟fadeIn fadeOut4、call和apply的区别和应用场景5、创建10 个a 点击的时候弹出来对应的序号 (这题它是主要考察闭包的);6、Ajax的关键步骤和注意事项（偏jsonp的考察）7、页面优化有哪些操作（这题目的是考自动化工具使用的）
+
+
+1、面向对象
+
+原型
+原型链
+protptype 指向谁？
+proto 指向谁？
+封装
+
+			拖拽函数
+模块封装原理
+必然要扯到闭包
+继承
+构造函数
+原型继承
+call apply
+多态
+2、闭包
+
+闭包是啥？
+为什么要用闭包？
+那些方面体现了闭包？
+闭包存在的问题？
+闭包和函数式编程的关系？
+3、display: inline-block; 消除元素间隙
+
+不折行
+给折行处加注释
+font-size: 0;
+margin 负值
+给最后一个元素封闭标签
+letter-space & word-space
+父元素flex 也可以
+4、node.js
+流 是啥？
+buffer 是啥？
+写一个爬虫常用什么？
+5、express.js
+
+写个路由咋样？
+6、apply & call
+
+apply
+call
+bind
+7、css 选择器种类
+
+8、Vue.js原理
+
+双向绑定原理：
+Vue.js 生命周期钩子
+9、MVC、MVVM
+
+两者的区别
+10、HTTP/HTTPS区别
+
+加密与不加密的方案？
+输入url到展现页面的过程？
+11、原生Ajax实现过程\ Promise改写一下？
+
+12、require.js 原理
+
+AMD
+CMD
+13、ajax和jsonp的区别，jsonp原理
+
+14、大部分网站将js、css从不同的域引入
+
+15、页面重构分三个步骤说说看
+
+16、优化页面性能的几种方案
+
+17、事件监听
+
+冒泡
+捕获
+18、js上拉加载，下拉刷新实现方案
+
+上拉加载
+下来刷新
+19、es6 语法新特性
+
+let / const
+Promise
+class ...
+20、作用域
+
+必然扯到作用域链
+还有那个setTimeout 输出 1-5
+21、attrubute & propity区别
+
+22、实现一个layout
+
+23、Vue中子组件向父组件中传值
+
+24、Vue 如何引入其他类库
+
+25、字符串比较大小如何比较？
+
+26、实现一个二叉树查找与遍历
+
+27、实现一个链表
+
+28、字典 散列
+
+29、排序算法: 希尔 插入 快排 堆排
+
+30、一个有序并发请求额方案
+
+31、简述Event loop
+
+用于记录我在复习JavaScript时，遇到的坑。
+
+1、 Ajax的原生封装
+
+function stage(req) {
+    if(req.readyState < 4) {
+        console.log('Just lodaing...')
+    }
+    if(req.readyState === 4 && req.status === 200) {
+        // do somethings
+    }
+}
+
+function ajax(method, url) {
+    var REQUEST = window.XMLHttpRequest ? 
+                  new XMLHttpRequest() : 
+                  new ActiveXObject("Microsoft.XMLHTTP")
+    REQUEST.onreadystatechange = stage(REQUEST)
+    switch(method) {
+        case 'GET'
+            REQUEST.open('GET', url)
+            REQUEST.send()
+            break;
+        case 'POST'
+            REQUEST.open('POST', url)
+            REQUEST.setRequestHeader('Content-Type','application/x-www-from-urlencoded')        
+            REQUEST.send()
+            break;
+        ...
+    }
+}
+// 调用如下
+ajax('GET', 'http://www.xxx.com/a')
+如上用ES6 Promise对象来改写封装
+
+function stage(req) {
+  if(req.readyState === 4 && req.status === 200) {
+      resolve(req.responseText)
+    }else {
+      reject(new Error())
+    }
+}
+
+function ajax(method, url) {
+    var REQUEST = window.XMLHttpRequest ?
+                  new XMLHttpRequest() : 
+                  new ActiveXObject("Microsoft.XMLHTTP")
+    return new Promise((resolve, reject)=>{
+        REQUEST.onreadystatechange = stage(REQUEST)
+        switch(method) {
+            case 'GET'
+                REQUEST.open('GET', url)
+                REQUEST.send()
+                break;
+            case 'POST'
+                REQUEST.open('POST', url)
+                REQUEST.setRequestHeader('Content-Type','application/x-www-from-urlencoded')        
+                REQUEST.send()
+                break;
+          }
+      })
+  }
+// 调用如下
+var $ajax = ajax('GET', url)
+$ajax.then(data => {
+    // do somethings
+        })
+     .catch(error => {
+    // do somethings
+        })
+完全版：jQuery_ajax
+
+ajax({
+  url: 'https://www.google.com',
+  type: 'GET',
+  data: {'a':'Hello Google!'},
+  success: function (res) {
+    console.log(res)
+  },
+  error: function (error) {
+    console.error(error)
+  }
+})
+// 以上为jQuery Ajax方法调用
+
+function ajax(params) {
+  params = params || {} 
+  params.data = params.data || {} 
+  
+  var json = params.jsonp ? jsonp(params) : json(params)
+  //  定义jsonp 跨域方法
+  function jsonp(params) {}
+  // 定义json格式 请求方法
+  function json(params) {
+    // 请求方法 默认GET
+    var params.type = (params.type || 'GET').toUpperCase()
+    // 为避免特殊字符，格式化传输数据
+    var params.data = formatParams(params.data)
+    // 创建XML实例，兼容IE
+    var xhr = window.XMLHttpRequest ? 
+              new XMLHttpRequest() : 
+              new AbuoutXObject('Microsoft.XHMHTTP') 
+
+    xhr.onreadystatechange = function () {
+      if(xhr.readyState === 4) {
+        var response = ''
+        if(xhr.status === 200 ) {
+          var type = xhr.getResponseHeader('Content-Type')
+          // xml 格式返回
+          if(type.indexOf('xml') !== && xhr.responseXML) {
+            response = xhr.responseXML
+          // JSON 数据返回
+          }else if(type == 'application/json') {
+            response = JSON.parse(xhr.resrponseText)
+          }else {
+           // 字符串 格式返回 
+            response = xhr.responseText
+          }
+          // 请求/返回成功，执行callback
+          params.success && params.success(response)
+        }else {
+          // 请求失败
+          params.error && params.error(status)
+        }
+      }
+    }
+    
+    if(type === 'GET') {
+      xhr.open('GET', params， true)
+      xhr.send()
+    } else {
+      xhr.open(params.type, params.url, true)
+      xhr.setRequestHeader('Content-Type', 'application/x-www-from-urlencoded')
+      xhr.send(params.data)
+    }
+  }
+
+  function formatParams(data) {
+    var arr = []
+    for(var name in data) {
+      arr.push(encodeURIComponent(name)+ '=' + encodeURICompinent(data[name]))
+    }
+    arr.push('v=' + random())
+    return arr.join('&')
+  }
+  function random() {
+      return Math.floor(Math.random()* 10000 + 500)
+  }
+}
+———— 补充状态码：
+
+1xx 消息
+100 请求初始化，继续执行下一步操作
+101 转换协议
+102 请求继续执行
+2xx 成功
+200 请求成功
+201 新的资源已经根据需求创立
+202 接收到请求，但未处理
+203 通过代理访问原始数据，代理在中间对内容作了更改
+204 接收请求，不需返回任何数据
+205 重置表单
+206 服务器已处理了部分的GET请求
+3xx 重定向
+300 请求的文档可以在多个地方找到，并将在返回的文档中列出来
+301 指所请求的文档被永久移动到新位置
+302 请求的信息临时从不同的URI中响应请求
+303 在其他URI上找到并发送GET请求
+304 页面未修改
+305 指定通过特殊的代理渠道
+307 请求的资源临时从不同的URI 响应请求。
+4xx 请求错误
+400 请求有误，服务器没办法理解
+401 身份验证
+402 预留状态码
+404 服务器找不到请求的资源
+405 指定的方法不能用于请求该资源
+406 请求的资源的内容特性无法满足请求头中的条件
+407 客户端必须在代理服务器上进行身份验证
+5xx 服务器错误
+500 服务器错误
+501 服务器无法识别请求方法
+502 在上游服务器收到无响应
+503 服务器过载
+504 作为网关从上游服务器请求是，未及时收到响应
+505 服务器不支持
+507 服务器无法存储完成请求所必须的内容
+509 服务器达到宽带限制
+510 获取资源需要的策略没有满足
+关于跨域问题
+
+浏览器同源策略，Ajax如果请求了和主站协议、域名、端口有任意不同时，就需要跨浏览器请求
+解决方案：CORS & JSONP
+JSONP:
+function jsonp(params){
+  var callbackName = params.jsonp
+  var head = document.querySelector('head')
+  params.data['callback'] = callbackName
+
+  var data = formatParams(params.data)
+  var script = document.createElement('script')
+  head.appendChild(script)
+  
+  window[callbackName] = function (json) {
+    head.removeChild(script)
+    clearTimeout(script.timer)
+    window[callbackName] = null
+    params.success && params.success(json)
+  }
+    
+  script.src = params.url + '?' + data
+
+  if(params.time) {
+    script.time = setTimept(function() {
+      window[callbackName] = null
+      head.removeChild(script)
+      params.error && params.error({mssage:'time out'})
+    }, time)
+  }
+}
+老生常谈的闭包
+
+闭包是啥？ 一个函数可以访问到另一个函数作用域中的变量的 函数，对的，闭包是一个函数。其实闭包就是一个高阶函数。
+为什么要用闭包？ JS语言是弱类型语言，没有所谓的块级作用域，之后函数作用域，一般是用闭包来模拟块级作用域，怎么个模拟法？ 就像那道流传已久的setTimeout()输出1-5一样。函数每次执行时，都会重新创建局部变量，利用闭包可以访问到函数变量的特性，可以使这个变量一直存在
+哪常用到闭包？ 最常见的就是JS的类库和框架了，这些库本事就是一个大的闭包，将自己内部的变量保存起来防止被外部更改，指提供一个使用方法（API）
+闭包这么好，我要用！ 闭包当然也有弊端，会造成内存溢出。函数执行一次就要创建一次局部变量，如果代码中由数十个数百个闭包，内存的开销是个问题，性能方面也是个大的问题。
+必须要用闭包吗？ 并不，ES6中的let const 将块级作用域的概念加入到JS当中，闭包正在越来越远。 闭包和函数式编程的关系？ 函数式编程，必须要有返回值，但如果返回的是一个函数的话，那不就是闭包！其次函数式编程都是高阶函数，闭包又是一个高阶函数，这种关系很明显了；
