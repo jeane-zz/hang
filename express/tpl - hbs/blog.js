@@ -42,6 +42,7 @@ exports.getBlogEntries = function () {
 }
 
 exports.getBlogEntry = function (id) {
+	// id = parseInt(id)
 	for(var i = 0; i < entries.length; i++) {
 		// console.log('this is ' + i)
 		if(entries[i].id == id) {

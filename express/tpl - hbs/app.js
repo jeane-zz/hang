@@ -19,6 +19,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static(path.join(__dirname, 'public')))
+
 app.get('/', function(req, res) {
    res.render('index', {
    	title: "最近文章",
@@ -33,9 +34,11 @@ app.get('/about', function(req, res) {
 });
  
 app.get('/article/:id', function(req, res) {
-    var entry = blogEngine.getBlogEntry(req.params.id)
-    console.log('id' + req.params.id)
-    console.log("entry " + entry)
+   var entry = blogEngine.getBlogEntry(req.params.id)
+   // console.log(( typeof req.params.id)+ ' ' + req.params.id)
+   // console.log(req)
+   // console.log("\n")
+
    res.render('article', {
    	title: entry.title,
    	blog: entry
