@@ -156,9 +156,7 @@ module.exports = function(app) {
   // 用户页
   // app.get('/u/:name', checkLogin);
   app.get('/u/:name', function(req, res) {
-    console.log('user页面')
     User.get(req.params.name, function (err, user) {
-      console.log('user.get')
       if(!user) {
         req.flash('error', '用户不存在')
         return res.redirect('/')
@@ -191,7 +189,6 @@ module.exports = function(app) {
       //查询并返回该用户的所有文章
       Post.getOne(req.params.name, req.params.day, req.params.title, function (err, post) {
         if(err) {
-          console.log('这里发现问题了。。。' + err)
           req.flash('error', err)
           return res.redirect('/')
         }
@@ -205,23 +202,50 @@ module.exports = function(app) {
       })      
     }); 
   })
+
+  app.get('/edit/:name/:day/:title', checkLogin);
+  app.get('/edit/:name/:day/:title', function(req, res) {
+    var currentUser = req.session.user
+    Post.edit(currentUser.name, req.params.day, req.params.title, function (err, post) {
+      if(err) {
+        req.flash('error', err)
+        return res.redirect('back')
+      }
+      res.render('edit', {
+        title: '编辑文档',
+        post: post,
+        user: req.session.user,
+        success: req.flash('success').toString(),
+        error: req.flash('error').toString()
+      })
+    })      
+  })
+  app.post('/edit/:name/:day/:title', checkLogin);
+  app.post('/edit/:name/:day/:title', function(req, res) {
+    var currentUser = req.session.user
+    Post.update(currentUser.name, req.params.day, req.params.title, req.body.post, function (err) {
+      var url = encodeURI('/u/' + req.params.name + '/' + req.params.day + '/' + req.params.title)
+      if(err) {
+        req.flash('error', err)
+        return res.redirect(url)
+      }
+      req.flash('success', '修改成功')
+      res.redirect(url)
+    })      
+  })
+
   // 检测用户是否登录
   function checkLogin(req, res, next) {
-    console.log('用户未登录000？？？？')
     if(!req.session.user) {
-      console.log('用户未登录？？？？')
       req.flash('error', '未登录')
       res.redirect('/login')
     }
-    console.log('用户未登录1111111？？？？')
     next()
   }
 
   // 检测用户是否登录
   function checkNotLogin(req, res, next) {
-    console.log('用户已登录000？？？？')
     if(req.session.user) {
-      console.log('用户已登录？？？？')
       req.flash('error', '已登录')
       res.redirect('back')
     }

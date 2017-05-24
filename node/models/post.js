@@ -117,38 +117,57 @@ Post.getOne = function(name, day, title, callback) {
 };
 
 
-// Post.getOne = function(name, day, title, callback) {
-// 	mongodb.open(function(err, db) {
-// 		if(err) {
-// 			console.log('出问题了1')
-// 			mongodb.close()
-// 			return callback(err)
-// 		}
+Post.edit = function(name, day, title, callback) {
+	mongodb.open(function(err, db) {
+		if(err) {
+			mongodb.close()
+			return callback(err)
+		}
 
-// 		db.collection('posts', function (err, collection) {
-// 			if(err) {
-// 				console.log('出问题了21' + err)
-// 				mongodb.close()
-// 				return callback(err)
-// 			}
-// 			console.log('出问题了333' + err)
-// 			collection.findOne({
-// 				"name": name,
-// 				"time.day": day,
-// 				"title": title
-// 			}, function(err, doc) {
-// 				console.log('获取到文章' + doc + doc['post'])
-// 				for(var key in doc) {
-// 					console.log('doc 的属性 ： ' + key+" :"+ doc[key])
-// 				}
-// 				mongodb.close()
-// 				if(err) {
-// 					console.log('出问题了4444' + err)
-// 					return callback(err)
-// 				}
-// 				doc['post'] = markdown.toHTML(doc['post'])
-// 				callback(null, doc)
-// 			})
-// 		})
-// 	})
-// }
+		db.collection('posts', function (err, collection) {
+			if(err) {
+				mongodb.close()
+				return callback(err)
+			}
+			collection.findOne({
+				"name": name,
+				"time.day": day,
+				"title": title
+			}, function(err, doc) {
+				mongodb.close()
+				if(err) {
+					return callback(err)
+				}
+				callback(null, doc)
+			})
+		})
+	})
+}
+Post.update = function(name, day, title, post, callback) {
+	mongodb.open(function(err, db) {
+		if(err) {
+			mongodb.close()
+			return callback(err)
+		}
+
+		db.collection('posts', function (err, collection) {
+			if(err) {
+				mongodb.close()
+				return callback(err)
+			}
+			collection.update({
+				"name": name,
+				"time.day": day,
+				"title": title
+			},{
+				$set: {post: post}
+			}, function(err, doc) {
+				mongodb.close()
+				if(err) {
+					return callback(err)
+				}
+				callback(null, doc)
+			})
+		})
+	})
+}
