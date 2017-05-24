@@ -157,7 +157,7 @@ module.exports = function(app) {
   // app.get('/logout', function(req, res){
   //  res.render('logout', {title: '登出'})
   // })
-// 只有登录的用户才能上传文件
+  // 只有登录的用户才能上传文件
   app.get('/upload', checkLogin)
   app.get('/upload', function (req, res) {
     res.render('upload', {
@@ -190,6 +190,38 @@ module.exports = function(app) {
     })
     
   })
+
+  app.get('/tags', function(req, res) {
+    Post.getTags(function(err, posts) {
+      if(err) {
+        req.flash('error', err)
+        return res.redirect('/')
+      }
+      res.render('tags', {
+        title: '标签',
+        posts: posts,
+        user: req.session.user,
+        success: req.flash('success').toString(),
+        error: req.flash('error').toString()
+      })
+    }) 
+  })
+
+  app.get('/tags/:tag', function(req, res) {
+    Post.getTag(req.params.tag, function(err, posts) {
+      if(err) {
+        req.flash('error', err)
+        return res.redirect('/')
+      }
+      res.render('tag', {
+        title: '标签TAG' + req.params.tag,
+        posts: posts,
+        user: req.session.user,
+        success: req.flash('success').toString(),
+        error: req.flash('error').toString()
+      })
+    })
+  })  
   // 用户页
   // app.get('/u/:name', checkLogin);
   
@@ -243,7 +275,7 @@ module.exports = function(app) {
   //     })
   //   })
   // })
-// 文章页
+  // 文章页
   // app.get('/u/:name/:day/:title', checkLogin);
   app.get('/u/:name/:day/:title', function(req, res) {
     User.get(req.params.name, function (err, user) {
