@@ -12,6 +12,9 @@ var flash = require('connect-flash')
 var session = require('express-session')
 var MongoStore = require('connect-mongo')(session)
 
+var multer = require('multer')
+ var upload = multer({dest: './public/images'}).any()
+
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -26,6 +29,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // 使用express-session和connect-mongo 模块实现将会话信息存储到mongodb中
+// app.use(multer({
+// 	dest: './public/image',
+// 	rename: function (fieldname, filename) {
+// 		return filename
+// 	}
+// }))
+
 app.use(session({
 	secret: settings.cookieSecret,
 	key: settings.db,
@@ -38,7 +48,6 @@ app.use(session({
 		port: settings.port
 	})
 }))
-
 
 
 routes(app);
