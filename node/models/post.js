@@ -1,4 +1,5 @@
 var mongodb = require('./db')
+var markdown = require('markdown').markdown
 
 function Post(name, title, post) {
 	this.name = name
@@ -50,7 +51,7 @@ Post.prototype.save = function (callback) {
 	})
 }
 
-Post.get = function (name, callback) {
+Post.getAll = function (name, callback) {
 	mongodb.open(function (err, db) {
 		console.log("post数据库打开1， 时间")
 		if(err) {
@@ -77,8 +78,77 @@ Post.get = function (name, callback) {
 				if(err){
 					return callback(err)
 				}
+				docs.forEach(function (doc) {
+					doc.post = markdown.toHTML(doc.post)
+				})
 				callback(null, docs)
 			})
 		})
 	})
 }
+Post.getOne = function(name, day, title, callback) {
+  //打开数据库
+  mongodb.open(function (err, db) {
+    if (err) {
+      return callback(err);
+    }
+    //读取 posts 集合
+    db.collection('posts', function (err, collection) {
+      if (err) {
+        mongodb.close();
+        return callback(err);
+      }
+      //根据用户名、发表日期及文章名进行查询
+      collection.findOne({
+        "name": name,
+        "time.day": day,
+        "title": title
+      }, function (err, doc) {
+        mongodb.close();
+        if (err) {
+          return callback(err);
+        }
+        //解析 markdown 为 html
+        doc.post = markdown.toHTML(doc.post);
+        callback(null, doc);//返回查询的一篇文章
+      });
+    });
+  });
+};
+
+
+// Post.getOne = function(name, day, title, callback) {
+// 	mongodb.open(function(err, db) {
+// 		if(err) {
+// 			console.log('出问题了1')
+// 			mongodb.close()
+// 			return callback(err)
+// 		}
+
+// 		db.collection('posts', function (err, collection) {
+// 			if(err) {
+// 				console.log('出问题了21' + err)
+// 				mongodb.close()
+// 				return callback(err)
+// 			}
+// 			console.log('出问题了333' + err)
+// 			collection.findOne({
+// 				"name": name,
+// 				"time.day": day,
+// 				"title": title
+// 			}, function(err, doc) {
+// 				console.log('获取到文章' + doc + doc['post'])
+// 				for(var key in doc) {
+// 					console.log('doc 的属性 ： ' + key+" :"+ doc[key])
+// 				}
+// 				mongodb.close()
+// 				if(err) {
+// 					console.log('出问题了4444' + err)
+// 					return callback(err)
+// 				}
+// 				doc['post'] = markdown.toHTML(doc['post'])
+// 				callback(null, doc)
+// 			})
+// 		})
+// 	})
+// }
