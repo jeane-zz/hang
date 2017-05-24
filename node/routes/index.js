@@ -134,7 +134,8 @@ module.exports = function(app) {
   app.post('/post', checkLogin);
   app.post('/post', function (req, res) {
     var currentUser = req.session.user
-    var post = new Post(currentUser.name, req.body.title, req.body.post)
+    var tags = [req.body.tag1, req.body.tag2, req.body.tag3]
+    var post = new Post(currentUser.name, req.body.title, req.body.post, tags)
     post.save(function (err) {
       if(err) {
         req.flash('error', err)
