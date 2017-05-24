@@ -23,7 +23,8 @@ Post.prototype.save = function (callback) {
 		name: this.name,
 		time: time,
 		title: this.title,
-		post: this.post
+		post: this.post,
+		comments: []
 	}
 	console.log("打印post测试：" + post)
 	mongodb.open(function (err, db) {
@@ -109,7 +110,12 @@ Post.getOne = function(name, day, title, callback) {
           return callback(err);
         }
         //解析 markdown 为 html
-        doc.post = markdown.toHTML(doc.post);
+        if(doc) {
+        	doc.post = markdown.toHTML(doc.post);
+        	doc.comments.forEach(function (comment) {
+        		comment.content = markdown.toHTML(comment.content)
+        	})	
+        }
         callback(null, doc);//返回查询的一篇文章
       });
     });
@@ -161,6 +167,35 @@ Post.update = function(name, day, title, post, callback) {
 				"title": title
 			},{
 				$set: {post: post}
+			}, function(err, doc) {
+				mongodb.close()
+				if(err) {
+					return callback(err)
+				}
+				callback(null, doc)
+			})
+		})
+	})
+}
+
+Post.remove = function(name, day, title, callback) {
+	mongodb.open(function(err, db) {
+		if(err) {
+			mongodb.close()
+			return callback(err)
+		}
+
+		db.collection('posts', function (err, collection) {
+			if(err) {
+				mongodb.close()
+				return callback(err)
+			}
+			collection.remove({
+				"name": name,
+				"time.day": day,
+				"title": title
+			},{
+				w: 1
 			}, function(err, doc) {
 				mongodb.close()
 				if(err) {
