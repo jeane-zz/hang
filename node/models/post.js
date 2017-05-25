@@ -131,6 +131,7 @@ Post.getOne = function(name, day, title, callback) {
   //打开数据库
   mongodb.open(function (err, db) {
     if (err) {
+      mongodb.close()	
       return callback(err);
     }
     //读取 posts 集合
@@ -348,6 +349,7 @@ Post.getTag = function(tag, callback) {
 Post.search = function(keyword, callback) {
 	mongodb.open(function(err, db) {
 		if(err) {
+			mongodb.close()
 			return callback(err)
 		}
 		db.collection('posts', function(err, collection) {

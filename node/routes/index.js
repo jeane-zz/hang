@@ -346,8 +346,6 @@ module.exports = function(app) {
 
   })
 
-
-
   app.get('/edit/:name/:day/:title', checkLogin);
   app.get('/edit/:name/:day/:title', function(req, res) {
     var currentUser = req.session.user
@@ -392,7 +390,9 @@ module.exports = function(app) {
     })      
   })
 
-
+  app.use(function(req, res) {
+    res.render('404')
+  })
 
   // 检测用户是否登录
   function checkLogin(req, res, next) {
