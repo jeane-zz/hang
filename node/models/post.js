@@ -26,7 +26,8 @@ Post.prototype.save = function (callback) {
 		title: this.title,
 		post: this.post,
 		comments: [],
-		tags: this.tags
+		tags: this.tags,
+		pv: 0
 	}
 	console.log("打印post测试：" + post)
 	mongodb.open(function (err, db) {
@@ -144,18 +145,34 @@ Post.getOne = function(name, day, title, callback) {
         "time.day": day,
         "title": title
       }, function (err, doc) {
-        mongodb.close();
+        
         if (err) {
+          mongodb.close();
           return callback(err);
         }
         //解析 markdown 为 html
         if(doc) {
+        	collection.update({
+        		"name": name,
+        		"time.day": day,
+        		"title": title
+        	},{
+        		$inc: {
+        			"pv": 1
+        		}
+        	}, function (err) {
+        		mongodb.close()
+        		if(err) {
+        			return callback(err)
+        		}
+        	})
+
         	doc.post = markdown.toHTML(doc.post);
         	doc.comments.forEach(function (comment) {
         		comment.content = markdown.toHTML(comment.content)
-        	})	
+        	})
+        	callback(null, doc);//返回查询的一篇文章	
         }
-        callback(null, doc);//返回查询的一篇文章
       });
     });
   });
