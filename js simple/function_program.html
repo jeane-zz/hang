@@ -8,7 +8,7 @@
 	<p>函数式编程中，函数就是一个管道</p>
 	<p>两个最基本的运算，合成（函数的复合）和柯里化（将多参数函数，转化为单参数函数）</p>
 	<p>函子是函数式编程里面最重要的数据类型，也是基本的运算单位和功能单位。它首先是一种范畴，包含了值和变形关系。<b>比较特殊的是，它的变形关系可以依次作用于每一个值，将当前容器变形成另一个容器。</b>></p>
-
+	<p>函数式编程一般约定，函子有一个of方法，用来生成新的容器。替换掉new命令</p>
 	<script type="text/javascript">
 
 		// 范畴： 用箭头连接的物体. 包含值和值的变形关系
@@ -37,12 +37,33 @@
 		}
 		addCurry(2)(1)
 		
-		// 
-		
+		// 函子 
+		class Functor {
+		  constructor(val) { 
+		    this.val = val; 
+		  }
 
+		  map(f) {
+		    return new Functor(f(this.val));
+		  }
+		}
+		// 实例	
+		(new Functor(2)).map(function(num) {
+			return num + 2
+		})
+		(new Functor('touppercase')).map(function(s) {
+			return s.toUpperCase()
+		})
+		// of 方法
+		Functor.of = function(val) {
+			return new Functor(val)
+		}
 
-		// 
-		// 
+		// of方法改写实例 
+		Functor.of(2).map(function(num) {
+			return num + 2
+		})
+
 		// 
 		// 
 		// 
