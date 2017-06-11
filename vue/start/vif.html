@@ -29,16 +29,26 @@
 </div>
 	<!-- view -->
 	<div id="app">
+		测试区域
 		<p v-if="表达式">
-			测试区域，若表达式为真，显示
+		若表达式为真，显示
 		</p>
+		<p v-if="a > 30">
+			当a大于30时，显示.a的值： {{a}}
+		</p>
+		<p v-if="name.indexOf('Ann') >= 0">
+			当名字中含有“Ann”时，显示。 name: {{name}}
+		</p>
+		
 	</div>
 	<script src="../vue.js"></script>
 
 	<script type="text/javascript">
 		// model
 		var data = {
-			"表达式": true
+			"表达式": true,
+			a: 50,
+			name: "Ann Smith"
 		}
 		
 		// 创建vue实例，用于连接View与Model 
