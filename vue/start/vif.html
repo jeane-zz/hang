@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE v-if</title>
+	<style type="text/css">
+		#app {
+			border: 2px solid;
+			width: 500px;
+			background: #d3d3d3;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+<div>
+<p>
+	v-if 条件渲染指令：根据表达式的真假来插入或者删除元素 
+</p>
+<p>
+	语法：
+	<pre>
+&lt;p v-if="表达式"&gt;
+	当表达式的值为真时，显示；
+	当表达式的值为假时，不显示
+&lt;/p&gt;
+	</pre>
+	<p>表达式可以为bool属性，也可以返回bool值</p>
+</p>
+</div>
+	<!-- view -->
+	<div id="app">
+		<p v-if="表达式">
+			测试区域，若表达式为真，显示
+		</p>
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// model
+		var data = {
+			"表达式": true
+		}
+		
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+			data,
+		})
+
+	</script>
+</body>
+</html>
