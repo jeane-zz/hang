@@ -20,7 +20,13 @@ VUE 是MVVM模型中的VM(viewmodel)的角色
 </div>
 	<!-- view -->
 	<div id="app">
+		<p>数据绑定</p>
 		<button>{{mes}}</button>
+		<p>双向绑定</p>
+		<p>v-model 用于在表单元素上创建双向数据绑定</p>
+		<p>修改下面文本框的内容会同步修改data的mes属性,反之亦然</p>
+		<p>修改文本框内容会同步修改button的text，反过来，<b>不可以</b>。</p>
+		<input type="text" name="test" v-model="mes">
 	</div>
 	<script src="../vue.js"></script>
 
