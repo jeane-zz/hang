@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE HELLO WORLD</title>
+</head>
+<body>
+<div>
+VUE 是MVVM模型中的VM(viewmodel)的角色
+<p>使用Vue的过程就是定义MVVM各个组成部分的过程的过程</p>
+<ol>
+	<li>定义View</li>
+	<li>定义Model</li>
+	<li>创建一个Vue实例，该实例为 ViewModel，用于连接View和Model</li>
+</ol>
+
+<ul>测试说明：
+	<li>data.mes 修改可以影响到 button的innerText</li>
+	<li>反之，不可以。修改button的innerText不会影响到data.mes</li>
+</ul>
+</div>
+	<!-- view -->
+	<div id="app">
+		<button>{{mes}}</button>
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// model
+		var data = {
+			mes:'Hello VUE',
+		}
+		
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+			data,
+		})
+
+	</script>
+</body>
+</html>
