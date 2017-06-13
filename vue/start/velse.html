@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE v-else</title>
+	<style type="text/css">
+		#app {
+			border: 2px solid;
+			width: 500px;
+			background: #d3d3d3;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+<div>
+<p>
+	v-else 条件渲染指令：必须跟在v-if 或 v-show语句块后面，否则不能被识别 
+</p>
+<p>
+	语法：
+	<pre>
+&lt;p v-if="表达式"&gt;
+	当表达式的值为真时，显示；
+	当表达式的值为假时，不显示
+&lt;/p&gt;
+&lt;p v-else&gt;
+	当表达式的值为假时，显示
+&lt;/p&gt;
+	</pre>
+</p>
+<p>v-else是否渲染在html中，取决于前面使用的v-if，还是v-show</p>
+</div>
+	<!-- view -->
+	<div id="app">
+		测试区域
+		<p v-if="表达式">
+		v-if 入口 ：若表达式为真，显示
+		</p>
+		<p v-else>
+		v-if === v-else 入口 ：此时表达式为假
+		</p>
+		<hr>
+		<p v-show="a > 30">
+		v-show 入口  ：当a大于30时，显示.a的值： {{a}}
+		</p>
+		<p v-else>
+		v-show === v-else 入口  ： 当a小于35时，显示.a的值： {{a}}
+		</p>
+		<hr>
+		<p v-if="name.indexOf('Ann') >= 0">
+			当名字中含有“Ann”时，显示。 name: {{name}}
+		</p>
+		
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// model
+		var data = {
+			"表达式": true,
+			a: 50,
+			name: "Ann Smith"
+		}
+		
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+			data,
+		})
+
+	</script>
+</body>
+</html>
