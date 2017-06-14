@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE v-for</title>
+	<style type="text/css">
+		#app {
+			border: 2px solid;
+			width: 500px;
+			background: #d3d3d3;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+<div>
+<p>
+	v-for 遍历：基于一个数组渲染一个列表 
+</p>
+<p>
+	语法：
+	<pre>
+&lt;p v-for="item in items"&gt;
+	items 为一个数组，是data的属性
+	item 为变量，代表当前被循环到的数组元素
+	该p标签重复items.length次
+&lt;/p&gt;
+	</pre>
+</p>
+<p></p>
+</div>
+	<!-- view -->
+	<div id="app">
+		测试区域
+		<hr>
+		<table border="1" width="300px">
+			<thead>
+				<tr>
+					<th>name</th>
+					<th>age</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="user in users">
+					<td> {{ user.name }} </td>
+					<td> {{ user.age }} </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// model
+		var data = {
+			users: [{
+				name: "Ann",
+				age: 18
+			},{
+				name: "Bobby",
+				age: 8
+			}]
+		}
+		
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+			data,
+		})
+
+	</script>
+</body>
+</html>
