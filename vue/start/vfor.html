@@ -23,6 +23,9 @@
 	items 为一个数组，是data的属性
 	item 为变量，代表当前被循环到的数组元素
 	该p标签重复items.length次
+
+	第二种情况：items 为一个正整数
+	item会默认从1开始知道累加到items
 &lt;/p&gt;
 	</pre>
 </p>
@@ -46,6 +49,12 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<ul>
+			<li v-for="num in n" v-bind:class="num%2?bindTest:''">
+				{{num}}
+			</li>
+ 		</ul>
 	</div>
 	<script src="../vue.js"></script>
 
@@ -58,7 +67,8 @@
 			},{
 				name: "Bobby",
 				age: 8
-			}]
+			}],
+			n: 20
 		}
 		
 		// 创建vue实例，用于连接View与Model 

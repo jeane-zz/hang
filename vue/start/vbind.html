@@ -25,6 +25,10 @@
 &lt;p v-bind:class="selected"&gt;
 	selected为data的属性， 
 	p的class属性被设置为selected的值
+	可以直接缩写为 ：class ：src :style
+&lt;/p&gt;
+&lt;p v-bind="{id:someProp, class:otherProp}"&gt;
+	直接绑定到一个有属性的对象
 &lt;/p&gt;
 	</pre>
 </p>
@@ -36,10 +40,13 @@
 		<hr>
 		<p>没有v-bind属性</p>
 		<p v-bind:class="bindTest">添加了v-bind属性</p>
-
+		
+		<p v-bind="{id:n, class:bindTest}">这个p标签是通过对象方式添加v-bind属性的</p>
 		<ul>
 			<li v-for="num in n" v-bind:class="num%2?bindTest:''">
+				
 				{{num}}
+				<span v-if="num%2"> 这是添加了v-bind的效果</span>
 			</li>
  		</ul>
 	</div>

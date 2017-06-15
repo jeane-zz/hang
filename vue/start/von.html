@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE v-on</title>
+	<style type="text/css">
+		#app {
+			border: 2px solid;
+			width: 500px;
+			background: #d3d3d3;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+<div>
+<p>
+	v-on（缩写为 @） 用于监听DOM事件；同时需要用：添加参数，如click等，也可用 . 添加修饰符， 如once、 stop等。
+</p>
+<p>
+	语法：
+	<pre>
+&lt;p v-on:click="func"&gt;
+	func为vue实例下methods对象中定义的方法 
+	当点击事件发生时，调用该方法
+
+&lt;/p&gt;
+	</pre>
+</p>
+<p></p>
+</div>
+	<!-- view -->
+	<div id="app">
+		测试区域
+		<hr>
+		
+		<p v-on:click="hey">点击触发hey事件</p>
+
+		<ul>
+			<li v-for="item in items">{{item}}</li>
+ 		</ul>
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// model
+		var data = {
+			items: ["test1", "test2"],
+			num: 0
+		}
+		
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+			data,
+			methods: {
+				hey(){
+					console.log('你触发了hey事件')
+					this.items.push('hey ' + this.num)
+					this.num ++
+				}
+			}
+		})
+
+	</script>
+</body>
+</html>
