@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE v-bind</title>
+	<style type="text/css">
+		#app {
+			border: 2px solid;
+			width: 500px;
+			background: #d3d3d3;
+			padding: 10px;
+		}
+		.test {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<div>
+<p>
+	v-bind（缩写为 :） 动态的绑定一个或多个属性，通常是html的原生属性。
+</p>
+<p>
+	语法：
+	<pre>
+&lt;p v-bind:class="selected"&gt;
+	selected为data的属性， 
+	p的class属性被设置为selected的值
+&lt;/p&gt;
+	</pre>
+</p>
+<p></p>
+</div>
+	<!-- view -->
+	<div id="app">
+		测试区域:红色文字为添加v-bind后的效果
+		<hr>
+		<p>没有v-bind属性</p>
+		<p v-bind:class="bindTest">添加了v-bind属性</p>
+
+		<ul>
+			<li v-for="num in n" v-bind:class="num%2?bindTest:''">
+				{{num}}
+			</li>
+ 		</ul>
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// model
+		var data = {
+			bindTest: "test",
+			n : 10
+		}
+		
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+			data,
+		})
+
+	</script>
+</body>
+</html>
