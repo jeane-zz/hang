@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE V-All</title>
+	<style type="text/css">
+		#app {
+			border: 2px solid;
+			width: 500px;
+			background: #d3d3d3;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+<div>
+<p>
+	本节为综合练习
+</p>
+<p>
+
+</p>
+<p></p>
+</div>
+	<!-- view -->
+	<div id="app">
+		<fieldset>
+			<legend>add newthing</legend>
+			<form>
+				<label>want to do :</label><br>
+				<input type="text" v-model="newThing.title"><br>
+				<label>how much time :</label><br>
+				<input type="text" v-model="newThing.time"><br>
+				<label>can be canceled :</label><br>
+				<select v-model="newThing.need">
+					<option value="yes" selected="selected">yes</option>
+					<option value="no">no</option>
+				</select>
+				<br>
+				<button @click.prevent="create">submit</button><span>在本例中使用了form表单，submit按钮会自动触发form的提交事件，影响到代码的运行。需要调用@click.prevent</span>
+			</form>
+		</fieldset>
+		<table border="1" width="300px">
+			<thead>
+				<tr>
+					<th>thing</th>
+					<th>time</th>
+					<th>cancel</th>
+					<th>done</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(thing, index) in things">
+					<td> {{ thing.title }} </td>
+					<td> {{ thing.time }} </td>
+					<td> {{ thing.need ? 'yes' : 'no'}} </td>
+					<td>
+						<button @click = "del(index)">Del</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				newThing: {
+					title: '',
+					time: 1,
+					need: 'yes'
+				},
+				
+				things: [{
+					title: 'read book',
+					time: 2,
+					need: false
+				},{
+					title: 'finish breakfast',
+					time: 0.5,
+					need: true
+				}	]
+			},
+			methods: {
+				create() {
+					this.things.push(this.newThing)
+					this.newThing = {
+						title: '',
+						time: 0,
+						need: 'yes'
+					}
+				},
+				del(index) {
+					this.things.splice(index, 1)
+				}
+			}
+		})
+
+	</script>
+</body>
+</html>
