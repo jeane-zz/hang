@@ -30,7 +30,7 @@
 <pre>
 	Vue.component('component1', myComponent)
 </pre>
-	<p>局部注册：则该组件只能在确定的Vue实例下使用，通过配置Vue实例的components选项。如本例中的component2</p>
+	<p>局部注册：则该组件只能在确定的Vue实例下使用，通过配置Vue实例的components选项。如本例中的component2.同时，在app2中使用component2，控制台会给出警告</p>
 <pre>
 	var vm1 = new Vue({
 		el: '#app',
@@ -39,6 +39,7 @@
 		}
 	})		
 </pre>
+	<p>将组件写在Vue实例外面，会以组件标签的形式添加到DOM中，浏览器并没有报错。</p>
 </div>
 	<!-- view -->
 	<div id="app">
@@ -52,6 +53,10 @@
 		<component1></component1>
 		<component2></component2>
 	</div>
+
+	<component1></component1>
+	<component2></component2>
+
 	<script src="../vue.js"></script>
 
 	<script type="text/javascript">

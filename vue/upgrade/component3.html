@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 3</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		height: 50px;
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+<h2>父组件和子组件</h2>
+	<p>在组件中定义并使用其他组件，会构成组件之间的父子关系</p>
+	<p>在父组件的构造器函数中添加子组件的信息</p>
+	<pre>
+		
+	</pre>
+<pre>
+	var vm1 = new Vue({
+		el: '#app',
+		components: {
+			'component2': myComponent2
+		}
+	})		
+</pre>
+	<p>将组件写在Vue实例外面，会以组件标签的形式添加到DOM中，浏览器并没有报错。</p>
+</div>
+	<!-- view -->
+	<div id="app">
+	<h4>注册在app中的父组件</h4>
+		<componentparent class="test"></componentparent>
+	<h4>单独注册在app中的子组件</h4>
+		<child class="test"></child>
+	</div>
+
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// 创建一个组件构造器
+		var ChComponent = Vue.extend({
+			template:`
+				<div >
+					子组件： ChComponent
+				</div>
+			`
+		})
+		var PaComponent = Vue.extend({
+			template:`
+				<div >
+					父组件： PaComponent
+					<child></child>
+				</div>
+			`,
+			components: {
+				'child': ChComponent
+			}
+		})
+		
+		// 注册组件，并指定组件标签。将组件标签元素与构造器绑在一起
+		Vue.component('child', ChComponent)
+		Vue.component('componentparent', PaComponent)
+		
+		// 创建vue实例，用于连接View与Model 
+		var vm1 = new Vue({
+			el: '#app',
+		})
+	</script>
+</body>
+</html>
