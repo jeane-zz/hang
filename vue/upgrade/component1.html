@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 1</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		height: 50px;
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+	<p>
+Vue.js的组件的使用有3个步骤</p>
+	<ul>
+		<li>创建组件构造器: 调用Vue.extend()方法
+			<p>extend()方法需要传入一个对象， 该对象为组件的配置项</p>
+			<pre>
+	var myComponent = Vue.extend({
+		template:`
+			&lt;div class="test"&gt;
+				这是用来测试的Vue组件myComponent
+			&lt;/div&gt;
+		`
+	})
+
+			</pre>
+		</li>
+		<li>注册组件： 使用Vue.component()方法，将自定义的组件标签和组件构造器绑定在一起
+			<p>component()接受两个参数：组件标签和构造器。 该函数会调用组件构造器，创建一个组件实例</p>
+			<pre>
+	Vue.component('component1', myComponent)
+			</pre>
+			<p>注册组件一定要在初始化根实例之前进行</p>
+		</li>
+		<li>使用组件： 在Vue实例的作用范围内使用组件
+			<p>
+				在Vue实例中添加注册组件时传入的标签
+			</p>
+		</li>
+	</ul>
+</div>
+	<!-- view -->
+	<div id="app">
+		<component1></component1>
+		<component1></component1>
+		<component1></component1>
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// 创建一个组件构造器
+		var myComponent = Vue.extend({
+			template:`
+				<div class="test">
+					这是用来测试的Vue组件myComponent
+				</div>
+			`
+		})
+		
+		// 注册组件，并指定组件标签。将组件标签元素与构造器绑在一起
+		Vue.component('component1', myComponent)
+
+		// 创建vue实例，用于连接View与Model 
+		var vm = new Vue({
+			el: '#app',
+		})
+
+	</script>
+</body>
+</html>
