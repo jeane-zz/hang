@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 2</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		height: 50px;
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+<h2>组件的全局注册和局部注册</h2>
+	<p>全局注册：则该组件可以在任意的Vue实例下使用，如本例中的component1</p>
+<pre>
+	Vue.component('component1', myComponent)
+</pre>
+	<p>局部注册：则该组件只能在确定的Vue实例下使用，通过配置Vue实例的components选项。如本例中的component2</p>
+<pre>
+	var vm1 = new Vue({
+		el: '#app',
+		components: {
+			'component2': myComponent2
+		}
+	})		
+</pre>
+</div>
+	<!-- view -->
+	<div id="app">
+	<h4>app1</h4>
+		<component1></component1>
+		<component2></component2>
+	</div>
+
+	<div id="app2">
+	<h4>app2</h4>
+		<component1></component1>
+		<component2></component2>
+	</div>
+	<script src="../vue.js"></script>
+
+	<script type="text/javascript">
+		// 创建一个组件构造器
+		var myComponent1 = Vue.extend({
+			template:`
+				<div class="test">
+					全局注册： myComponent1
+				</div>
+			`
+		})
+		var myComponent2 = Vue.extend({
+			template:`
+				<div class="test">
+					局部注册： myComponent2
+				</div>
+			`
+		})
+		// 注册组件，并指定组件标签。将组件标签元素与构造器绑在一起
+		Vue.component('component1', myComponent1)
+
+		// 创建vue实例，用于连接View与Model 
+		var vm1 = new Vue({
+			el: '#app',
+			components: {
+				'component2': myComponent2
+			}
+		})
+		var vm2 = new Vue({
+			el: '#app2',
+		})
+	</script>
+</body>
+</html>
