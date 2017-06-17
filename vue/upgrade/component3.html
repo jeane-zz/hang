@@ -27,9 +27,20 @@
 <div>
 <h2>父组件和子组件</h2>
 	<p>在组件中定义并使用其他组件，会构成组件之间的父子关系</p>
-	<p>在父组件的构造器函数中添加子组件的信息</p>
+	<p>在父组件的构造器函数中添加子组件的信息：在template中添加子组件的标签，在components中注册子组件</p>
+	<p>注意： 不要直接在Vue实例中直接将子组件的标签放到父组件标签中, 属于无效设置，会在渲染时直接忽略</p>
 	<pre>
-		
+	var PaComponent = Vue.extend({
+		template:`
+			&lt;div&gt; 
+				父组件： PaComponent
+				&lt;child&gt; &lt;/child&gt; 
+			&lt;/div&gt; 
+		`,
+		components: {
+			'child': ChComponent
+		}
+	})		
 	</pre>
 <pre>
 	var vm1 = new Vue({
@@ -44,7 +55,9 @@
 	<!-- view -->
 	<div id="app">
 	<h4>注册在app中的父组件</h4>
-		<componentparent class="test"></componentparent>
+		<componentparent class="test">
+			<child></child>
+		</componentparent>
 	<h4>单独注册在app中的子组件</h4>
 		<child class="test"></child>
 	</div>
