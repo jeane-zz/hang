@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 5</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		height: 50px;
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+	<h2>组件的el和data</h2>
+	<p>Vue构造器传入的各种选项大多数都可以在组件里用。data是个例外，它必须是函数。</p>
+</div>
+	<!-- view -->
+	<div id="app">
+	<h4></h4>
+		<component></component>
+		<counter></counter>
+		<counter></counter>
+		<counter></counter>
+	</div>
+
+	<script src="../vue.js"></script>
+	
+	<script type="text/javascript">
+		
+		// 注册组件，并指定组件标签。将组件标签元素与构造器绑在一起
+		Vue.component('component', {
+			template: `
+			<div class="test">
+				<span>{{message}}</span>
+			</div>
+			`,
+			data() {
+				return {
+					message: "hello"
+				}
+			}
+		})
+
+		Vue.component('counter', {
+			template: `<button @click="count += 1">{{count}}</button>`,
+			data() {
+				return {
+					count: 0
+				}
+			}
+		})
+
+		// 创建vue实例，用于连接View与Model 
+		var vm1 = new Vue({
+			el: '#app',
+		})
+	</script>
+</body>
+</html>
