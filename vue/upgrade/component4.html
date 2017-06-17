@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 4</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		height: 50px;
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+<h2>组件注册</h2>
+	<p>注册语法糖: component()函数会自动调用extend(), 所以将extend部分直接写入到component的第二个参数中</p>
+	<pre>
+	Vue.component = ('component',{
+		template:`
+			&lt;div&gt; 
+				通过语法糖注册的组件 
+			&lt;/div&gt; 
+		`,
+	})		
+	</pre>
+
+	<p>使用script标签或template标签，将组件内容分离出来。
+	<ul>这样做的好处是：
+		<li>可以避免拼接字符串</li>
+		<li>降低html和JavaScript的耦合性</li>
+	</ul>
+	</p>
+	
+	<p>使用script标签：注意修改script标签默认的type属性，告诉浏览器这不是js脚本，则浏览器在解析html文档时会忽略该script标签内的内容</p>
+	<pre>
+	&lt;script type="text/x-template" id="comp_script"&gt;
+		&lt;div class="test"&gt;
+			这是通过&lt;b&gt;script标签&lt;/b&gt;添加的组件
+		&lt;/div&gt;
+
+	&lt;/script&gt;
+
+	Vue.component('compscript', {
+		template: '#comp_script'
+	})
+
+	</pre>
+	<p>使用template标签：不需要知道type，只指定id就可以了</p>
+	<pre>
+	&lt;template id="comp_template"&gt;
+		&lt;div class="test"&gt;
+			这是通过&lt;b&gt;template标签&lt;/b&gt;添加的组件
+		&lt;/div&gt;
+
+	&lt;/template&gt;
+
+	Vue.component('comptemplate', {
+		template: '#comp_template'
+	})
+
+	</pre>
+</div>
+	<!-- view -->
+	<div id="app">
+	<h4>通过语法糖注册的组件</h4>
+		<component></component>
+
+	<h4>通过script生成模板注册的组件</h4>
+		<compscript></compscript>
+	<h4>通过template生成模板注册的组件</h4>
+		<comptemplate></comptemplate>
+	</div>
+
+	<script src="../vue.js"></script>
+	
+	<script type="text/x-template" id="comp_script">
+		<div class="test">
+			这是通过<b>script标签</b>添加的组件
+		</div>
+
+	</script>
+	
+	<template id="comp_template">
+		<div class="test">
+			这是通过<b>template标签</b>添加的组件
+		</div>
+
+	</template>
+
+	<script type="text/javascript">
+		
+		// 注册组件，并指定组件标签。将组件标签元素与构造器绑在一起
+		Vue.component('component', {
+			template: `
+			<div class="test">
+				这是使用<b>组件语法糖</b>创建的组件
+			</div>
+			`
+		})
+
+		// script标签创建的组件
+		Vue.component('compscript', {
+			template: '#comp_script'
+		})
+
+		// script标签创建的组件
+		Vue.component('comptemplate', {
+			template: '#comp_template'
+		})
+
+		// 创建vue实例，用于连接View与Model 
+		var vm1 = new Vue({
+			el: '#app',
+		})
+
+
+
+	</script>
+</body>
+</html>
