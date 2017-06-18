@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 6</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		height: 50px;
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+	<h2>使用Props：将父组件的数据传给子组件</h2>
+	<p>props默认为单向绑定，即 </p>
+	<ul>
+		<li>子组件的数据由绑定的父组件的数据决定</li>
+		<li>父组件的数据一旦改变，子组件相应改变</li>
+		<li>修改子组件的数据，父组件数据不改变</li>
+	</ul>
+	<p>也可以使用.sync显式地指定双向绑定。这样修改子组件数据也会影响到父组件</p>
+	<p>也可以使用.once显式地指定单次绑定</p>
+</div>
+	<!-- view -->
+	<div id="app">
+	<table>
+		<tr>
+			<th colspan="2">父组件数据</th>
+		</tr>
+		<tr>
+			<td>message</td>
+			<td>{{message}}</td>
+			<td><input type="text" v-model="message"></td>
+		</tr>
+		<tr>
+			<td>age</td>
+			<td>{{age}}</td>
+			<td><input type="text" v-model="age"></td>
+		</tr>
+	</table>
+	<h4>默认行为</h4>
+	<my-component1 :mes="message" :age="age"></my-component1>
+	<h4>添加了sync修饰符(待验证)</h4>
+	<my-component2 :mes.sync="message" :age.sync="age"></my-component2>
+	<h4>添加了once修饰符(待验证)</h4>
+	<my-component3 :mes.once="message" :age.once="age"></my-component3>
+	</div>
+
+	<script src="../vue.js"></script>
+	<template id="comp">
+		<table>
+			<tr>
+				<th colspan="2">子组件数据</th>
+			</tr>
+			<tr>
+				<td>message</td>
+				<td>{{mes}}</td>
+				<td><input type="text" v-model="mes"></td>
+			</tr>
+			<tr>
+				<td>age</td>
+				<td>{{age}}</td>
+				<td><input type="text" v-model="age"></td>
+			</tr>
+		</table>
+	</template>
+
+	<script type="text/javascript">
+		
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				message : 'help',
+				age: 30
+			},
+			components: {
+				'my-component1': {
+					template: '#comp',
+					props: ['mes', 'age']
+				},
+				'my-component2': {
+					template: '#comp',
+					props: ['mes', 'age']
+				},
+				'my-component3': {
+					template: '#comp',
+					props: ['mes', 'age']
+				},
+			}
+		})
+	</script>
+</body>
+</html>
