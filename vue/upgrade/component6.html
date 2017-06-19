@@ -26,13 +26,28 @@
 <body>
 <div>
 	<h2>使用Props：将父组件的数据传给子组件</h2>
+	<p>props的使用：子组件使用prop选项来声明它期待获得的数据（一般情况下绑定的是一个表达式， 为String类型。若想传递一个实际的number，需要使用v-bind），该数据不一定是从父组件得来的</p>
+<pre>
+	// 组件构造器中
+	props: ['send']
+	// 组件调用时
+	&lt;my-component1&gt; send='表达式' &lt;/my-component1&gt;
+</pre>
+	<p>props的使用：子组件使用prop选项来声明它期待获得的数据，若数据来自父组件，则需要使用动态Prop：使用v-bind。结果是：当父组件的数据变化时，该变化也会传导到子组件</p>
+<pre>
+	// 组件构造器中
+	props: ['age']
+	// 组件调用时
+	&lt;my-component1&gt; v-bind:age='父组件中的属性名称' &lt;/my-component1&gt;
+</pre>
+
 	<p>props默认为单向绑定，即 </p>
 	<ul>
 		<li>子组件的数据由绑定的父组件的数据决定</li>
 		<li>父组件的数据一旦改变，子组件相应改变</li>
 		<li>修改子组件的数据，父组件数据不改变</li>
 	</ul>
-	<p>也可以使用.sync显式地指定双向绑定。这样修改子组件数据也会影响到父组件</p>
+	<p><s>也可以使用.sync显式地指定双向绑定。这样修改子组件数据也会影响到父组件</s>.sync只在vue1.0中生效</p>
 	<p>也可以使用.once显式地指定单次绑定</p>
 </div>
 	<!-- view -->
@@ -53,7 +68,7 @@
 		</tr>
 	</table>
 	<h4>默认行为</h4>
-	<my-component1 :mes="message" :age="age"></my-component1>
+	<my-component1 :mes="message" :age="age" send="这是通过props传入的一个普通字符串"></my-component1>
 	<h4>添加了sync修饰符(待验证)</h4>
 	<my-component2 :mes.sync="message" :age.sync="age"></my-component2>
 	<h4>添加了once修饰符(待验证)</h4>
@@ -76,6 +91,11 @@
 				<td>{{age}}</td>
 				<td><input type="text" v-model="age"></td>
 			</tr>
+			<tr>
+				<td>send</td>
+				<td>{{send}}</td>
+				<td><input type="text" v-model="send"></td>
+			</tr>
 		</table>
 	</template>
 
@@ -90,7 +110,7 @@
 			components: {
 				'my-component1': {
 					template: '#comp',
-					props: ['mes', 'age']
+					props: ['mes', 'age','send']
 				},
 				'my-component2': {
 					template: '#comp',
