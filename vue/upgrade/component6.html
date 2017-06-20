@@ -4,7 +4,7 @@
 	<title>VUE-COMPONENT 6</title>
 </head>
 <style type="text/css">
-	#app {
+	#app, #demo {
 		border: 2px solid;
 		width: 500px;
 		background: #d3d3d3;
@@ -47,8 +47,8 @@
 		<li>父组件的数据一旦改变，子组件相应改变</li>
 		<li>修改子组件的数据，父组件数据不改变</li>
 	</ul>
-	<p><s>也可以使用.sync显式地指定双向绑定。这样修改子组件数据也会影响到父组件</s>.sync只在vue1.0中生效</p>
-	<p>也可以使用.once显式地指定单次绑定</p>
+	<p><s>也可以使用.sync显式地指定双向绑定。这样修改子组件数据也会影响到父组件</s>.sync只在vue1.x中生效</p>
+	<p><s>也可以使用.once显式地指定单次绑定</s>.once只在vue1.x中生效</p>
 </div>
 	<!-- view -->
 	<div id="app">
@@ -69,10 +69,6 @@
 	</table>
 	<h4>默认行为</h4>
 	<my-component1 :mes="message" :age="age" send="这是通过props传入的一个普通字符串"></my-component1>
-	<h4>添加了sync修饰符(待验证)</h4>
-	<my-component2 :mes.sync="message" :age.sync="age"></my-component2>
-	<h4>添加了once修饰符(待验证)</h4>
-	<my-component3 :mes.once="message" :age.once="age"></my-component3>
 	</div>
 
 	<script src="../vue.js"></script>
@@ -100,7 +96,6 @@
 	</template>
 
 	<script type="text/javascript">
-		
 		var vm = new Vue({
 			el: '#app',
 			data: {
@@ -121,6 +116,123 @@
 					props: ['mes', 'age']
 				},
 			}
+		})
+	</script>
+
+	<div id="demo">
+		<div id="searchBar">
+		<h3>搜索过滤</h3>
+			<label>search: <input type="text" name="query" v-model="searchQuery"></label>
+
+			<simple-grid :data="gridData" :columns="gridColumns" :filter-key="searchQuery" class="test"></simple-grid>
+		</div>
+	</div>
+	
+	<template id="gridDemo" >
+		<table>
+			<thead>
+				<tr>
+					<th v-for="col in columns" v-on:click="sortBy(key)">
+						{{ col | capitalize }}
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="entry in dataFilter">
+					<td v-for="col in columns">
+						{{entry[col]}}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</template>
+
+	<script type="text/javascript">
+		Vue.component('simple-grid', {
+			template: '#gridDemo',
+			props: {
+				data: Array,
+				columns: Array,
+				filterKey: String
+			},
+			data: function () {
+				var sortOrders = {}
+				this.columns.forEach(function (key) {
+					sortOrders[key] = 1
+				})
+				return {
+					sortKey: '',
+					sortOrders: sortOrders
+				}
+			},
+			
+			computed: {
+				dataFilter() {
+					var sortKey = this.sortKey
+					var filterKey = this.filterKey && this.filterKey.toLowerCase()
+					var order = this.sortOrders[sortKey] || 1
+					var data = this.data
+					if(filterKey){
+						data = data.filter(function (row) {
+							return Object.keys(row).some(function (key) {
+								return String(row[key]).toLowerCase().indexOf(filterKey) > -1
+							})
+						})
+					}
+					if(sortKey) {
+						data = data.slice().sort(function(a, b) {
+							a = a[sortKey]
+							b = b[sortKey]
+							return (a===b ? 0 : a > b ? 1 : -1) * order
+						})
+					}
+					return data
+					// var self = this
+					// console.log(self)
+					// return self.data.filter(v => {
+					// 	for(key in v) {
+					// 		v[key].indexOf(filterKey)
+					// 	}
+					// })
+				}
+			},
+			filters: {
+				capitalize: function (str) {
+					return str.charAt(0).toUpperCase() + str.slice(
+					1)
+				}	
+			} ,
+			methods: {
+				sortBy (key) {
+					this.sortKey = key
+					this.sortOrders[key] = this.sortOrders[key] * -1
+				}
+			},
+		})
+		var demo = new Vue({
+			el: "#demo", 
+			data: {
+				searchQuery: '',
+				gridColumns: ['name', 'age', 'sex'],
+				gridData: [{
+					name: 'Jack',
+					age: 23,
+					sex: 'Male'
+				},{
+					name: 'Bill',
+					age: 30,
+					sex: 'Male'
+				},{
+					name: 'Tracy',
+					age: 32,
+					sex: 'Famale'
+				},{
+					name: 'Chris',
+					age: 22,
+					sex: 'Male'
+				}]
+			},
+			
 		})
 	</script>
 </body>
