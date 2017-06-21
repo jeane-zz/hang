@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT slot 内容分发</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+组合组件：使用slot分发内容。达到父子组件内容结合，混合的效果
+<ul>
+	<li>使用单个匿名slot：当父组件中的子组件标签内没有内容时，该slot显示</li>
+	<li>使用具名slot：子组件的每个具名slot将匹配到父组件中子组件标签中的带有同名slot属性的部分</li>
+	<li>在页面内的渲染结构按照子组件的模板渲染。但是在相应的slot部分替换成父组件内的具名slot</li>
+</ul>
+</div>
+	<!-- view -->
+	<div id="app">
+		<h3>父组件</h3>
+		<h4>添加了具名slot的子组件</h4>
+		<my-component class="test">
+			<h3 slot="header">
+				header slot
+			</h3>
+			<p>随便的什么东东</p>	
+			<h3 slot="footer">
+				footer slot
+			</h3>
+		</my-component>
+		<h4>普通子组件</h4>
+		<my-component class="test"></my-component>
+	</div>
+
+	<script src="../vue.js"></script>
+	
+	
+	<template id="comp_template">
+		<div>
+			<header>
+				<slot name="header"></slot>
+			</header>
+			<main>
+				<slot>
+					当父组件中的子组件标签中没有其他内容时，显示出来
+				</slot>
+			</main>
+			<footer>
+				<slot name="footer"></slot>
+			</footer>
+		</div>
+	
+	</template>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			components:	{
+				'my-component': {
+					template: '#comp_template'	
+				}
+			}
+		})	
+
+	</script>
+</body>
+</html>

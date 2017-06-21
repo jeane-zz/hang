@@ -32,7 +32,9 @@
 </div>
 	<!-- view -->
 	<div id="app">
-		<my-component v-show="display"></my-component>
+		<my-component v-show="display">
+			{{msg}}
+		</my-component>
 	</div>
 
 	<script src="../vue.js"></script>
@@ -54,7 +56,8 @@
 		var vm1 = new Vue({
 			el: '#app',
 			data: {
-				display: true
+				display: true,
+				msg: 'from father'
 			}
 			components: {
 				'my-component': {
