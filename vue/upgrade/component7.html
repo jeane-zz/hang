@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 编译作用域</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		height: 50px;
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+ 组件的作用域是独立的；
+ 父组件模板的内容，在父组件作用域内编译；
+ 子组件模板的内容，在子组件作用域内编译
+ <p>在下面例子中，分别给父子组件添加了同名display属性，并给组件设置了v-show，以查看子组件的呈现效果</p>
+</div>
+	<!-- view -->
+	<div id="app">
+		<my-component v-show="display"></my-component>
+	</div>
+
+	<script src="../vue.js"></script>
+	
+	
+	<template id="comp_template">
+		<div>
+			<h2>{{msg}}</h2>
+			<button v-on:click="showmes">
+				show message
+			</button>
+		</div>
+	
+	</template>
+
+	<script type="text/javascript">
+
+		// 创建vue实例，用于连接View与Model 
+		var vm1 = new Vue({
+			el: '#app',
+			data: {
+				display: true
+			}
+			components: {
+				'my-component': {
+					template: '#comp_template',
+					data: function () {
+						return {
+							msg: 'this is a component',
+							display	: false
+						}
+					},
+					methods: {
+						showmes() {
+							console.log(this.msg)
+						}
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>

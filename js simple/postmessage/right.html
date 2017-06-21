@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>right</title>
+</head>
+<body>
+	<p>这是框架的右部,用于接收来自左侧的消息</p>
+  	<form>
+      	<input type="text" required autofocus></input>
+      	<input type="button" value="发送" onclick="send()"></input>
+  	</form>
+
+  	<script type="text/javascript">
+  		var elebox = document.querySelector('#message')
+
+      var messsageHandle = function(e) {
+        elebox.innerHTML += e.data + '<br>'
+      }
+      if(window.addEventListener){
+           window.addEventListener("message",messageHandle,false);
+       }else if(window.attachEvent){
+           window.attachEvent("onmessage",messageHandle);
+       }
+      
+
+  	</script>
+</body>
+</html>

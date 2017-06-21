@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>跨框架发送消息</title>
+</head>
+<body>
+<frameset border="1" bordercolor="#d2d2d2" frameborder="yes">
+	<frameset cols="500,*">
+        <frame name="left" target="main" src="left.html" scrolling="auto" frameborder="1"></frame>
+        <frame name="right" src="right.html" scrolling="auto" noresize frameborder="1"></frame>
+    </frameset>
+    <noframes>
+        <body>
+        <p>您的浏览器不错支持框架</p>
+        </body>       
+    </noframes>  
+</frameset>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>left</title>
+</head>
+<body>
+	<p>这是框架的左部,点击发送消息</p>
+  	<form>
+      	<input type="text" required autofocus></input>
+      	<input type="button" value="发送" onclick="send()"></input>
+  	</form>
+
+  	<script type="text/javascript">
+  		function send() {
+  			var message = document.querySelector("input[type='text']").value
+  			window.parent.frames[1].postMessage(message, '*')
+  		}
+
+  	</script>
+</body>
+</html>
