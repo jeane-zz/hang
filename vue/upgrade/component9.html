@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUE-COMPONENT 多个slot dialog</title>
+</head>
+<style type="text/css">
+	#app {
+		border: 2px solid;
+		width: 500px;
+		background: #d3d3d3;
+		padding: 10px;
+	}
+	.test {
+		
+		margin: 10px 0;
+		background: #ee3;
+	}
+	p {
+		border: 1px solid #d3d3d3;
+	}
+	pre {
+		background: #e4e4e4;
+		border: 2px solid #888;
+	}
+</style>
+<body>
+<div>
+
+</div>
+	<!-- view -->
+	<div id="app">
+		
+	</div>
+
+	<script src="../vue.js"></script>
+	
+	<template id="dialog_template">
+
+	</template>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			components:	{
+				'my-component': {
+					template: '#dialog_template'	
+				}
+			}
+		})	
+
+	</script>
+</body>
+</html>
