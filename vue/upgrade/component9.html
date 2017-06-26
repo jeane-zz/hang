@@ -22,6 +22,14 @@
 		background: #e4e4e4;
 		border: 2px solid #888;
 	}
+	.dialog > div {
+		display:  none;
+	}
+	.dialog .dialog-show {
+		display: block;
+		height: 300px;
+	}
+
 </style>
 <body>
 <div>
@@ -29,21 +37,64 @@
 </div>
 	<!-- view -->
 	<div id="app">
-		
+		<my-component v-bind:show = "show">
+			<header slot="header">
+				<h2>header</h2>
+			</header>
+			<section slot="body">
+				<h3>body</h3>
+				<p>主体部分</p>
+			</section>
+
+			<footer slot="footer">
+				<h2>footer</h2>
+				<button v-on:click="closeDia">关闭</button>
+			</footer>
+		</my-component>
+		<button v-on:click="openDia">打开对话框</button>
 	</div>
 
 	<script src="../vue.js"></script>
 	
 	<template id="dialog_template">
-
+	<div class="dialog">
+		<div v-bind:class="{'dialog-show': show}">
+			<div>
+				<div class="close rotate">
+					<span v-on:click="close"> *</span>
+				</div>	
+				<slot name="header"></slot>
+				<slot name="body"></slot>
+				<slot name="footer"></slot>
+			</div>
+		</div>
+		<div></div>
+	</div>
 	</template>
 
 	<script type="text/javascript">
 		var vm = new Vue({
 			el: '#app',
+			data: {
+				show: false
+			},
 			components:	{
 				'my-component': {
-					template: '#dialog_template'	
+					template: '#dialog_template',
+					props: ['show'],
+					methods: {
+						close() {
+							this.show = false
+						}
+					}	
+				},
+			},
+			methods: {
+				openDia() {
+					this.show = true
+				},
+				closeDia() {
+					this.show = false
 				}
 			}
 		})	
