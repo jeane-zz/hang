@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#da2",
+    "navigationBarTitleText": "Demo",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#ea3",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "日志"
+    }],
+    "color": "#eacccc",
+    "selectedColor": "red",
+    "position": "top",
+    "borderStyle": "white"
+  },
+  "networkTimeout": {
+    "request" : 10000,
+    "downloadFile": 10000
+  },
+  "debug" : true
+}
