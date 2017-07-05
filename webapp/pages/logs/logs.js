@@ -4,8 +4,9 @@ Page({
   data: {
     logs: []
   },
-  onLoad: function () {
+  onLoad: function (option) {
     this.setData({
+      tilte: option.title,
       logs: (wx.getStorageSync('logs') || []).map(function (log) {
         return util.formatTime(new Date(log))
       })
