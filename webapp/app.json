@@ -1,15 +1,15 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/list/list"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#da2",
     "navigationBarTitleText": "Demo",
     "navigationBarTextStyle":"black",
-    "backgroundColor": "#ea3",
-    "enablePullDownRefresh": false
+    "backgroundColor": "#ea3"
   },
   "tabBar": {
     "list": [{
@@ -18,6 +18,9 @@
     }, {
       "pagePath": "pages/logs/logs",
       "text": "日志"
+    },{
+      "pagePath": "pages/list/list",
+      "text": "列表"
     }],
     "color": "#eacccc",
     "selectedColor": "red",

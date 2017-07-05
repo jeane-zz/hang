@@ -1,0 +1,7 @@
+<!--pages/list/list.wxml-->
+<text>pages/list/list.wxml</text>
+<view class="classname">
+<view wx:for="{{lists}}">
+  {{index}}:{{item.name}}
+</view>
+</view>
