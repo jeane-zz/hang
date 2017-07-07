@@ -16,6 +16,11 @@ Page({
     this.setData({
       motto: 'Hello MINA'
     })
+    wx.showToast({
+      title: '成功',
+      icon:'名称已改变',
+      duration: 1500
+    })
   },
   onLoad: function (option) {
     console.log('onLoad')
