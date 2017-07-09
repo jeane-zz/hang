@@ -7,7 +7,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
   },
-  // 监听小程序显示
+  // 监听小程序显示  
   onShow: function() {
     console.log('小程序启动了~~')
   },
@@ -42,8 +42,4 @@ App({
     userInfo:null,
     tips: "这是用来进行测试的 tips"
   }
-})
-
-Page({
-  
 })

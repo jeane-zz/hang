@@ -1,0 +1,11 @@
+<!--case1.wxml-->
+<text>case1.wxml</text>
+<view>
+	<swiper indicator-dots="indicator-dots">
+		<block>
+			<swiper-item wx:for="{{imgUrl}}">
+				<image src="{{item}}"/>
+			</swiper-item>
+		</block>
+	</swiper>
+</view>

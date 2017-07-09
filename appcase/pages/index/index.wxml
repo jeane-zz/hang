@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view>
+  	<navigator url="../case1/case1">case1</navigator>
+	<navigator url="../case2/case2">case2</navigator>
+	<navigator url="../case3/case3">case3</navigator>
+	<navigator url="../case4/case4">case4</navigator>
+	<navigator url="../case5/case5">case5</navigator>
+	<navigator url="../case6/case6">case6</navigator>
+	<navigator url="../case7/case7">case7</navigator>
+	<navigator url="../case8/case8">case8</navigator>
+	<navigator url="../case9/case9">case9</navigator>
+	<navigator url="../case10/case10">case10</navigator>
+	<navigator url="../case11/case11">case11</navigator>
+	<navigator url="../case12/case12">case12</navigator>
+  </view>
+  
+
+
+</view>

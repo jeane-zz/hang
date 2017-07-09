@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/case1/case1",
+    "pages/case2/case2",
+    "pages/case3/case3",
+    "pages/case4/case4",
+    "pages/case5/case5",
+    "pages/case6/case6",
+    "pages/case7/case7",
+    "pages/case8/case8",
+    "pages/case9/case9",
+    "pages/case10/case10",
+    "pages/case11/case11",
+    "pages/case12/case12"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

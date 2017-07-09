@@ -1,16 +1,19 @@
-// pages/list/list.js
+// case1.js
 Page({
-  data: {
-    lists: [
-      {name:'a'},
-      {name:'b'},
-      {name:'c'}
 
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    imgUrl: [
+      '../../img/1.jpg',
+      '../../img/2.jpg',
+      '../../img/3.jpg',
+      '../../img/4.jpg'
     ],
-    flag: true,
-    item: {
-      name: '这是用来测试template的例子'
-    }
+    indicatorDots: true,
+    autoplay: true,
+    duration: 1000
   },
 
   /**

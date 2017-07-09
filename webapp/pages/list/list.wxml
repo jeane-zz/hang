@@ -1,9 +1,9 @@
 <!--pages/list/list.wxml-->
 <text>pages/list/list.wxml</text>
 <view class="classname">
-<view wx:for="{{lists}}">
-  {{index}}:{{item.name}}
-</view>
+	<view wx:for="{{lists}}">
+	  {{index}}:{{item.name}}
+	</view>
 </view>
 
 <view class="btn-area">
@@ -13,3 +13,20 @@
   <navigator url="../../redirect/redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</navigator>
   <navigator url="/pages/index/index" open-type="switchTab" hover-class="other-navigator-hover">切换 Tab</navigator>
 </view>
+
+<view>
+	<text>对比 wx:if 和 hidden</text>
+	<view wx:if="{{flag}}">
+		<text>由wx:if显示的flag</text>
+	</view>
+
+	<view hidden="{{flag}}">
+		<text>由hidden显示的flag</text>
+	</view>
+</view>	
+<template name="info">
+	<view >
+		{{name}}
+	</view>
+</template>
+<template is="info" data="{{...item}}" />

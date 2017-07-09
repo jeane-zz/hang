@@ -1,16 +1,11 @@
-// pages/list/list.js
+// case8.js
 Page({
-  data: {
-    lists: [
-      {name:'a'},
-      {name:'b'},
-      {name:'c'}
 
-    ],
-    flag: true,
-    item: {
-      name: '这是用来测试template的例子'
-    }
+  /**
+   * 页面的初始数据
+   */
+  data: {
+  
   },
 
   /**
