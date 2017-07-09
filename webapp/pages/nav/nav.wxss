@@ -1,6 +1,6 @@
 /* pages/nav/nav.wxss */
 
-.wrapper {
+.where, .wrapper {
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -11,4 +11,41 @@
 	border: 2rpx solid red;
 	margin: 5rpx;
 	flex-grow: 1;
+}
+.title {
+	display: block;
+	height: 100rpx;
+	background: #eac;
+	font-weight: bold;
+	line-height: 100rpx;
+	text-align: center;
+	margin: 50rpx 0 30rpx 0;
+}
+
+.left {
+	width: 33.3%;
+	height: 200rpx;
+}
+.right {
+	width: 66.7%;
+	height: 200rpx;
+	display: flex;
+	flex-wrap: wrap;
+}
+.where_item {
+	box-sizing: border-box;
+	display: inline-flex;
+	background: #48c23d;
+	border: 2rpx solid #8ea;
+	/*text-align: center;*/
+	justify-content: center;
+	align-items: center;
+}
+.left .where_item {
+	height: 100%;
+	width: 100%;
+}
+.right .where_item {
+	height: 50%;
+	width: 50%;
 }

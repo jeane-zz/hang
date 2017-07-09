@@ -14,3 +14,16 @@
 	<text class="wrap_item">第八项</text>
 	<text class="wrap_item">第九项</text>
 </view>
+
+<text class="title">模拟实现去哪网移动端首页布局效果</text>
+<view class="where">
+	<view class="left">
+		<text class="where_item">优选酒店</text>
+	</view>
+	<view class="right">
+		<text class="where_item">特惠酒店</text>
+		<text class="where_item">国际酒店</text>
+		<text class="where_item">客栈民宿</text>
+		<text class="where_item">会场聚会</text>
+	</view>
+</view>
