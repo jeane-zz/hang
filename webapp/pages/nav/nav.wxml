@@ -2,3 +2,15 @@
 <text>pages/nav/nav.wxml</text>
 <view style="text-align:center"> {{title}} </view>
 <view> 点击左上角返回回到之前页面 </view>
+
+<view class="wrapper">
+	<text class="wrap_item">第一项</text>
+	<text class="wrap_item">第二项</text>
+	<text class="wrap_item">第三项</text>
+	<text class="wrap_item">第四项</text>
+	<text class="wrap_item">第五项</text>
+	<text class="wrap_item">第六项</text>
+	<text class="wrap_item">第七项</text>
+	<text class="wrap_item">第八项</text>
+	<text class="wrap_item">第九项</text>
+</view>

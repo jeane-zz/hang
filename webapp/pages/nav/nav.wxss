@@ -1,1 +1,14 @@
 /* pages/nav/nav.wxss */
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.wrap_item {
+	height: 100rpx;
+	width: 33.3%;
+	border: 2rpx solid red;
+	margin: 5rpx;
+	flex-grow: 1;
+}
