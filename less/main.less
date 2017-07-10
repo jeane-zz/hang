@@ -1,0 +1,40 @@
+// 注释， 这种不会被编译
+/* 注释， 但是会被编译到css文件 */ 
+
+body {
+	background: #e3e3e3;
+}
+
+
+/* 变量， 用@开头 分号 冒号 */
+@test_width : 120px;
+
+.t1 {
+	display: inline-block;
+	width: @test_width;
+	height: @test_width;
+	background: #ff0;
+}
+
+/* 混合， 可重用的属性 */
+.border {
+	border: 4px solid #f00;
+}
+.t2 {
+	.border;
+	.t1;
+}
+
+.border2(@border_width) {
+	border: @border_width dotted #7ea;
+}
+
+
+
+/* 变量 */
+/* 变量 */
+/* 变量 */
+/* 变量 */
+/* 变量 */
+/* 变量 */
+/* 变量 */
