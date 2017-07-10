@@ -43,7 +43,73 @@ body {
 .t2 {
 	.height(150px); // 传参，设置为括号内的值
 }
-/* 变量 */
+
+
+/* 匹配模式， 相当于if */
+.tri {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border: 20px solid;
+	border-color: pink transparent transparent transparent;
+}
+.t4 {
+	.tri;
+}
+
+.tri_(top, @width:10px, @color: pink) {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border: solid @width;
+	border-color: @color transparent transparent;
+}
+
+.tri_(top, @width:10px, @color: pink) {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border: solid @width;
+	border-color: @color transparent transparent;
+}
+
+.tri_(left, @width:20px, @color: green) {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border: solid @width;
+	border-color: transparent transparent transparent @color ;
+}
+
+.tri_(bottom, @width:30px, @color: blue) {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border: solid @width;
+	border-color: transparent transparent  @color transparent;
+}
+
+.tri_(right, @width:40px, @color: gold) {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border: solid @width;
+	border-color: transparent @color transparent transparent;
+}
+.t5 {
+	.tri_(top);
+}
+.t6{
+	.tri_(left);
+}
+.t7 {
+	.tri_(bottom);
+}
+.t8 {
+	.tri_(right);
+}
+
+
 /* 变量 */
 /* 变量 */
 /* 变量 */

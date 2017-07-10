@@ -31,7 +31,49 @@ body {
 .t2 {
   height: 150px;
 }
-/* 变量 */
+/* 匹配模式， 相当于if */
+.tri {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: 20px solid;
+  border-color: pink transparent transparent transparent;
+}
+.t4 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: 20px solid;
+  border-color: pink transparent transparent transparent;
+}
+.t5 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: solid 10px;
+  border-color: #ffc0cb transparent transparent;
+}
+.t6 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: solid 20px;
+  border-color: transparent transparent transparent #008000;
+}
+.t7 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: solid 30px;
+  border-color: transparent transparent #0000ff transparent;
+}
+.t8 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: solid 40px;
+  border-color: transparent #ffd700 transparent transparent;
+}
 /* 变量 */
 /* 变量 */
 /* 变量 */
