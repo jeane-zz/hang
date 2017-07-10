@@ -24,13 +24,25 @@ body {
 	.border;
 	.t1;
 }
-
+/* 混合 带变量*/
 .border2(@border_width) {
 	border: @border_width dotted #7ea;
 }
 
+.t3 {
+	.border2(10px);
+}
+/* 混合 带默认值 */
+.height(@high:100px){
+	height: @high;
+}
 
-
+.t3 {
+	.height(); // 不传参， 默认 为 100px
+}
+.t2 {
+	.height(150px); // 传参，设置为括号内的值
+}
 /* 变量 */
 /* 变量 */
 /* 变量 */

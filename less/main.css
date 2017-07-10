@@ -20,6 +20,17 @@ body {
   height: 120px;
   background: #ff0;
 }
+/* 混合 带变量*/
+.t3 {
+  border: 10px dotted #77eeaa;
+}
+/* 混合 带默认值 */
+.t3 {
+  height: 100px;
+}
+.t2 {
+  height: 150px;
+}
 /* 变量 */
 /* 变量 */
 /* 变量 */
