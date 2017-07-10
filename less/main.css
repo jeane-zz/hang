@@ -74,8 +74,26 @@ body {
   height: 0;
   overflow: hidden;
 }
-/* 变量 */
-/* 变量 */
+/* 匹配模式实现定位 */
+/* 运算 */
+.t9 {
+  width: 300px;
+  height: 100px;
+  border: 10px dashed #976600;
+}
+/* 嵌套 */
+.tt1 {
+  width: 300px;
+}
+.tt1 p {
+  border: 42.85714286px solid #e890ae;
+}
+.tt1 p a {
+  font-size: 100px;
+}
+.tt1 p a span {
+  color: #ae96ac;
+}
 /* 变量 */
 /* 变量 */
 /* 变量 */

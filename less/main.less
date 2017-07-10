@@ -95,9 +95,43 @@ body {
 	.tri_(right);
 }
 
+/* 匹配模式实现定位 */ 
+.pos(r) {
+	position: relative;
+}
 
-/* 变量 */
-/* 变量 */
+.pos(a) {
+	position: absolute;
+}
+
+.pos(f) {
+	position: fixed;
+}
+
+/* 运算 */
+@base: 300px;  
+
+.t9 {
+	width: @base;
+	height: @base / 3;
+	border: @base/10 - 20 dashed #976600
+}
+
+/* 嵌套 */
+.tt1 {
+	width: @base;
+	p {
+		border: @base / 7 solid #e890ae;
+		a {
+			font-size: @base /3;
+			span {
+				color: #ae96ac;
+			}
+		}
+	}
+}
+
+
 /* 变量 */
 /* 变量 */
 /* 变量 */
