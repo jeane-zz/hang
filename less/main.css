@@ -47,32 +47,32 @@ body {
   border-color: pink transparent transparent transparent;
 }
 .t5 {
-  width: 0;
-  height: 0;
-  overflow: hidden;
   border: solid 10px;
   border-color: #ffc0cb transparent transparent;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 .t6 {
-  width: 0;
-  height: 0;
-  overflow: hidden;
   border: solid 20px;
   border-color: transparent transparent transparent #008000;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 .t7 {
-  width: 0;
-  height: 0;
-  overflow: hidden;
   border: solid 30px;
   border-color: transparent transparent #0000ff transparent;
-}
-.t8 {
   width: 0;
   height: 0;
   overflow: hidden;
+}
+.t8 {
   border: solid 40px;
   border-color: transparent #ffd700 transparent transparent;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 /* 变量 */
 /* 变量 */
