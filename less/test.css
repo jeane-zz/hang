@@ -1,0 +1,32 @@
+.title {
+  width: 616px;
+  height: 62px;
+  border-top: 5px solid #d0d0d0;
+  margin-top: 20px;
+  background: #de9;
+}
+.title_nav {
+  float: right;
+}
+.title_navli {
+  float: left;
+  list-style: none;
+  margin-left: 20.66666667px;
+}
+.title_navli::before {
+  content: ' | ';
+  color: #d0d0d0;
+}
+.tit {
+  height: 62px;
+  padding-left: 15px;
+}
+.tit a {
+  font: (62px/20) / (62px/2) "微软雅黑";
+  color: #575757;
+  display: inline-block;
+  text-align: center;
+  height: 31px;
+  width: 102.66666667px;
+  border-bottom: 4px solid #56e3a2;
+}

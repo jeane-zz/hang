@@ -1,0 +1,40 @@
+@td_width: 616px;
+.bc (){
+	background: #de9;
+}
+@h: 62px;
+.title {
+	width: @td_width;
+	
+	@border_color: #d0d0d0;
+	height: @h;
+	border-top: 5px solid @border_color;
+	margin-top: 20px;
+	.bc();
+
+	&_nav {
+		float: right;
+		&li{
+			float: left;
+			list-style: none;
+			margin-left: @h/3;
+			&::before {
+				content: ' | ';
+				color: @border_color;
+			}
+		}
+	}
+}
+.tit {
+	height: @h;
+	padding-left: 15px;
+	a {
+		font: (@h/20) / (@h/2) "微软雅黑" ;
+		color: #575757;
+		display: inline-block;
+		text-align: center;
+		height: @h/2;
+		width: @td_width/6;
+		border-bottom: 4px solid #56e3a2;
+	}
+}

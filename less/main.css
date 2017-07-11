@@ -90,6 +90,10 @@ body {
 }
 .tt1 p a {
   font-size: 100px;
+  transiton: color 3s linear;
+}
+.tt1 p a:hover {
+  color: red;
 }
 .tt1 p a span {
   color: #ae96ac;
