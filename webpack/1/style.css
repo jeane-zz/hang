@@ -1,0 +1,12 @@
+html, body {
+	color : grey;
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	width: 300px;
+	height: 100px;
+	border: 2px solid #333;
+	color: red;
+}
