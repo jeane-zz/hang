@@ -4,6 +4,25 @@
 	<title>demo</title>
 </head>
 <body>
-	<script src="./dist/js/bundle.js"></script>
+	<h2><%= htmlWebpackPlugin.options.title %></h2>
+	<p>date: <%= htmlWebpackPlugin.options.date %></p>
+	
+	<h4>let key in htmlWebpackPlugin</h4>
+	<% for(let key in htmlWebpackPlugin) { %>
+		<%= key %> : <%= htmlWebpackPlugin[key] %>
+	<% } %>
+
+	<h4>let key in htmlWebpackPlugin.files</h4>
+	<% for(let key in htmlWebpackPlugin.files) { %>
+		<%= key %> : <%= htmlWebpackPlugin.files[key] %>
+	<% } %>
+
+	<h4>let key in htmlWebpackPlugin.options</h4>
+	<% for(let key in htmlWebpackPlugin.options) { %>
+		<%= key %> : <%= htmlWebpackPlugin.options[key] %>
+	<% } %>
+
 </body>
+
+<!-- 这是注释 -->
 </html>

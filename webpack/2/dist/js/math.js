@@ -60,21 +60,17 @@
 /******/ 	__webpack_require__.p = "http://cdn.com/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */
 /***/ (function(module, exports) {
 
-function hello(str) {
-	console.log("this is from " + str)
-	for(let i = 0; i < 10; i++) {
-		console.log(i)
-	}
+function add (a, b) {
+	return a + b
 }
-
-hello('webpack')
 
 /***/ })
 /******/ ]);
