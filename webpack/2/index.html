@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>demo</title>
+	<title><%= htmlWebpackPlugin.options.title %></title>
+
+	<script type="text/javascript">
+		<%= htmlWebpackPlugin.files.chunks.entry.main.substr(htmlWebpackPlugin.files.publicPath.length) %>
+
+	</script>
 </head>
 <body>
+
 	<h2><%= htmlWebpackPlugin.options.title %></h2>
 	<p>date: <%= htmlWebpackPlugin.options.date %></p>
 	

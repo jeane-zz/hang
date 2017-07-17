@@ -3,7 +3,9 @@ var htmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
 	entry: {
 		main: './src/script/main.js', 
-		math: './src/script/math.js'
+		math: './src/script/math.js',
+		a: './src/script/a.js',
+		b: './src/script/b.js'
 	},
 	output: {
 		path: __dirname + '/dist/',
@@ -23,6 +25,23 @@ module.exports = {
 				removeComment: true,
 				// collapseWhitespace: true
 			}
+		}),
+		new htmlWebpackPlugin({
+			filename: 'a.html', // 设置文件的名字
+			template: 'index.html',			
+			title: 'this is a.html',
+			date: new Date() ,
+			inject: 'body',
+			chunks: ['a']
+		}),
+		new htmlWebpackPlugin({
+			filename: 'b.html', // 设置文件的名字
+			template: 'index.html',
+			title: 'this is b.html',
+			date: new Date() ,
+			inject: 'body',
+			chunks: ['b']
 		})
+
 	]
 }
