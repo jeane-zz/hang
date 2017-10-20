@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arrow function this</title>
+</head>
+<body>
+	<script>
+		var adder = {
+		  base : 1,
+		    
+		  add : function(a) {
+		    var f = v => v + this.base;
+		    return f(a);
+		  },
+
+		  addThruCall: function(a) {
+		    var f = v => v + this.base;
+		    var b = {
+		      base : 2
+		    };
+		            
+		    return f.call(b, a);
+		  }
+		};
+
+		console.log(adder.add(1));         // 输出 2
+		console.log(adder.addThruCall(1));
+
+		var base = 5555;
+		
+		
+		var adde = {
+		  base : 1,
+		  f: v => v + this.base,
+
+		  add : function(a) {
+		    return this.f(a);
+		  },
+
+		  addThruCall: function(a) {
+		    var b = {
+		      base : 2
+		    };
+		            
+		    return this.f.call(b, a);
+		  }
+		};
+
+		console.log(adde.add(1));         // 输出 2
+		console.log(adde.addThruCall(1));
+
+
+
+	</script>
+</body>
+</html>
